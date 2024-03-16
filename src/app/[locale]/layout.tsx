@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
+import StoreProvider from "../store/StoreProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
@@ -18,12 +19,14 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={montserrat.className}>
-        <ThemeProvider enableSystem={true} attribute="class">
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang={locale} suppressHydrationWarning>
+        <body className={montserrat.className}>
+          <ThemeProvider enableSystem={true} attribute="class">
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }

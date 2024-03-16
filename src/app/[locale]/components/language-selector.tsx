@@ -73,7 +73,9 @@ const LanguageSelector = () => {
         whileTap={{ scale: 0.97 }}
         disabled={isPending}
         onClick={handleClick}>
-        <p className="mt-0.5">{currentLanguage}</p>
+        <p className="mt-0.5 max-w-[1.5rem] min-w-[1.5rem] w-[1.5rem]">
+          {currentLanguage}
+        </p>
         <Image
           src={`${
             currentTheme === "light"
@@ -92,15 +94,16 @@ const LanguageSelector = () => {
           }}
           transition={{ duration: 0.1 }}
           style={{ originY: 0.55 }}>
-          <div className={`${isOpen ? `mt-2` : ""}`}>
+          <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
             <Image
+              className="-mt-1"
               src={`${
                 currentTheme === "light"
                   ? `sort-down-light.svg`
                   : `sort-down-dark.svg`
               }`}
               width={16}
-              height={10}
+              height={6}
               alt="dropdown"
             />
           </div>
