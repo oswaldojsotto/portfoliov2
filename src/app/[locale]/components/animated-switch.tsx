@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import "@/app/switch-theme.css";
+import "@/app/[locale]/styles/switch-theme.css";
 import { useTheme } from "next-themes";
 
 function AnimatedSwitch() {

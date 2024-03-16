@@ -1,5 +1,11 @@
+"use client";
 import { useEffect, useState, useTransition } from "react";
 import { motion, Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { useRouter, usePathname } from "next/navigation";
+import i18nConfig from "@/../../i18nConfig";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const itemVariants: Variants = {
   open: {
@@ -11,16 +17,43 @@ const itemVariants: Variants = {
 };
 
 const LanguageSelector = () => {
+  const { theme, systemTheme } = useTheme();
+  const { t, i18n } = useTranslation();
+  const router = useRouter();
+  const currentPathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const currentLocale = i18n.language;
   const [mounted, setMounted] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   };
 
   const onSelectLanguage = (language: string) => {
-    console.log(language);
+    const newLocale = language;
+    setCurrentLanguage(language);
+
+    if (
+      currentLocale === i18nConfig.defaultLocale &&
+      !i18nConfig.prefixDefault
+    ) {
+      startTransition(() => {
+        router.push("/" + newLocale + currentPathname);
+      });
+    } else {
+      startTransition(() => {
+        router.push(
+          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+        );
+      });
+    }
+
+    router.refresh();
+
     handleClick();
   };
 
@@ -34,13 +67,23 @@ const LanguageSelector = () => {
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      className="w-[300px] filter:drop-shadow(1px 1px 1px #4700b3)">
+      className="w-[8rem] max-h-[2rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
       <motion.button
-        className="flex "
+        className="flex gap-2 m-6"
         whileTap={{ scale: 0.97 }}
         disabled={isPending}
         onClick={handleClick}>
-        Language
+        <p className="mt-0.5">{currentLanguage}</p>
+        <Image
+          src={`${
+            currentTheme === "light"
+              ? `translate-light.svg`
+              : `translate-dark.svg`
+          }`}
+          width={36}
+          height={10}
+          alt="translate"
+        />
         <motion.div
           className="flex flex-row justify-between"
           variants={{
@@ -49,10 +92,17 @@ const LanguageSelector = () => {
           }}
           transition={{ duration: 0.1 }}
           style={{ originY: 0.55 }}>
-          <div className="">
-            <svg width="15" height="18" viewBox="0 0 20 20">
-              <path d="M0 7 L 20 7 L 10 16" />
-            </svg>
+          <div className={`${isOpen ? `mt-2` : ""}`}>
+            <Image
+              src={`${
+                currentTheme === "light"
+                  ? `sort-down-light.svg`
+                  : `sort-down-dark.svg`
+              }`}
+              width={16}
+              height={10}
+              alt="dropdown"
+            />
           </div>
         </motion.div>
       </motion.button>
