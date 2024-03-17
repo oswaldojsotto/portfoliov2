@@ -19,6 +19,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       <main className="">
         {/* <p>{t("title")}</p> */}
         <Header />
+        <div className=" bg-red-200 h-[100rem]"></div>
       </main>
     </TranslationsProvider>
   );

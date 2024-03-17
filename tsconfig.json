@@ -28,7 +28,9 @@
     ".next/types/**/*.ts",
     "i18nConfig.js",
     "src/app/i18n.js",
-    "src/app/TranslationsProvider.js"
+    "src/app/TranslationsProvider.js",
+    "src/app/[locale]/components/Magnetic.jsx",
+    "src/app/[locale]/components/Magnetic/Magnetic.jsx"
   ],
   "exclude": ["node_modules"]
 }

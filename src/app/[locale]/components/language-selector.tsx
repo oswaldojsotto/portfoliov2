@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import Magnetic from "./Magnetic/Magnetic";
 
 const itemVariants: Variants = {
   open: {
@@ -67,89 +68,89 @@ const LanguageSelector = () => {
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      className="w-[8rem] max-h-[2rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
-      <motion.button
-        className="flex gap-2 m-6"
-        whileTap={{ scale: 0.97 }}
-        disabled={isPending}
-        onClick={handleClick}>
-        <p className="mt-0.5 max-w-[1.5rem] min-w-[1.5rem] w-[1.5rem]">
-          {currentLanguage}
-        </p>
-        <Image
-          src={`${
-            currentTheme === "light"
-              ? `translate-light.svg`
-              : `translate-dark.svg`
-          }`}
-          width={36}
-          height={10}
-          alt="translate"
-        />
-        <motion.div
-          className="flex flex-row justify-between"
-          variants={{
-            open: { rotate: 180 },
-            closed: { rotate: 0 },
-          }}
-          transition={{ duration: 0.1 }}
-          style={{ originY: 0.55 }}>
-          <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
+      className="-mt-[7px] filter:drop-shadow(1px 1px 1px #4700b3) ">
+      <div>
+        <Magnetic>
+          <motion.button
+            className="flex gap-2 m-6"
+            whileTap={{ scale: 0.97 }}
+            disabled={isPending}
+            onClick={handleClick}>
             <Image
-              className="-mt-1"
               src={`${
                 currentTheme === "light"
-                  ? `sort-down-light.svg`
-                  : `sort-down-dark.svg`
+                  ? `translate-light.svg`
+                  : `translate-dark.svg`
               }`}
-              width={16}
-              height={6}
-              alt="dropdown"
+              width={36}
+              height={10}
+              alt="translate"
             />
-          </div>
-        </motion.div>
-      </motion.button>
-
-      <motion.ul
-        className=" py-2 flex flex-col gap-2 bg-neutral-800 max-w-[7rem] dark:bg-neutral-200"
-        variants={{
-          open: {
-            clipPath: "inset(0% 0% 0% 0% round 10px)",
-            transition: {
-              bounce: 0,
-              duration: 0.3,
-              delayChildren: 0.3,
-              staggerChildren: 0.05,
+            <motion.div
+              className="flex flex-row justify-between"
+              variants={{
+                open: { rotate: 180 },
+                closed: { rotate: 0 },
+              }}
+              transition={{ duration: 0.1 }}
+              style={{ originY: 0.55 }}>
+              <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
+                <Image
+                  className="-mt-1"
+                  src={`${
+                    currentTheme === "light"
+                      ? `sort-down-light.svg`
+                      : `sort-down-dark.svg`
+                  }`}
+                  width={16}
+                  height={6}
+                  alt="dropdown"
+                />
+              </div>
+            </motion.div>
+          </motion.button>
+        </Magnetic>
+        <motion.ul
+          className=" py-2 flex flex-col gap-2 bg-neutral-800 max-w-[7rem] dark:bg-neutral-200"
+          variants={{
+            open: {
+              clipPath: "inset(0% 0% 0% 0% round 10px)",
+              transition: {
+                bounce: 0,
+                duration: 0.3,
+                delayChildren: 0.3,
+                staggerChildren: 0.05,
+              },
             },
-          },
-          closed: {
-            clipPath: "inset(10% 50% 90% 50% round 10px)",
-            transition: {
-              bounce: 0,
-              duration: 0.3,
+            closed: {
+              clipPath: "inset(10% 50% 90% 50% round 10px)",
+              transition: {
+                bounce: 0,
+                duration: 0.3,
+              },
             },
-          },
-        }}
-        style={{ pointerEvents: isOpen ? "auto" : "none" }}>
-        <motion.li
-          className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800"
-          variants={itemVariants}
-          onClick={() => onSelectLanguage("en")}>
-          English{" "}
-        </motion.li>
-        <motion.li
-          className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800"
-          variants={itemVariants}
-          onClick={() => onSelectLanguage("es")}>
-          Spanish
-        </motion.li>
-        <motion.li
-          className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800"
-          variants={itemVariants}
-          onClick={() => onSelectLanguage("it")}>
-          Italian
-        </motion.li>
-      </motion.ul>
+          }}
+          style={{ pointerEvents: isOpen ? "auto" : "none" }}>
+          <motion.li
+            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
+            variants={itemVariants}
+            onClick={() => onSelectLanguage("en")}>
+            English{" "}
+          </motion.li>
+          <motion.li
+            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
+            variants={itemVariants}
+            onClick={() => onSelectLanguage("es")}>
+            Spanish
+          </motion.li>
+          <motion.li
+            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
+            variants={itemVariants}
+            onClick={() => onSelectLanguage("it")}>
+            Italian
+          </motion.li>
+        </motion.ul>
+      </div>
     </motion.nav>
   );
 };
