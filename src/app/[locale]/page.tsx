@@ -1,6 +1,7 @@
 import Header from "@/app/[locale]/components/header";
 import initTranslations from "../i18n";
 import TranslationsProvider from "../TranslationsProvider";
+import Landing from "./components/Landing";
 
 interface HomeProps {
   params: {
@@ -19,7 +20,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       <main className="">
         {/* <p>{t("title")}</p> */}
         <Header />
-        <div className=" bg-red-200 h-[100rem]"></div>
+        <Landing />
       </main>
     </TranslationsProvider>
   );
