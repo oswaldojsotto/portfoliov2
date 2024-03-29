@@ -2,27 +2,21 @@
 import React from "react";
 import AnimatedSwitch from "@/app/[locale]/components/animated-switch";
 import LanguageSelector from "@/app/[locale]/components/language-selector";
-import { useDispatch } from "react-redux";
-import { setSideMenu } from "@/app/store/sidemenuSlice";
-import Sidebar from "@/app/[locale]/components/sidebar";
-import NavBar from "@/app/[locale]/components/NavBar";
+import Sidebar from "./sidebar";
+import NavBar from "./navbar";
 
 const Header = () => {
-  const dispatch = useDispatch();
-
-  const onClickOpen = () => {
-    dispatch(setSideMenu(true));
-  };
-
   return (
-    <div className=" h-[4rem] w-[100%] flex justify-end bg-neutral-200 dark:bg-neutral-800">
+    <div className="fixed top-0 h-[5.5rem] w-[100%] flex justify-end bg-transparent">
       <div className="absolute left-0 -top-2">
         <Sidebar />
       </div>
 
       <div className="flex justify-end">
         <NavBar />
-        <LanguageSelector />
+        <div className="mt-[10px]">
+          <LanguageSelector />
+        </div>
         <AnimatedSwitch />
       </div>
     </div>

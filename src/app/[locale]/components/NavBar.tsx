@@ -6,11 +6,11 @@ import Magnetic from "@/app/[locale]/components/Magnetic/Magnetic";
 const NavBar = () => {
   return (
     <nav className="flex flex-col justify-center">
-      <ul className="m-8 flex gap-4">
+      <ul className="m-8 flex gap-6  text-[18px]">
         <li>
           <Magnetic>
-            <div className="group relative cursor-pointer items-center flex h-10 dark:text-red">
-              <div className="w-[80px] flex justify-between pr-4 items-center transition duration-300 ease-in-out">
+            <div className="group relative cursor-pointer items-center flex h-16 dark:text-red ">
+              <div className="w-[80px] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
@@ -21,9 +21,9 @@ const NavBar = () => {
         </li>
         <li>
           <Magnetic>
-            <div className="group relative cursor-pointer items-center flex h-10">
-              <div className="w-[80px] flex justify-between pr-4 items-center transition duration-300 ease-in-out">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+            <div className="group relative cursor-pointer items-center flex h-16">
+              <div className="w-[80px] flex justify-start pr-4 items-center transition duration-300 ease-in-out">
+                <div className=" opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
                 <p className="font-semibold">Projects</p>
@@ -33,8 +33,8 @@ const NavBar = () => {
         </li>
         <li>
           <Magnetic>
-            <div className="group relative cursor-pointer items-center flex h-10">
-              <div className="w-[80px] flex justify-between pr-4 items-center transition duration-300 ease-in-out">
+            <div className="group relative cursor-pointer items-center flex h-16">
+              <div className="w-[80px] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>

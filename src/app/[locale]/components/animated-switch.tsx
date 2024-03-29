@@ -4,8 +4,14 @@ import "@/app/[locale]/styles/switch-theme.css";
 import { useTheme } from "next-themes";
 
 function AnimatedSwitch() {
-  const { theme, setTheme } = useTheme();
+  const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (theme === "system") {
+      setTheme("dark");
+    }
+  });
 
   const handleToggleChange = () => {
     if (theme === "dark") {
@@ -20,6 +26,7 @@ function AnimatedSwitch() {
   }, []);
 
   if (!mounted) return null;
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <div className="wrapper">

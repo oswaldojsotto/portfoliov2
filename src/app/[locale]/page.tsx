@@ -18,7 +18,6 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       locale={locale}
       namespaces={["common"]}>
       <main className="">
-        {/* <p>{t("title")}</p> */}
         <Header />
         <Landing />
       </main>
