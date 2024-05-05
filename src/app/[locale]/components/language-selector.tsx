@@ -62,6 +62,21 @@ const LanguageSelector = () => {
     setMounted(true);
   }, []);
 
+  const languageList = [
+    {
+      name: "English",
+      value: "en",
+    },
+    {
+      name: "Spanish",
+      value: "es",
+    },
+    {
+      name: "Italian",
+      value: "it",
+    },
+  ];
+
   if (!mounted) return null;
 
   return (
@@ -103,7 +118,7 @@ const LanguageSelector = () => {
                       : `sort-down-dark.svg`
                   }`}
                   width={16}
-                  height={6}
+                  height={16}
                   alt="dropdown"
                 />
               </div>
@@ -131,24 +146,18 @@ const LanguageSelector = () => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}>
-          <motion.li
-            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
-            variants={itemVariants}
-            onClick={() => onSelectLanguage("en")}>
-            English{" "}
-          </motion.li>
-          <motion.li
-            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
-            variants={itemVariants}
-            onClick={() => onSelectLanguage("es")}>
-            Spanish
-          </motion.li>
-          <motion.li
-            className="cursor-pointer pl-2 text-neutral-200 dark:text-neutral-800 font-medium"
-            variants={itemVariants}
-            onClick={() => onSelectLanguage("it")}>
-            Italian
-          </motion.li>
+          {languageList.map(({ name, value }) => {
+            return (
+              <motion.li
+                key={value}
+                className=" py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
+                dark:text-neutral-800 font-medium dark:hover:bg-dark dark:hover:text-light"
+                variants={itemVariants}
+                onClick={() => onSelectLanguage(value)}>
+                {name}
+              </motion.li>
+            );
+          })}
         </motion.ul>
       </div>
     </motion.nav>

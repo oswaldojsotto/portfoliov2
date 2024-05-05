@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Montserrat, Oswald } from "next/font/google";
+import {
+  DM_Sans,
+  Montserrat,
+  Oswald,
+  PT_Sans,
+  Raleway,
+} from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
-const oswald = Oswald({ subsets: ["latin"] });
+const dmsans = DM_Sans({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto",
@@ -22,9 +29,9 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html lang={locale} suppressHydrationWarning>
-        <body className={oswald.className}>
+        <body className={raleway.className}>
           <ThemeProvider enableSystem={true} attribute="class">
-            {children}
+            <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
           </ThemeProvider>
         </body>
       </html>

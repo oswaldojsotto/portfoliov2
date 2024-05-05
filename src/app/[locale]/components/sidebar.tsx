@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
-import Hamburger from "hamburger-react";
+import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "../components/RoundedButton";
 import Magnetic from "@/app/[locale]/components/Magnetic/Magnetic";
@@ -35,7 +35,7 @@ const sideVariants = {
 };
 
 const Sidebar = () => {
-  const [open, cycleOpen] = useCycle<boolean>(false, true);
+  const [open, setOpen] = useState<boolean>(false);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
 
@@ -54,8 +54,8 @@ const Sidebar = () => {
           <motion.nav
             className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
               currentTheme === "dark"
-                ? "bg-neutral-800"
-                : "bg-neutral-200 drop-shadow-2xl"
+                ? "bg-[#1C1D20] drop-shadow-2xl"
+                : "bg-neutral-100 drop-shadow-2xl"
             }`}
             initial={{ width: 0 }}
             animate={{
@@ -66,6 +66,7 @@ const Sidebar = () => {
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
+              onClick={() => setOpen(false)}
               className="my-[8rem] mx-[2rem]"
               initial="closed"
               animate="open"
@@ -89,18 +90,16 @@ const Sidebar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <div className="fixed mx-6 my-4">
+      <div className="fixed mx-6 my-4" onClick={() => setOpen(!open)}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <div className="z-[2]">
+          <div className="z-[1]">
             <Hamburger
-              color={currentTheme === "light" ? "#362626" : "white"}
-              onToggle={toggled => {
-                if (toggled) {
-                  cycleOpen(1);
-                } else {
-                  cycleOpen(0);
-                }
-              }}
+              hideOutline
+              rounded
+              size={24}
+              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+              toggled={open}
+              onToggle={setOpen}
             />
           </div>
         </RoundedButton>

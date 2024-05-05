@@ -6,7 +6,7 @@ import Magnetic from "@/app/[locale]/components/Magnetic/Magnetic";
 const NavBar = () => {
   return (
     <nav className="flex flex-col justify-center">
-      <ul className="m-8 flex gap-6  text-[18px]">
+      <ul className="m-8 flex gap-6  text-[18px] font-extralight">
         <li>
           <Magnetic>
             <div className="group relative cursor-pointer items-center flex h-16 dark:text-red ">

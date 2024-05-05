@@ -2,8 +2,8 @@
 import React from "react";
 import AnimatedSwitch from "@/app/[locale]/components/animated-switch";
 import LanguageSelector from "@/app/[locale]/components/language-selector";
-import Sidebar from "./sidebar";
-import NavBar from "./navbar";
+import Sidebar from "@/app/[locale]/components/sidebar";
+import NavBar from "@/app/[locale]/components/navbar";
 
 const Header = () => {
   return (
