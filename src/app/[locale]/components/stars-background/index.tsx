@@ -46,14 +46,29 @@ function Stars() {
 function inSphere(buffer: Float32Array, { radius = 1 }: { radius?: number }) {
   const length = buffer.length;
   for (let i = 0; i < length; i += 3) {
-    const randomValue = Math.random();
-    const r =
-      radius * Math.cbrt(randomValue < 1 ? randomValue : randomValue - 0.001);
+    // Ensure the random value is within a safe range for cube root calculations
+    let randomValue = Math.random();
+    randomValue = randomValue < 1 ? randomValue : 1 - Number.EPSILON;
+
+    // Calculate r safely, ensuring it's never negative or resulting in NaN
+    const r = radius * Math.cbrt(randomValue);
+
+    // Generate theta and phi within safe ranges
     const theta = Math.random() * 2 * Math.PI;
-    const phi = Math.acos(2 * Math.random() - 1 + Number.EPSILON);
-    buffer[i] = r * Math.sin(phi) * Math.cos(theta);
-    buffer[i + 1] = r * Math.sin(phi) * Math.sin(theta);
-    buffer[i + 2] = r * Math.cos(phi);
+    // Ensure phi is within the safe range for acos
+    const phi = Math.acos(1 - 2 * Math.random());
+
+    // Calculate x, y, z coordinates safely
+    const sinPhi = Math.sin(phi);
+    if (sinPhi === 0) {
+      // Avoid division by zero
+      buffer[i] = buffer[i + 1] = 0;
+      buffer[i + 2] = r;
+    } else {
+      buffer[i] = r * sinPhi * Math.cos(theta);
+      buffer[i + 1] = r * sinPhi * Math.sin(theta);
+      buffer[i + 2] = r * Math.cos(phi);
+    }
   }
   return buffer;
 }
