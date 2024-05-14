@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
 import gsap from "gsap";
-import Magnetic from "../Magnetic/Magnetic";
+import Magnetic from "../magnetic/Magnetic";
 
 const RoundedButton = ({
   children,

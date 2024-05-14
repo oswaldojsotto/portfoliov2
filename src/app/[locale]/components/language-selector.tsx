@@ -6,7 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import Image from "next/image";
 import { useTheme } from "next-themes";
-import Magnetic from "./Magnetic/Magnetic";
+import Magnetic from "./magnetic/Magnetic";
 
 const itemVariants: Variants = {
   open: {

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Magnetic from "@/app/[locale]/components/Magnetic/Magnetic";
+import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 
 const NavBar = () => {
   return (

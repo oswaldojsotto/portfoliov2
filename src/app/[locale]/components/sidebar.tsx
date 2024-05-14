@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
-import RoundedButton from "../components/RoundedButton";
-import Magnetic from "@/app/[locale]/components/Magnetic/Magnetic";
+import RoundedButton from "./rounded-button";
+import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 
 const links = [
   { name: "Home", to: "#", id: 1 },
