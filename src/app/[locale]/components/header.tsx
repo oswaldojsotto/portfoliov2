@@ -12,7 +12,7 @@ const Header = () => {
         <Sidebar />
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-end mx-8">
         <NavBar />
         <div className="mt-[10px]">
           <LanguageSelector />

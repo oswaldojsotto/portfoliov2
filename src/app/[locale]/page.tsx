@@ -20,8 +20,8 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       namespaces={["common"]}>
       <main className="">
         <Header />
-        {/* <h1>{t("common:title")}</h1> */}
         <Landing t={t} />
+        <div className="mt-[100px]"></div>
         <ProjectsSection t={t} />
       </main>
     </TranslationsProvider>

@@ -8,10 +8,12 @@ import {
 } from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
-import StoreProvider from "../store/StoreProvider";
+// import StoreProvider from "../store/StoreProvider";
+// import LocomotiveProvider from "../hooks/locomotiveProvider";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 const dmsans = DM_Sans({ subsets: ["latin"] });
+const oswald = Oswald({ subsets: ["latin"] });
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,14 +29,16 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
   return (
-    <StoreProvider>
-      <html lang={locale} suppressHydrationWarning>
-        <body className={raleway.className}>
-          <ThemeProvider enableSystem={true} attribute="class">
-            <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
-          </ThemeProvider>
-        </body>
-      </html>
-    </StoreProvider>
+    // <StoreProvider>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={oswald.className}>
+        {/* <LocomotiveProvider> */}
+        <ThemeProvider enableSystem={true} attribute="class">
+          <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
+        </ThemeProvider>
+        {/* </LocomotiveProvider> */}
+      </body>
+    </html>
+    // </StoreProvider>
   );
 }

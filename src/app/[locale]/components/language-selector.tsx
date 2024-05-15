@@ -87,7 +87,7 @@ const LanguageSelector = () => {
       <div>
         <Magnetic>
           <motion.button
-            className="flex gap-2 m-6"
+            className="flex gap-2 my-6 w-32"
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>

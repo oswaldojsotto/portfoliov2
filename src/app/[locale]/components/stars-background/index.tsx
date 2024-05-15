@@ -16,7 +16,7 @@ export default function StarsBackground() {
 }
 
 function Stars() {
-  const ref = useRef<THREE.Points>(null);
+  const ref = useRef(null);
   const { theme } = useTheme();
   const starColor = theme === "dark" ? "#c850c0" : "#c220c0";
   const [sphere] = useState(() =>
