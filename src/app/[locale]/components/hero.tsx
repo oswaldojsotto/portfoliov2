@@ -1,4 +1,3 @@
-"use client";
 import RevealAnimation from "@/app/hooks/revealAnimation";
 import React from "react";
 
