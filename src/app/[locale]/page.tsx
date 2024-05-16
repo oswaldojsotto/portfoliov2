@@ -21,7 +21,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       <main className="">
         <Header />
         <Landing t={t} />
-        <div className="mt-[100px]"></div>
+        {/* <div className="mt-[100px]"></div> */}
         <ProjectsSection t={t} />
       </main>
     </TranslationsProvider>

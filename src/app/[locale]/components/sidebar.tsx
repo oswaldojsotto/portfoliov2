@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, motion, useCycle } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
+import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
+import { setSideMenu } from "@/app/store/sidemenuSlice";
 
 const links = [
   { name: "Home", to: "#", id: 1 },
@@ -35,10 +37,10 @@ const sideVariants = {
 };
 
 const Sidebar = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const dispatch = useDispatch();
+  const isOpen = useSelector((state: any) => state.sidemenu.open);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -50,7 +52,7 @@ const Sidebar = () => {
   return (
     <main className="flex absolute">
       <AnimatePresence>
-        {open && (
+        {isOpen && (
           <motion.nav
             className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
               currentTheme === "dark"
@@ -66,7 +68,7 @@ const Sidebar = () => {
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              onClick={() => setOpen(false)}
+              onClick={() => dispatch(setSideMenu(false))}
               className="my-[8rem] mx-[2rem]"
               initial="closed"
               animate="open"
@@ -90,7 +92,9 @@ const Sidebar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <div className="fixed mx-6 my-4" onClick={() => setOpen(!open)}>
+      <div
+        className="fixed mx-6 my-4"
+        onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
           <div className="z-[1]">
             <Hamburger
@@ -98,8 +102,8 @@ const Sidebar = () => {
               rounded
               size={24}
               color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-              toggled={open}
-              onToggle={setOpen}
+              toggled={isOpen}
+              onToggle={() => dispatch(setSideMenu(!isOpen))}
             />
           </div>
         </RoundedButton>

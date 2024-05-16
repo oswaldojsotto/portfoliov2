@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}.lenis.lenis-stopped{overflow:hidden}.lenis.lenis-scrolling iframe{pointer-events:none}
 
 html[data-scroll-orientation="horizontal"] {
@@ -10,22 +14,6 @@ html[data-scroll-orientation="horizontal"] {
 }
   
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-
-
-.svgCurve{
-    position: absolute;
-    top: 0;
-    left: 0px;
-    width: 100px;
-    height: 100%;
-    fill: white;
-    stroke: none;
-}
 
 ::-webkit-scrollbar {
     display: none;
