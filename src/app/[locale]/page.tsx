@@ -1,3 +1,4 @@
+"use server";
 import Header from "@/app/[locale]/components/header";
 import initTranslations from "../i18n";
 import TranslationsProvider from "../TranslationsProvider";
@@ -22,7 +23,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
         <Header />
         <Landing t={t} />
         {/* <div className="mt-[100px]"></div> */}
-        <ProjectsSection t={t} />
+        <ProjectsSection />
       </main>
     </TranslationsProvider>
   );

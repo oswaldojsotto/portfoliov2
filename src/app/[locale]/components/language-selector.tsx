@@ -7,6 +7,8 @@ import i18nConfig from "@/../../i18nConfig";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import Magnetic from "./magnetic/Magnetic";
+import { useDispatch, useSelector } from "react-redux";
+import { setLanguageSelectorMenu } from "@/app/store/sidemenuSlice";
 
 const itemVariants: Variants = {
   open: {
@@ -19,10 +21,14 @@ const itemVariants: Variants = {
 
 const LanguageSelector = () => {
   const { theme, systemTheme } = useTheme();
+  const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const currentPathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  const isOpen = useSelector(
+    (state: any) => state.sidemenu.languageSelectorState
+  );
   const [isPending, startTransition] = useTransition();
   const currentLocale = i18n.language;
   const [mounted, setMounted] = useState(false);
@@ -31,7 +37,7 @@ const LanguageSelector = () => {
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   const handleClick = () => {
-    setIsOpen(!isOpen);
+    dispatch(setLanguageSelectorMenu(!isOpen));
   };
 
   const onSelectLanguage = (language: string) => {

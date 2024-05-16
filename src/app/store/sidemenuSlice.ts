@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface sidemenuSlice {
-  open: boolean
+  sideMenuState: boolean
+  languageSelectorState: boolean
 }
 
 const initialState: sidemenuSlice = {
-  open: false,
+  sideMenuState: false,
+  languageSelectorState:false
 }
 
 export const sidemenuSlice = createSlice({
@@ -13,11 +15,14 @@ export const sidemenuSlice = createSlice({
   initialState,
   reducers: {
     setSideMenu: (state, action) => {
-           state.open = action.payload
+           state.sideMenuState = action.payload
     },
+    setLanguageSelectorMenu: (state, action) => {
+      state.languageSelectorState = action.payload
+},
    
   },
 })
 
-export const { setSideMenu } = sidemenuSlice.actions
+export const { setSideMenu, setLanguageSelectorMenu } = sidemenuSlice.actions
 export default sidemenuSlice.reducer

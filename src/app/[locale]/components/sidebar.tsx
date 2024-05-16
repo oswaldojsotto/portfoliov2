@@ -38,7 +38,7 @@ const sideVariants = {
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state: any) => state.sidemenu.open);
+  const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
@@ -56,8 +56,8 @@ const Sidebar = () => {
           <motion.nav
             className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
               currentTheme === "dark"
-                ? "bg-[#1C1D20] drop-shadow-2xl"
-                : "bg-neutral-100 drop-shadow-2xl"
+                ? "bg-dark drop-shadow-2xl"
+                : "bg-light drop-shadow-2xl"
             }`}
             initial={{ width: 0 }}
             animate={{
@@ -79,8 +79,8 @@ const Sidebar = () => {
                   <motion.a
                     className={`flex flex-col gap-4 font-bold py-4 text-4xl drop-shadow-2xl ${
                       currentTheme === "dark"
-                        ? "text-neutral-200"
-                        : "text-neutral-800 drop-shadow-2xl"
+                        ? "text-light drop-shadow-2xl"
+                        : "text-dark drop-shadow-2xl"
                     }`}
                     href={to}
                     variants={itemVariants}>

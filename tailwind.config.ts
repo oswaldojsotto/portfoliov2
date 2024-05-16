@@ -9,6 +9,7 @@ const config: Config = {
   ],
   
   theme: {
+    
     colors: {
       light: "#FFFFFF",
       dark: "#262526",
@@ -20,6 +21,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        "oswald": "var(--font-oswald)", 
+        "raleway": "var(--font-raleway)", 
+        "bebas": "var(--font-bebas)", 
+        // "dimensions": "var(--dimensions)", 
+      }
     },
   },
   plugins: [require('daisyui'),],

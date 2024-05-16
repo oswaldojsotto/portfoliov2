@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <div
-      className="fixed top-0 h-[5.5rem] w-[100%] flex justify-end bg-transparent"
+      className="fixed z-10 top-0 h-[5.5rem] w-[100%] flex justify-end bg-transparent"
       onClick={closeSideBar}>
       <div className="absolute left-0 -top-2">
         {" "}

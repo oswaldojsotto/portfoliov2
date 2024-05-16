@@ -8,7 +8,7 @@ import { THREE } from "three";
 export default function StarsBackground() {
   return (
     <Canvas
-      className="dark:bg-dark bg-light -z-30"
+      className=" dark:bg-dark bg-light -z-30"
       camera={{ position: [0, 0, 1] }}>
       <Stars />
     </Canvas>
