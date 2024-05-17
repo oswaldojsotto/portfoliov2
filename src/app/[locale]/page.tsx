@@ -1,9 +1,9 @@
-"use server";
-import Header from "@/app/[locale]/components/header";
-import initTranslations from "../i18n";
+// import Header from "@/app/[locale]/components/header";
+import initTranslations from "@/app/i18n";
 import TranslationsProvider from "../TranslationsProvider";
 import Landing from "./components/landing";
-import ProjectsSection from "./components/projects-section";
+// import ProjectsSection from "./components/projects-section";
+// import PreLoader from "./components/preloader";
 
 interface HomeProps {
   params: {
@@ -20,10 +20,12 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       locale={locale}
       namespaces={["common"]}>
       <main className="">
-        <Header />
+        {/* <Header />
         <Landing t={t} />
-        {/* <div className="mt-[100px]"></div> */}
-        <ProjectsSection />
+      
+        <ProjectsSection /> */}
+        {/* <PreLoader /> */}
+        <Landing title={t("title")} />
       </main>
     </TranslationsProvider>
   );

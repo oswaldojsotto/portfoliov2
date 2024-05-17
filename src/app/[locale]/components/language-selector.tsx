@@ -70,14 +70,17 @@ const LanguageSelector = () => {
 
   const languageList = [
     {
+      id: 1,
       name: "English",
       value: "en",
     },
     {
+      id: 2,
       name: "Spanish",
       value: "es",
     },
     {
+      id: 3,
       name: "Italian",
       value: "it",
     },
@@ -152,10 +155,10 @@ const LanguageSelector = () => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}>
-          {languageList.map(({ name, value }) => {
+          {languageList.map(({ id, name, value }) => {
             return (
               <motion.li
-                key={value}
+                key={id}
                 className=" py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
                 dark:text-neutral-800 font-medium dark:hover:bg-dark dark:hover:text-light"
                 variants={itemVariants}

@@ -11,9 +11,11 @@ const config: Config = {
   theme: {
     
     colors: {
+      red: 'red',
       light: "#FFFFFF",
       dark: "#262526",
-      red: 'red'
+      orange: '#EA2027',
+      pink: '#FFC2D1',
     },
     extend: {
       backgroundImage: {
@@ -25,7 +27,7 @@ const config: Config = {
         "oswald": "var(--font-oswald)", 
         "raleway": "var(--font-raleway)", 
         "bebas": "var(--font-bebas)", 
-        // "dimensions": "var(--dimensions)", 
+        dimensions: ["var(--font-dimensions)"] 
       }
     },
   },

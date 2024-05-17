@@ -22,32 +22,32 @@ const HeroSection = ({ title }: HeroSectionProps) => {
   let xPercent = 0;
   let direction = -1;
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        scrub: 0.25,
-        start: 0,
-        end: window.innerHeight,
-        onUpdate: e => (direction = e.direction * -1),
-      },
-      x: "-500px",
-    });
-    requestAnimationFrame(animate);
-  }, []);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.to(slider.current, {
+  //     scrollTrigger: {
+  //       trigger: document.documentElement,
+  //       scrub: 0.25,
+  //       start: 0,
+  //       end: window.innerHeight,
+  //       onUpdate: e => (direction = e.direction * -1),
+  //     },
+  //     x: "-500px",
+  //   });
+  //   requestAnimationFrame(animate);
+  // }, []);
 
-  const animate = () => {
-    if (xPercent < -100) {
-      xPercent = 0;
-    } else if (xPercent > 0) {
-      xPercent = -100;
-    }
-    gsap.set(firstText.current, { xPercent: xPercent });
-    // gsap.set(secondText.current, { xPercent: xPercent });
-    requestAnimationFrame(animate);
-    xPercent += 0.1 * direction;
-  };
+  // const animate = () => {
+  //   if (xPercent < -100) {
+  //     xPercent = 0;
+  //   } else if (xPercent > 0) {
+  //     xPercent = -100;
+  //   }
+  //   gsap.set(firstText.current, { xPercent: xPercent });
+  //   // gsap.set(secondText.current, { xPercent: xPercent });
+  //   requestAnimationFrame(animate);
+  //   xPercent += 0.1 * direction;
+  // };
 
   const closeMenus = () => {
     dispatch(setSideMenu(false));
@@ -57,7 +57,7 @@ const HeroSection = ({ title }: HeroSectionProps) => {
   return (
     <>
       <div
-        className="relative z-[1] h-[100vh] flex flex-col justify-center px-8"
+        className="relative z-[1] h-[100vh] flex flex-col justify-center px-8 -space-y-[2rem] "
         onClick={() => closeMenus()}>
         <RevealAnimation>
           <div ref={slider} className="flex ">
@@ -65,18 +65,10 @@ const HeroSection = ({ title }: HeroSectionProps) => {
               ref={firstText}
               data-scroll
               data-scroll-speed="0.2"
-              className=" overflow-scroll  w-full -tracking-[4px]  font-bold text-dark dark:text-light 
-        text-[32px] sm:text-[68px] md:text-[148px]">
-              OSWALDO SOTTO
+              className="font-dimensions relative  data-scroll  tracking-[4px] whitespace-nowrap text-dark dark:text-light 
+        text-[32px] sm:text-[68px] md:text-[348px] -mb-[8rem]">
+              OSWALDO J. SOTTO...
             </p>
-            {/* <p
-              ref={secondText}
-              data-scroll
-              data-scroll-speed="0.2"
-              className="absolute w-full left-[72%] -tracking-[4px] data-scroll font-bold text-dark dark:text-light 
-        text-[32px] sm:text-[68px] md:text-[108px]">
-              OSWALDO SOTTO
-            </p> */}
           </div>
         </RevealAnimation>
 
@@ -84,8 +76,9 @@ const HeroSection = ({ title }: HeroSectionProps) => {
           <h1
             data-scroll
             data-scroll-speed="0.4"
-            className="font-raleway font-bold text-dark dark:text-light   text-[24px] sm:text-[32px] md:text-[48px]">
-            Frontend - Web Developer
+            className="font-dimensions tracking-[8px] text-dark dark:text-light text-[24px] sm:text-[32px] 
+            md:text-[128px]">
+            FRONTEND - WEB DEVELOPER
           </h1>
         </RevealAnimation>
 

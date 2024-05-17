@@ -13,15 +13,15 @@ const oswald = Oswald({
 
 const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
 
-// const dimensions = localFont({
-//   src: [
-//     {
-//       path: "../fonts/Dimensions.ttf",
-//       weight: "400",
-//     },
-//   ],
-//   variable: "--font-dimensions",
-// });
+const dimensions = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/dimensions.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-dimensions",
+});
 
 const bebas = Bebas_Neue({
   weight: "400",
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        className={`${oswald.variable} ${raleway.variable} `}
+        className={`${dimensions.variable} ${oswald.variable} ${raleway.variable}   `}
         lang={locale}
         suppressHydrationWarning>
         <body>
