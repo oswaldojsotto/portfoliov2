@@ -71,17 +71,17 @@ const LanguageSelector = () => {
   const languageList = [
     {
       id: 1,
-      name: "English",
+      name: "ENGLISH",
       value: "en",
     },
     {
       id: 2,
-      name: "Spanish",
+      name: "SPANISH",
       value: "es",
     },
     {
       id: 3,
-      name: "Italian",
+      name: "ITALIAN",
       value: "it",
     },
   ];
@@ -92,7 +92,7 @@ const LanguageSelector = () => {
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
-      className="-mt-[7px] filter:drop-shadow(1px 1px 1px #4700b3) ">
+      className="-mt-[1.4rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
       <div>
         <Magnetic>
           <motion.button
@@ -100,7 +100,7 @@ const LanguageSelector = () => {
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>
-            <Image
+            {/* <Image
               src={`${
                 currentTheme === "light"
                   ? `translate-light.svg`
@@ -109,29 +109,39 @@ const LanguageSelector = () => {
               width={36}
               height={10}
               alt="translate"
-            />
-            <motion.div
-              className="flex flex-row justify-between"
-              variants={{
-                open: { rotate: 180 },
-                closed: { rotate: 0 },
-              }}
-              transition={{ duration: 0.1 }}
-              style={{ originY: 0.55 }}>
-              <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
-                <Image
-                  className="-mt-1"
-                  src={`${
-                    currentTheme === "light"
-                      ? `sort-down-light.svg`
-                      : `sort-down-dark.svg`
-                  }`}
-                  width={16}
-                  height={16}
-                  alt="dropdown"
-                />
+            /> */}
+            <div className="group relative cursor-pointer items-center flex h-16 dark:text-light text-dark ">
+              <div className="w-[100%] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                  ●
+                </div>
+                <p className="font-dimensions text-[3rem] tracking-[4px] ">
+                  LANGUAGE
+                </p>
+                <motion.div
+                  className="flex flex-row justify-between"
+                  variants={{
+                    open: { rotate: 180 },
+                    closed: { rotate: 0 },
+                  }}
+                  transition={{ duration: 0.1 }}
+                  style={{ originY: 0.55 }}>
+                  <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
+                    <Image
+                      className="-mt-1"
+                      src={`${
+                        currentTheme === "light"
+                          ? `sort-down-light.svg`
+                          : `sort-down-dark.svg`
+                      }`}
+                      width={16}
+                      height={16}
+                      alt="dropdown"
+                    />
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
+            </div>
           </motion.button>
         </Magnetic>
         <motion.ul
@@ -159,8 +169,8 @@ const LanguageSelector = () => {
             return (
               <motion.li
                 key={id}
-                className=" py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
-                dark:text-neutral-800 font-medium dark:hover:bg-dark dark:hover:text-light"
+                className="font-dimensions text-[38px] max-h-[4rem] py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
+                dark:text-neutral-800  dark:hover:bg-dark dark:hover:text-light font-thin tracking-[1.5px]"
                 variants={itemVariants}
                 onClick={() => onSelectLanguage(value)}>
                 {name}

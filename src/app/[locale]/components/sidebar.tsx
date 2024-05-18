@@ -94,19 +94,21 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <div
-        className="fixed mx-6 my-4"
+        className="fixed mx-7 my-4"
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <div className="z-[1]">
-            <Hamburger
-              hideOutline
-              rounded
-              size={24}
-              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-              toggled={isOpen}
-              onToggle={() => dispatch(setSideMenu(!isOpen))}
-            />
-          </div>
+          <Magnetic>
+            <div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </div>
+          </Magnetic>
         </RoundedButton>
       </div>
     </main>
