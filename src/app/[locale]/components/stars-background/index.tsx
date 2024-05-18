@@ -8,7 +8,7 @@ import { THREE } from "three";
 export default function StarsBackground() {
   return (
     <Canvas
-      className="dark:bg-dark bg-light -z-30"
+      className=" dark:bg-dark bg-light -z-30"
       camera={{ position: [0, 0, 1] }}>
       <Stars />
     </Canvas>
@@ -16,7 +16,7 @@ export default function StarsBackground() {
 }
 
 function Stars() {
-  const ref = useRef(null);
+  const ref = useRef<any>(null);
   const { theme } = useTheme();
   const starColor = theme === "dark" ? "#c850c0" : "#c220c0";
   const [sphere] = useState(() =>

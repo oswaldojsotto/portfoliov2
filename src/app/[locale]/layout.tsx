@@ -1,19 +1,33 @@
 import type { Metadata } from "next";
-import {
-  DM_Sans,
-  Montserrat,
-  Oswald,
-  PT_Sans,
-  Raleway,
-} from "next/font/google";
+import localFont from "next/font/local";
+import { Oswald, Raleway, Bebas_Neue } from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 
-const montserrat = Montserrat({ subsets: ["latin"] });
-const dmsans = DM_Sans({ subsets: ["latin"] });
-const oswald = Oswald({ subsets: ["latin"] });
-const raleway = Raleway({ subsets: ["latin"] });
+const oswald = Oswald({
+  weight: "700",
+  subsets: ["latin"],
+  variable: "--font-oswald",
+});
+
+const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
+
+const dimensions = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/dimensions.ttf",
+      weight: "400",
+    },
+  ],
+  variable: "--font-dimensions",
+});
+
+const bebas = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas",
+});
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto",
@@ -29,8 +43,11 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-      <html lang={locale} suppressHydrationWarning>
-        <body className={oswald.className}>
+      <html
+        className={`${dimensions.variable} ${oswald.variable} ${raleway.variable}   `}
+        lang={locale}
+        suppressHydrationWarning>
+        <body>
           <ThemeProvider enableSystem={true} attribute="class">
             <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
           </ThemeProvider>

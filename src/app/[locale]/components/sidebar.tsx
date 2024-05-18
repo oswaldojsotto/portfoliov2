@@ -38,7 +38,7 @@ const sideVariants = {
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state: any) => state.sidemenu.open);
+  const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
@@ -56,8 +56,8 @@ const Sidebar = () => {
           <motion.nav
             className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
               currentTheme === "dark"
-                ? "bg-[#1C1D20] drop-shadow-2xl"
-                : "bg-neutral-100 drop-shadow-2xl"
+                ? "bg-dark drop-shadow-2xl"
+                : "bg-light drop-shadow-2xl"
             }`}
             initial={{ width: 0 }}
             animate={{
@@ -77,10 +77,11 @@ const Sidebar = () => {
               {links.map(({ name, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
-                    className={`flex flex-col gap-4 font-bold py-4 text-4xl drop-shadow-2xl ${
+                    className={`font-dimensions text-[120px] flex flex-col gap-16 py-8 text-4xl drop-shadow-2xl
+                    transition-all hover:text-orange dark:hover:text-pink tracking-wide ${
                       currentTheme === "dark"
-                        ? "text-neutral-200"
-                        : "text-neutral-800 drop-shadow-2xl"
+                        ? "text-light drop-shadow-2xl"
+                        : "text-dark drop-shadow-2xl"
                     }`}
                     href={to}
                     variants={itemVariants}>
@@ -93,19 +94,21 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <div
-        className="fixed mx-6 my-4"
+        className="fixed mx-7 my-4"
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <div className="z-[1]">
-            <Hamburger
-              hideOutline
-              rounded
-              size={24}
-              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-              toggled={isOpen}
-              onToggle={() => dispatch(setSideMenu(!isOpen))}
-            />
-          </div>
+          <Magnetic>
+            <div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </div>
+          </Magnetic>
         </RoundedButton>
       </div>
     </main>

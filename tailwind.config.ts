@@ -9,10 +9,21 @@ const config: Config = {
   ],
   
   theme: {
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
+    
     colors: {
+      red: 'red',
       light: "#FFFFFF",
       dark: "#262526",
-      red: 'red'
+      orange: '#EA2027',
+      pink: '#FFC2D1',
     },
     extend: {
       backgroundImage: {
@@ -20,6 +31,12 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        "oswald": "var(--font-oswald)", 
+        "raleway": "var(--font-raleway)", 
+        "bebas": "var(--font-bebas)", 
+        dimensions: ["var(--font-dimensions)"] 
+      }
     },
   },
   plugins: [require('daisyui'),],
