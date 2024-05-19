@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Oswald, Raleway, Bebas_Neue } from "next/font/google";
+import { Agdasima } from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 
-const oswald = Oswald({
-  weight: "700",
+const agdasima = Agdasima({
   subsets: ["latin"],
-  variable: "--font-oswald",
+  variable: "--font-agdasima",
+  weight: "400",
 });
-
-const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" });
 
 const dimensions = localFont({
   src: [
@@ -21,12 +19,6 @@ const dimensions = localFont({
     },
   ],
   variable: "--font-dimensions",
-});
-
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
 });
 
 export const metadata: Metadata = {
@@ -44,7 +36,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        className={`${dimensions.variable} ${oswald.variable} ${raleway.variable}   `}
+        className={`${dimensions.variable} ${agdasima.variable}  `}
         lang={locale}
         suppressHydrationWarning>
         <body>

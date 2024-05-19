@@ -18,7 +18,7 @@ export default function StarsBackground() {
 function Stars() {
   const ref = useRef<any>(null);
   const { theme } = useTheme();
-  const starColor = theme === "dark" ? "#c850c0" : "#c220c0";
+  const starColor = theme === "dark" ? "#c850c0" : "#EA2027";
   const [sphere] = useState(() =>
     inSphere(new Float32Array(5000), { radius: 1.5 })
   );

@@ -115,7 +115,7 @@ const LanguageSelector = () => {
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
-                <p className="font-dimensions text-[3rem] tracking-[4px] ">
+                <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
                   LANGUAGE
                 </p>
                 <motion.div
@@ -169,8 +169,8 @@ const LanguageSelector = () => {
             return (
               <motion.li
                 key={id}
-                className="font-dimensions text-[38px] max-h-[4rem] py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
-                dark:text-neutral-800  dark:hover:bg-dark dark:hover:text-light font-thin tracking-[1.5px]"
+                className="font-agdasima text-[18px] max-h-[4rem] py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
+                dark:text-neutral-800  dark:hover:bg-dark dark:hover:text-light font-medium "
                 variants={itemVariants}
                 onClick={() => onSelectLanguage(value)}>
                 {name}

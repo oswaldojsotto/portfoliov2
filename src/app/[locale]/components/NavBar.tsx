@@ -25,12 +25,12 @@ const NavBar = () => {
           {items1.map(item => (
             <li key={item.id}>
               <Magnetic>
-                <div className="group relative cursor-pointer items-center flex h-16 dark:text-light text-dark ">
+                <div className="group relative cursor-pointer items-center flex h-16 dark:text-light text-dark  ">
                   <div className="w-[100%] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                       ●
                     </div>
-                    <p className="font-dimensions text-[3rem] tracking-[4px] ">
+                    <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all">
                       {item.text}
                     </p>
                   </div>
@@ -49,7 +49,7 @@ const NavBar = () => {
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                       ●
                     </div>
-                    <p className="font-dimensions text-[3rem] tracking-[4px] ">
+                    <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
                       {item.text}
                     </p>
                   </div>

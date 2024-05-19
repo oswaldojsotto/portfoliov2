@@ -23,7 +23,7 @@ const config: Config = {
       light: "#FFFFFF",
       dark: "#262526",
       orange: '#EA2027',
-      pink: '#FFC2D1',
+      pink: '#E5A4CB',
     },
     extend: {
       backgroundImage: {
@@ -32,9 +32,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        "oswald": "var(--font-oswald)", 
-        "raleway": "var(--font-raleway)", 
-        "bebas": "var(--font-bebas)", 
+        agdasima: ["var(--font-agdasima)"], 
         dimensions: ["var(--font-dimensions)"] 
       }
     },
