@@ -1,35 +1,39 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import Project from "./components/project";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "../magnetic/Magnetic";
+import ProjectItem from "./project-item";
 
 const projects = [
   {
     id: 1,
-    title: "Project 1",
-    src: "c2montreal.png",
-    color: "#000000",
+    title: "Movie Trailers",
+    src: "movieapp.png",
+    color: "yellow",
+    link: "#1",
   },
   {
     id: 2,
-    title: "Project 2",
-    src: "officestudio.png",
-    color: "#8C8C8C",
+    title: "shopapp",
+    src: "shopapp.png",
+    color: "blue",
+    link: "#2",
   },
   {
     id: 3,
-    title: "Project 3",
-    src: "locomotive.png",
-    color: "#EFE8D3",
+    title: "notes",
+    src: "note2.png",
+    color: "red",
+    link: "#3",
   },
   {
     id: 4,
-    title: "Project 4",
-    src: "silencio.png",
-    color: "#706D63",
+    title: "newsproject",
+    src: "newsproject.png",
+    color: "green",
+    link: "#4",
   },
 ];
 
@@ -49,19 +53,19 @@ const scaleAnimation = {
   },
 };
 
-const Projects = () => {
+const ProjectsList = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
 
-  let xMoveContainer = useRef(null);
-  let yMoveContainer = useRef(null);
-  let xMoveCursor = useRef(null);
-  let yMoveCursor = useRef(null);
-  let xMoveCursorLabel = useRef(null);
-  let yMoveCursorLabel = useRef(null);
+  let xMoveContainer = useRef<any | null>(null);
+  let yMoveContainer = useRef<any | null>(null);
+  let xMoveCursor = useRef<any | null>(null);
+  let yMoveCursor = useRef<any | null>(null);
+  let xMoveCursorLabel = useRef<any | null>(null);
+  let yMoveCursorLabel = useRef<any | null>(null);
 
   useEffect(() => {
     //Move Container
@@ -93,7 +97,7 @@ const Projects = () => {
     });
   }, []);
 
-  const moveItems = (x, y) => {
+  const moveItems = (x: number, y: number) => {
     xMoveContainer.current(x);
     yMoveContainer.current(y);
     xMoveCursor.current(x);
@@ -101,7 +105,12 @@ const Projects = () => {
     xMoveCursorLabel.current(x);
     yMoveCursorLabel.current(y);
   };
-  const manageModal = (active, index, x, y) => {
+  const manageModal = (
+    active: boolean,
+    index: number,
+    x: number,
+    y: number
+  ) => {
     moveItems(x, y);
     setModal({ active, index });
   };
@@ -111,10 +120,10 @@ const Projects = () => {
       onMouseMove={e => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="flex flex-col px-[1rem] items-center">
+      className="flex flex-col  items-center">
       <div
-        className="w-full flex justify-end bg py-1 m-8 tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
-       text-[100px] xs:text-[120px]  cursor-default">
+        className="w-full flex justify-end bg py-1   tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
+       text-[100px] xs:text-[120px]  cursor-default ">
         <Magnetic>
           <h1> Projects</h1>
         </Magnetic>
@@ -122,25 +131,24 @@ const Projects = () => {
       <div className="w-full flex flex-col mb-[4rem] font-dimensions text-[10px]">
         {projects.map((project, index) => {
           return (
-            <Project
-              key={project.id}
+            <ProjectItem
               index={index}
               title={project.title}
               manageModal={manageModal}
+              key={index}
+              link={project.link}
             />
           );
         })}
       </div>
-      {/* <Rounded>
-        <p>More work</p>
-      </Rounded> */}
+
       <>
         <motion.div
           ref={modalContainer}
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}
-          className="fixed w-[300px] h-[200px] z-[2] cursor-none pointer-events-none overflow-hidden top-[50%] left-[50%]">
+          className="fixed w-[220px] h-[220px] z-[2]  cursor-none pointer-events-none overflow-hidden top-[50%] left-[50%]">
           <div
             style={{ top: index * -100 + "%" }}
             className="relative w-full h-full transition-all duration-700">
@@ -152,10 +160,10 @@ const Projects = () => {
                   style={{ backgroundColor: color }}
                   key={`modal_${index}`}>
                   <Image
-                    src={`/images/${src}`}
-                    width={300}
-                    height={0}
-                    alt="image"
+                    src={`/projects/${src}`}
+                    width={400}
+                    height={-10}
+                    alt={`project_${project.id}`}
                   />
                 </div>
               );
@@ -164,23 +172,23 @@ const Projects = () => {
         </motion.div>
         <motion.div
           ref={cursor}
-          className="w-[80px] h-[80px] bg-dark rounded-sm text-light fixed z-[3] flex flex-col justify-center  
-          pointer-events-none font-dimensions cursor-default"
+          className="w-[50px] h-[50px]  rounded-full bg-light dark:bg-dark  fixed z-[3] flex flex-col justify-center  
+          pointer-events-none font-dimensions cursor-default select-none "
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}></motion.div>
         <motion.div
           ref={cursorLabel}
-          className="w-[80px] h-[80px]  text-light fixed z-[3] flex flex-col 
-          justify-center items-center pointer-events-none font-dimensions text-[70px] font-light cursor-default"
+          className="w-[80px] h-[80px]  dark:text-light  text-dark fixed z-[3] flex flex-col  select-none
+          justify-center items-center pointer-events-none  font-agdasima text-[20px] font-medium cursor-default"
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}>
-          WATCH
+          VIEW
         </motion.div>
       </>
     </main>
   );
 };
 
-export default Projects;
+export default ProjectsList;
