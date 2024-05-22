@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import Magnetic from "./magnetic/Magnetic";
 
-function AnimatedSwitch() {
+function ThemeSwitcher() {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -58,4 +58,4 @@ function AnimatedSwitch() {
   );
 }
 
-export default AnimatedSwitch;
+export default ThemeSwitcher;

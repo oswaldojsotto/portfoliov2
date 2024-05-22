@@ -1,5 +1,5 @@
 import React from "react";
-import AnimatedSwitch from "../components/animated-switch";
+import AnimatedSwitch from "../components/theme-switcher";
 // import FramerLink from "@/app/[locale]/components/NavBar";
 
 const Contact = () => {

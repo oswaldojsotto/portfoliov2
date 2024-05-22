@@ -12,9 +12,10 @@ import { AnimatePresence } from "framer-motion";
 
 interface HeroSectionProps {
   title: string;
+  subtitle: string;
 }
 
-const HeroSection = ({ title }: HeroSectionProps) => {
+const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
   const dispatch = useDispatch();
 
   const firstText = useRef(null);
@@ -27,18 +28,19 @@ const HeroSection = ({ title }: HeroSectionProps) => {
 
   return (
     <div
-      className="relative z-[1] h-[100vh] flex flex-col justify-center sm:justify-center md:justify-center px-8 -space-y-[2rem] "
+      className=" w-full z-[1] h-[100vh] flex flex-col justify-center sm:justify-center 
+      md:justify-center  -space-y-[2rem] "
       onClick={() => closeMenus()}>
       <RevealAnimation>
-        <div ref={slider} className="flex ">
+        <div ref={slider} className="w-full flex justify-start">
           <p
             ref={firstText}
             data-scroll
             data-scroll-speed="0.8"
-            className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll  tracking-[4px]
-               whitespace-nowrap text-dark dark:text-light justify-center
-                text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[348px]
-                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[1rem] lg:-mt-16   ">
+            className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll   tracking-[4px]
+                text-dark dark:text-light justify-start whitespace-nowrap
+                text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[268px]  xl:text-[346px]
+                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-1    ">
             OSWALDO J. SOTTO...
           </p>
         </div>
@@ -48,9 +50,9 @@ const HeroSection = ({ title }: HeroSectionProps) => {
         <h1
           data-scroll
           data-scroll-speed="0.1"
-          className="font-dimensions max-h-[10rem] tracking-[8px] whitespace-nowrap -mt-8 pl-0.5 text-dark dark:text-light 
+          className="font-dimensions max-h-[10rem] tracking-[2px] sm:tracking-[4px]  -mt-8  text-dark dark:text-light 
           text-[34px] xs:text-[58px] sm:text-[78px] md:text-[98px]  lg:text-[128px]">
-          FRONTEND - WEB DEVELOPER
+          {title}
         </h1>
       </RevealAnimation>
 
@@ -58,8 +60,9 @@ const HeroSection = ({ title }: HeroSectionProps) => {
         <div
           data-scroll
           data-scroll-speed="0.1"
-          className="text-dark dark:text-light my-4">
-          {title}
+          className="text-dark dark:text-light my-4 font-agdasima   text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
+          sm:-mt-[2px] lg:mt-4 ">
+          {subtitle}
         </div>
       </RevealAnimation>
     </div>

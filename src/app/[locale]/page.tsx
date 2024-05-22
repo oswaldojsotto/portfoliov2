@@ -16,7 +16,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       locale={locale}
       namespaces={["common"]}>
       <main className="">
-        <Landing title={t("title")} />
+        <Landing title={t("title")} subtitle={t("subtitle")} />
       </main>
     </TranslationsProvider>
   );

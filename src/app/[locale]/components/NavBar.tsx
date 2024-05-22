@@ -2,10 +2,9 @@
 
 import React from "react";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
-import AnimatedSwitch from "./animated-switch";
 import LanguageSelector from "./language-selector";
-import Language from "./language";
 import Sidebar from "./sidebar";
+import ThemeSwitcher from "./theme-switcher";
 
 const NavBar = () => {
   const items1 = [
@@ -20,6 +19,9 @@ const NavBar = () => {
 
   return (
     <>
+      <div className="sm:hidden fixed left-0 ">
+        <Sidebar />
+      </div>
       <nav className="hidden sm:flex justify-between w-full max-h-16 ">
         <ul className=" flex w-full justify-between gap-6  text-[18px] font-extralight">
           {items1.map(item => (
@@ -39,7 +41,7 @@ const NavBar = () => {
             </li>
           ))}
           <div className=" flex max-h-16 pt-2  ">
-            <AnimatedSwitch />
+            <ThemeSwitcher />
           </div>
           {items2.map(item => (
             <li key={item.id}>
@@ -60,9 +62,6 @@ const NavBar = () => {
           <LanguageSelector />
         </ul>
       </nav>
-      <div className="sm:hidden left-0 -ml-8">
-        <Sidebar />
-      </div>
     </>
   );
 };
