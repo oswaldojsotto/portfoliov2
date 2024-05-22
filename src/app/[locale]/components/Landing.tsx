@@ -7,6 +7,7 @@ import Header from "./header";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/app/[locale]/components/preloading/index";
 import ProjectsList from "@/app/[locale]/components/Projects/projects-list";
+import MarqueeTech from "./slider/slider";
 
 const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
   const [loading, setLoading] = useState(true);
@@ -14,7 +15,7 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }, 3000);
   });
 
@@ -27,10 +28,12 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
         <div key={1} className="fixed -z-10 bg-transparent h-[100vh] w-full">
           <StarsBackground />
         </div>
-        <div key={2} className="px-8 xl:px-[15%] ">
+        <div key={2} className="px-8 xl:px-[15%]  ">
           <HeroSection title={title} subtitle={subtitle} />
           <ProjectsList />
         </div>
+
+        <MarqueeTech />
       </div>
     </main>
   );

@@ -24,6 +24,7 @@
     "postcss-nesting": "^12.1.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-fast-marquee": "^1.6.4",
     "react-i18next": "^14.1.0",
     "react-redux": "^9.1.0",
     "sass": "^1.72.0"
