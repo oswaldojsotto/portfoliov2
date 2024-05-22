@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Typescript",
+    "route": "typescript.svg"
+  },
+  {
+    "name": "Javascript",
+    "route": "javascript.svg"
+  },
+  {
+    "name": "Next.js",
+    "route": "next.svg"
+  },
+  {
+    "name": "React.js",
+    "route": "react.svg"
+  },
+  {
+    "name": "Vite",
+    "route": "vite.svg"
+  },
+  {
+    "name": "MySQL",
+    "route": "mysql.svg"
+  },
+  {
+    "name": "PostgreSQL",
+    "route": "postgresql.svg"
+  },
+  {
+    "name": "Prisma",
+    "route": "prisma.svg"
+  },
+  {
+    "name": "Git",
+    "route": "git.svg"
+  },
+  {
+    "name": "Github",
+    "route": "github.svg"
+  },
+  {
+    "name": "HTML5",
+    "route": "html.svg"
+  },
+  {
+    "name": "CSS3",
+    "route": "css.svg"
+  },
+  {
+    "name": "TailwindCSS",
+    "route": "tailwind.svg"
+  }
+]

@@ -15,7 +15,7 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }, 3000);
   });
 
