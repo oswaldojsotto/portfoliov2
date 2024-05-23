@@ -60,7 +60,7 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
         <div
           data-scroll
           data-scroll-speed="0.1"
-          className="text-dark dark:text-light my-4 font-agdasima   text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
+          className="text-dark dark:text-light my-4 font-agdasima font-semibold dark:font-medium  text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
           sm:-mt-[2px] lg:mt-4 ">
           {subtitle}
         </div>
