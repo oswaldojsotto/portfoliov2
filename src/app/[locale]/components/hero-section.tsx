@@ -39,8 +39,8 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
             data-scroll-speed="0.8"
             className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll   tracking-[4px]
                 text-dark dark:text-light justify-start whitespace-nowrap
-                text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[268px]  xl:text-[346px]
-                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-1    ">
+                text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[268px]  xl:text-[318px]
+                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
             OSWALDO J. SOTTO...
           </p>
         </div>
