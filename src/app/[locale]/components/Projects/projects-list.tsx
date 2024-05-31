@@ -5,6 +5,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "../magnetic/Magnetic";
 import ProjectItem from "./project-item";
+import { useRouter } from "next/navigation";
 
 const projects = [
   {
@@ -12,28 +13,28 @@ const projects = [
     title: "Movie Trailers",
     src: "movieapp.png",
     color: "yellow",
-    link: "#1",
+    link: "/movie-trailers",
   },
   {
     id: 2,
     title: "shopapp",
     src: "shopapp.png",
     color: "blue",
-    link: "#2",
+    link: "/shopapp",
   },
   {
     id: 3,
     title: "notes",
     src: "note2.png",
     color: "red",
-    link: "#3",
+    link: "/notes",
   },
   {
     id: 4,
     title: "newsproject",
     src: "newsproject.png",
     color: "green",
-    link: "#4",
+    link: "/newsproject",
   },
 ];
 
@@ -57,6 +58,7 @@ const ProjectsList = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { active, index } = modal;
   const modalContainer = useRef(null);
+  const router = useRouter();
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
 
