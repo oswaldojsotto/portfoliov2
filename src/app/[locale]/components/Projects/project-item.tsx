@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface ProjectItemProps {
@@ -9,6 +10,11 @@ interface ProjectItemProps {
 }
 
 const ProjectItem = ({ index, title, link, manageModal }: ProjectItemProps) => {
+  const router = useRouter();
+
+  const goToProject = (name: string) => {
+    router.push(`/project-detail/${name}`);
+  };
   return (
     <div
       onMouseEnter={e => {
@@ -18,7 +24,7 @@ const ProjectItem = ({ index, title, link, manageModal }: ProjectItemProps) => {
         manageModal(false, index, e.clientX, e.clientY);
       }}
       onClick={() => {
-        console.log(link);
+        goToProject(link);
       }}
       className="w-full  flex  justify-between items-center px-[20px] md:px-[40px] hover:px-[1px] py-[5px]  border-t-2  text-dark dark:text-light
      opacity-[0.6] hover:opacity-[1] transition-all  hover:border-opacity-1 duration-700 cursor-none border-dark dark:border-light
