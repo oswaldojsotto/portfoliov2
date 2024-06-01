@@ -15,15 +15,16 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      // window.scrollTo(0, 0);
-    }, 3000);
+      window.scrollTo(0, 0);
+    }, 2500);
   });
 
   return (
     <main>
-      <AnimatePresence mode="wait">{loading && <Preloader />}</AnimatePresence>
+      <AnimatePresence>{loading && <Preloader />}</AnimatePresence>
       <div key={1}>
         <LocomotiveScroll />
+
         <Header />
         <div key={1} className="fixed -z-10 bg-transparent h-[100vh] w-full">
           <StarsBackground />

@@ -6,16 +6,6 @@ import { useTheme } from "next-themes";
 // import { THREE } from "three";
 import * as random from "maath/random/dist/maath-random.cjs";
 
-export default function StarsBackground() {
-  return (
-    <Canvas
-      className=" dark:bg-dark bg-light -z-30"
-      camera={{ position: [0, 0, 1] }}>
-      <Stars />
-    </Canvas>
-  );
-}
-
 function Stars(props: any) {
   const ref = useRef<any>(null);
   const { theme } = useTheme();
@@ -47,27 +37,37 @@ function Stars(props: any) {
   );
 }
 
-function inSphere(buffer: Float32Array, { radius = 1 }: { radius?: number }) {
-  const length = buffer.length;
-  for (let i = 0; i < length; i += 3) {
-    let randomValue = Math.random();
-    randomValue = randomValue < 1 ? randomValue : 1 - Number.EPSILON;
-
-    const r = radius * Math.cbrt(randomValue);
-
-    const theta = Math.random() * 2 * Math.PI;
-
-    const phi = Math.acos(1 - 2 * Math.random());
-
-    const sinPhi = Math.sin(phi);
-    if (sinPhi === 0) {
-      buffer[i] = buffer[i + 1] = 0;
-      buffer[i + 2] = r;
-    } else {
-      buffer[i] = r * sinPhi * Math.cos(theta);
-      buffer[i + 1] = r * sinPhi * Math.sin(theta);
-      buffer[i + 2] = r * Math.cos(phi);
-    }
-  }
-  return buffer;
+export default function StarsBackground() {
+  return (
+    <Canvas
+      className=" dark:bg-dark bg-light -z-30"
+      camera={{ position: [0, 0, 1] }}>
+      <Stars />
+    </Canvas>
+  );
 }
+
+// function inSphere(buffer: Float32Array, { radius = 1 }: { radius?: number }) {
+//   const length = buffer.length;
+//   for (let i = 0; i < length; i += 3) {
+//     let randomValue = Math.random();
+//     randomValue = randomValue < 1 ? randomValue : 1 - Number.EPSILON;
+
+//     const r = radius * Math.cbrt(randomValue);
+
+//     const theta = Math.random() * 2 * Math.PI;
+
+//     const phi = Math.acos(1 - 2 * Math.random());
+
+//     const sinPhi = Math.sin(phi);
+//     if (sinPhi === 0) {
+//       buffer[i] = buffer[i + 1] = 0;
+//       buffer[i + 2] = r;
+//     } else {
+//       buffer[i] = r * sinPhi * Math.cos(theta);
+//       buffer[i + 1] = r * sinPhi * Math.sin(theta);
+//       buffer[i + 2] = r * Math.cos(phi);
+//     }
+//   }
+//   return buffer;
+// }

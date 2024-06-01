@@ -1,9 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import { setSideMenu } from "@/app/store/sidemenuSlice";
@@ -42,10 +44,41 @@ const Sidebar = () => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
+  const button = useRef(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (mounted) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.to(button.current, {
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 0,
+          end: window.innerHeight / 4,
+
+          onLeave: () => {
+            gsap.to(button.current, {
+              scale: 1,
+              duration: 0.25,
+              ease: "power1.out",
+            });
+          },
+
+          onEnterBack: () => {
+            gsap.to(button.current, {
+              scale: 0,
+              duration: 0.25,
+              ease: "power1.out",
+            });
+          },
+        },
+      });
+    }
+  }, [mounted]);
 
   if (!mounted) return null;
 
@@ -54,7 +87,7 @@ const Sidebar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
+            className={`fixed h-[101vh] flex left-0 justify-center  overflow-hidden ${
               currentTheme === "dark"
                 ? "bg-dark drop-shadow-2xl"
                 : "bg-light drop-shadow-2xl"
@@ -94,7 +127,8 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <div
-        className="fixed mx-7 my-4"
+        ref={button}
+        className="fixed left-8  scale-0 my-4 "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>

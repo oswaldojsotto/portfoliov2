@@ -11,7 +11,6 @@
   "dependencies": {
     "@react-three/drei": "^9.102.6",
     "@reduxjs/toolkit": "^2.2.1",
-    "@types/three": "^0.162.0",
     "framer-motion": "^11.2.0",
     "gsap": "^3.12.5",
     "hamburger-react": "^2.5.0",

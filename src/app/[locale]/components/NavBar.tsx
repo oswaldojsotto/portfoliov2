@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="sm:hidden fixed left-0 ">
+      <div>
         <Sidebar />
       </div>
       <nav className="hidden sm:flex justify-between w-full max-h-16 ">

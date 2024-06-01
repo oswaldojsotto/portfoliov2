@@ -1,10 +1,10 @@
-import StarsBackground from "../../components/stars-background";
+// import StarsBackground from "../../components/stars-background";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="absolute w-full h-screen">
-        <StarsBackground />
+        {/* <StarsBackground /> */}
       </div>
       <div className="relative">My Post: {params.slug}</div>
     </>

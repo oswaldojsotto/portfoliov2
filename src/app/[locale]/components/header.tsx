@@ -2,7 +2,6 @@
 import React from "react";
 import AnimatedSwitch from "@/app/[locale]/components/theme-switcher";
 import LanguageSelector from "@/app/[locale]/components/language-selector";
-import Sidebar from "@/app/[locale]/components/sidebar";
 import NavBar from "@/app/[locale]/components/navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { setSideMenu } from "@/app/store/sidemenuSlice";
