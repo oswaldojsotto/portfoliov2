@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import { setSideMenu } from "@/app/store/sidemenuSlice";
+import ThemeSwitcher from "./theme-switcher";
 
 const links = [
   { name: "Home", to: "#", id: 1 },
@@ -73,12 +74,15 @@ const Sidebar = () => {
               scale: 0,
               duration: 0.25,
               ease: "power1.out",
+              onComplete: () => {
+                dispatch(setSideMenu(false));
+              },
             });
           },
         },
       });
     }
-  }, [mounted]);
+  }, [mounted, dispatch]);
 
   if (!mounted) return null;
 
@@ -87,7 +91,7 @@ const Sidebar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            className={`fixed h-[101vh] flex left-0 justify-center  overflow-hidden ${
+            className={`fixed h-[101vh] flex left-0  justify-center  overflow-hidden ${
               currentTheme === "dark"
                 ? "bg-dark drop-shadow-2xl"
                 : "bg-light drop-shadow-2xl"
@@ -101,12 +105,13 @@ const Sidebar = () => {
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              onClick={() => dispatch(setSideMenu(false))}
+              // onClick={() => dispatch(setSideMenu(false))}
               className="my-[8rem] mx-[2rem]"
               initial="closed"
               animate="open"
               exit="closed"
               variants={sideVariants}>
+              <ThemeSwitcher />
               {links.map(({ name, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a

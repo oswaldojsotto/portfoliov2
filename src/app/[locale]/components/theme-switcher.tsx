@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 // import "@/app/[locale]/styles/switch-theme.css";
 import { useTheme } from "next-themes";
-import Magnetic from "./magnetic/Magnetic";
+import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 
 function ThemeSwitcher() {
   const { systemTheme, theme, setTheme } = useTheme();
