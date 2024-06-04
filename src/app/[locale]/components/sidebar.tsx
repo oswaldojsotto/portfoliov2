@@ -52,10 +52,10 @@ const Sidebar = () => {
   }, []);
 
   useEffect(() => {
-    if (mounted) {
+    if (mounted && button.current) {
       gsap.registerPlugin(ScrollTrigger);
 
-      gsap.to(button.current, {
+      const animation = gsap.to(button.current, {
         scrollTrigger: {
           trigger: document.documentElement,
           start: 0,
@@ -81,6 +81,11 @@ const Sidebar = () => {
           },
         },
       });
+
+      // Clean up function
+      return () => {
+        animation.kill(); // This will stop the GSAP animation
+      };
     }
   }, [mounted, dispatch]);
 
