@@ -4,9 +4,13 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
 
-const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola", "Loading..."];
+// const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola", "Loading..."];
 
-const Preloader = () => {
+interface PreloaderTypes {
+  words: string[];
+}
+
+const Preloader = ({ words }: PreloaderTypes) => {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
 
@@ -22,7 +26,7 @@ const Preloader = () => {
       },
       index == 0 ? 1000 : 150
     );
-  }, [index]);
+  }, [index, words.length]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
     dimension.height
@@ -49,7 +53,7 @@ const Preloader = () => {
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className={`${styles.introduction} `}>
+      className={`${styles.introduction} bg-red`}>
       {dimension.width > 0 && (
         <>
           <motion.p variants={opacity} initial="initial" animate="enter">
