@@ -1,12 +1,14 @@
 "use client";
 import React from "react";
 import PreloadWrapper from "../components/preloading/wrapper";
+import Header from "../components/header";
 
 const Contact = () => {
   const words = ["Contact"];
 
   return (
     <div>
+      <Header />
       <PreloadWrapper words={words}>
         <div className="body">
           <p>

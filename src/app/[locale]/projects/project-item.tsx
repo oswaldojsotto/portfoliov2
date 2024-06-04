@@ -13,7 +13,7 @@ const ProjectItem = ({ index, title, link, manageModal }: ProjectItemProps) => {
   const router = useRouter();
 
   const goToProject = (name: string) => {
-    router.push(`/project-detail/${name}`);
+    router.push(`/projects/${name}`);
   };
   return (
     <div

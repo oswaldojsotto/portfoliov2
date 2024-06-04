@@ -100,16 +100,6 @@ const LanguageSelector = () => {
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>
-            {/* <Image
-              src={`${
-                currentTheme === "light"
-                  ? `translate-light.svg`
-                  : `translate-dark.svg`
-              }`}
-              width={36}
-              height={10}
-              alt="translate"
-            /> */}
             <div className="group relative cursor-pointer items-center flex h-16 dark:text-light text-dark ">
               <div className="w-[100%] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
@@ -131,8 +121,8 @@ const LanguageSelector = () => {
                       className="-mt-1"
                       src={`${
                         currentTheme === "light"
-                          ? `sort-down-light.svg`
-                          : `sort-down-dark.svg`
+                          ? `/sort-down-light.svg`
+                          : `/sort-down-dark.svg`
                       }`}
                       width={16}
                       height={16}

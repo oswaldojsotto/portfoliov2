@@ -32,7 +32,7 @@
     "src/app/[locale]/components/Magnetic.jsx",
     "src/app/[locale]/components/magnetic/Magnetic.jsx",
     "src/app/[locale]/components/Nav/anim.js",
-    "src/app/[locale]/components/Projects/projects-list.tsx",
+    "src/app/[locale]/components/projects/projects-list.tsx",
     "src/app/[locale]/components/slider/slider.jsx",
     ".next/types/app/[locale]/[project-detail]/page.tsx"
   ],
