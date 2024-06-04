@@ -5,9 +5,9 @@ import React from "react";
 const ProjectsSection = () => {
   return (
     <div className="flex h-screen " onClick={() => console.log("qlq")}>
-      <RevealAnimation>
+      {/* <RevealAnimation>
         <h1>Projects</h1>
-      </RevealAnimation>
+      </RevealAnimation> */}
     </div>
   );
 };

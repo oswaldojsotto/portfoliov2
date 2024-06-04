@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
-import Magnetic from "../magnetic/Magnetic";
+import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import ProjectItem from "./project-item";
 import { useRouter } from "next/navigation";
 

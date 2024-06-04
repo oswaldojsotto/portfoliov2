@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-import gsap from "gsap";
+// import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
@@ -45,49 +45,49 @@ const Sidebar = () => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
-  const button = useRef(null);
+  // const button = useRef(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (mounted && button.current) {
-      gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   if (mounted && button.current) {
+  //     gsap.registerPlugin(ScrollTrigger);
 
-      const animation = gsap.to(button.current, {
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: 0,
-          end: window.innerHeight / 4,
+  //     const animation = gsap.to(button.current, {
+  //       scrollTrigger: {
+  //         trigger: document.documentElement,
+  //         start: 0,
+  //         end: window.innerHeight / 4,
 
-          onLeave: () => {
-            gsap.to(button.current, {
-              scale: 1,
-              duration: 0.25,
-              ease: "power1.out",
-            });
-          },
+  //         onLeave: () => {
+  //           gsap.to(button.current, {
+  //             scale: 1,
+  //             duration: 0.25,
+  //             ease: "power1.out",
+  //           });
+  //         },
 
-          onEnterBack: () => {
-            gsap.to(button.current, {
-              scale: 0,
-              duration: 0.25,
-              ease: "power1.out",
-              onComplete: () => {
-                dispatch(setSideMenu(false));
-              },
-            });
-          },
-        },
-      });
+  //         onEnterBack: () => {
+  //           gsap.to(button.current, {
+  //             scale: 0,
+  //             duration: 0.25,
+  //             ease: "power1.out",
+  //             onComplete: () => {
+  //               dispatch(setSideMenu(false));
+  //             },
+  //           });
+  //         },
+  //       },
+  //     });
 
-      // Clean up function
-      return () => {
-        animation.kill(); // This will stop the GSAP animation
-      };
-    }
-  }, [mounted, dispatch]);
+  //     // Clean up function
+  //     return () => {
+  //       animation.kill(); // This will stop the GSAP animation
+  //     };
+  //   }
+  // }, [mounted, dispatch]);
 
   if (!mounted) return null;
 
@@ -137,8 +137,8 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <div
-        ref={button}
-        className="fixed left-8  scale-0 my-4 "
+        // ref={button}
+        className="fixed left-8 sm:scale-0 my-4 "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>

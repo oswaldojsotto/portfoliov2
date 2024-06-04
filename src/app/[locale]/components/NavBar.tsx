@@ -3,7 +3,6 @@
 import React from "react";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
-import Sidebar from "./sidebar";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
 
@@ -11,8 +10,8 @@ const NavBar = () => {
   const router = useRouter();
 
   const items1 = [
-    { id: 1, text: "ABOUT", to: "#" },
-    { id: 2, text: "PROJECTS", to: "#" },
+    { id: 1, text: "ABOUT", to: "/" },
+    { id: 2, text: "PROJECTS", to: "/projects" },
   ];
 
   const items2 = [{ id: 3, text: "CONTACT", to: "/contact" }];
@@ -23,11 +22,10 @@ const NavBar = () => {
 
   return (
     <>
-      <div>{/* <Sidebar /> */}</div>
       <nav className="hidden sm:flex justify-between w-full max-h-16 ">
         <ul className=" flex w-full justify-between gap-6  text-[18px] font-extralight  ">
           {items1.map(item => (
-            <li key={item.id}>
+            <li key={item.id} onClick={() => goToProject(item.to)}>
               <Magnetic>
                 <div className="group relative  cursor-pointer items-center flex h-16 dark:text-light text-dark  ">
                   <div className="w-[100%] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
