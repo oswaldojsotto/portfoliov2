@@ -4,7 +4,7 @@ import { Agdasima } from "next/font/google";
 import "@/app/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
-import StarsBackground from "./components/stars-background";
+// import StarsBackground from "./components/stars-background";
 
 const agdasima = Agdasima({
   subsets: ["latin"],
@@ -41,7 +41,7 @@ export default function RootLayout({
         lang={locale}
         suppressHydrationWarning>
         <body>
-          <StarsBackground />
+          {/* <StarsBackground /> */}
           <ThemeProvider enableSystem={true} attribute="class">
             <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
           </ThemeProvider>
