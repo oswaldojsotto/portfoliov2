@@ -5,6 +5,7 @@ import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
+import LanguageDropdown from "./language";
 
 const NavBar = () => {
   const router = useRouter();
@@ -60,6 +61,7 @@ const NavBar = () => {
             </li>
           ))}
           <LanguageSelector />
+          {/* <LanguageDropdown /> */}
         </ul>
       </nav>
     </>
