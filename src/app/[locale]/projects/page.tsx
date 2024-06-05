@@ -9,7 +9,7 @@ const Projects = () => {
   const words = ["Projects"];
 
   return (
-    <>
+    <div>
       <div key={1} className="fixed -z-10 bg-transparent h-[100vh] w-full">
         <StarsBackground />
       </div>
@@ -17,7 +17,7 @@ const Projects = () => {
         <Header />
         <div className="px-8 xl:px-[15%]">
           <div className="pt-32">
-            <h1 className="font-dimensions text-[62px] text-dark dark:text-light">
+            <h1 className="font-dimensions text-[92px] text-dark dark:text-light">
               Creating next level digital products
             </h1>
           </div>
@@ -25,7 +25,7 @@ const Projects = () => {
           <ProjectsList />
         </div>
       </PreloadWrapper>
-    </>
+    </div>
   );
 };
 

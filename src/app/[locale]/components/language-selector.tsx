@@ -116,7 +116,7 @@ const LanguageSelector = () => {
                   }}
                   transition={{ duration: 0.1 }}
                   style={{ originY: 0.55 }}>
-                  <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
+                  {/* <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
                     <Image
                       className="-mt-1"
                       src={`${
@@ -128,7 +128,7 @@ const LanguageSelector = () => {
                       height={16}
                       alt="dropdown"
                     />
-                  </div>
+                  </div> */}
                 </motion.div>
               </div>
             </div>

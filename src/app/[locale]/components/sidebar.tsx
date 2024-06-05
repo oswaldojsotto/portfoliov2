@@ -1,15 +1,15 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-// import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import { setSideMenu } from "@/app/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
+import { useWindowScroll } from "react-use";
 
 const links = [
   { name: "Home", to: "#", id: 1 },
@@ -45,49 +45,17 @@ const Sidebar = () => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
-  // const button = useRef(null);
+  const { y } = useWindowScroll();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // useEffect(() => {
-  //   if (mounted && button.current) {
-  //     gsap.registerPlugin(ScrollTrigger);
-
-  //     const animation = gsap.to(button.current, {
-  //       scrollTrigger: {
-  //         trigger: document.documentElement,
-  //         start: 0,
-  //         end: window.innerHeight / 4,
-
-  //         onLeave: () => {
-  //           gsap.to(button.current, {
-  //             scale: 1,
-  //             duration: 0.25,
-  //             ease: "power1.out",
-  //           });
-  //         },
-
-  //         onEnterBack: () => {
-  //           gsap.to(button.current, {
-  //             scale: 0,
-  //             duration: 0.25,
-  //             ease: "power1.out",
-  //             onComplete: () => {
-  //               dispatch(setSideMenu(false));
-  //             },
-  //           });
-  //         },
-  //       },
-  //     });
-
-  //     // Clean up function
-  //     return () => {
-  //       animation.kill(); // This will stop the GSAP animation
-  //     };
-  //   }
-  // }, [mounted, dispatch]);
+  React.useEffect(() => {
+    if (y === 0) {
+      dispatch(setSideMenu(false));
+    }
+  }, [y, dispatch]);
 
   if (!mounted) return null;
 
@@ -96,7 +64,7 @@ const Sidebar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            className={`fixed h-[101vh] flex left-0  justify-center  overflow-hidden ${
+            className={`fixed h-[101vh] flex left-0 z-10  justify-center  overflow-hidden ${
               currentTheme === "dark"
                 ? "bg-dark drop-shadow-2xl"
                 : "bg-light drop-shadow-2xl"
@@ -136,13 +104,14 @@ const Sidebar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <div
-        // ref={button}
-        className="fixed left-8 sm:scale-0 my-4 "
+      <motion.div
+        animate={{ scale: y > 100 ? 1 : 0 }}
+        transition={{ ease: "easeOut", duration: 0.2 }}
+        className="fixed left-8 z-20 my-4 hidden sm:flex "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>
-            <div className="z-[1]">
+            <motion.div className="z-[1]">
               <Hamburger
                 hideOutline
                 rounded
@@ -151,10 +120,29 @@ const Sidebar = () => {
                 toggled={isOpen}
                 onToggle={() => dispatch(setSideMenu(!isOpen))}
               />
-            </div>
+            </motion.div>
           </Magnetic>
         </RoundedButton>
-      </div>
+      </motion.div>
+      <motion.div
+        transition={{ ease: "easeOut", duration: 0.2 }}
+        className="fixed left-8 z-20 my-4 flex sm:hidden "
+        onClick={() => dispatch(setSideMenu(!isOpen))}>
+        <RoundedButton backgroundColor="#a2a2a2">
+          <Magnetic>
+            <motion.div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </motion.div>
+          </Magnetic>
+        </RoundedButton>
+      </motion.div>
     </main>
   );
 };
