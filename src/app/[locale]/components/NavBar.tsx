@@ -7,16 +7,7 @@ import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
 // import LanguageDropdown from "./language";
 
-interface NavbarProps {
-  t: {
-    about: string;
-    projects: string;
-    contact: string;
-    language: string;
-  };
-}
-
-const NavBar = ({ t }: NavbarProps) => {
+const NavBar = ({ t }: HeaderProps) => {
   const router = useRouter();
 
   const items1 = [
@@ -69,8 +60,7 @@ const NavBar = ({ t }: NavbarProps) => {
               </Magnetic>
             </li>
           ))}
-          <LanguageSelector />
-          {/* <LanguageDropdown /> */}
+          <LanguageSelector t={t} />
         </ul>
       </nav>
     </>

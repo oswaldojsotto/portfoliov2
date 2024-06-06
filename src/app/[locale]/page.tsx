@@ -3,12 +3,6 @@ import TranslationsProvider from "../TranslationsProvider";
 import Landing from "@/app/[locale]/components/landing";
 import Header from "./components/header";
 
-interface HomeProps {
-  params: {
-    locale: string;
-  };
-}
-
 const Home = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["landing"]);
 
@@ -17,6 +11,9 @@ const Home = async ({ params: { locale } }: HomeProps) => {
     projects: t("projects"),
     contact: t("contact"),
     language: t("language"),
+    english: t("english"),
+    spanish: t("spanish"),
+    italian: t("italian"),
   };
 
   return (
