@@ -1,11 +1,10 @@
 import React from "react";
-import PreloadWrapper from "@/app/[locale]/components/preloading/wrapper";
-import Header from "@/app/[locale]/components/header";
-import ProjectsList from "./projects-list";
+import Header from "@/[locale]/components/header";
 import StarsBackground from "../components/stars-background";
-import TranslationsProvider from "@/app/TranslationsProvider";
-import initTranslations from "@/app/i18n";
+import TranslationsProvider from "@/TranslationsProvider";
+import initTranslations from "@/i18n";
 import ProjectsLanding from "./projects-landing";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 const Projects = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["projects"]);

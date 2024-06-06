@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
-import LocomotiveScroll from "@/app/hooks/locomotiveScroll";
-import HeroSection from "@/app/[locale]/components/hero-section";
-import ProjectsList from "@/app/[locale]/projects/projects-list";
+import LocomotiveScroll from "@/hooks/locomotiveScroll";
 import PreloadWrapper from "../components/preloading/wrapper";
 import StarsBackground from "../components/stars-background";
 
