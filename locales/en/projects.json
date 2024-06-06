@@ -6,5 +6,8 @@
   "transition": "PROJECTS",
   "title": "FRONTEND - WEB DEVELOPER",
   "subtitle": "I'm a frontend developer with passion for great design and user experiences.",
-  "selectLanguage": "Language"
+  "selectLanguage": "Language",
+  "english": "English",
+  "spanish": "Spanish",
+  "italian": "Italian"
 }

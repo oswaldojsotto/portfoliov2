@@ -11,15 +11,6 @@ import { setSideMenu } from "@/app/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useWindowScroll } from "react-use";
 
-interface NavbarProps {
-  t: {
-    about: string;
-    projects: string;
-    contact: string;
-    language: string;
-  };
-}
-
 const itemVariants = {
   closed: {
     opacity: 0,
@@ -42,7 +33,7 @@ const sideVariants = {
   },
 };
 
-const Sidebar = ({ t }: NavbarProps) => {
+const Sidebar = ({ t }: HeaderProps) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();

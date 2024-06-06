@@ -41,7 +41,7 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[268px]  xl:text-[318px]
                 mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
-            OSWALDO J. SOTTO...
+            [OSWALDO J. SOTTO]
           </p>
         </div>
       </RevealAnimation>

@@ -17,6 +17,9 @@ const Contact = async ({ params: { locale } }: HomeProps) => {
     projects: t("projects"),
     contact: t("contact"),
     language: t("language"),
+    english: t("english"),
+    spanish: t("spanish"),
+    italian: t("italian"),
   };
 
   return (
