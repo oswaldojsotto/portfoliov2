@@ -20,7 +20,7 @@ function Stars() {
   const { theme } = useTheme();
   const starColor = theme === "dark" ? "#c850c0" : "#EA2027";
   const [sphere] = useState(() =>
-    random.inSphere(new Float32Array(5000), { radius: 1.5 })
+    random.inSphere(new Float32Array(8000), { radius: 1.5 })
   );
   useFrame((_, delta) => {
     ref.current.rotation.x -= delta / 10;

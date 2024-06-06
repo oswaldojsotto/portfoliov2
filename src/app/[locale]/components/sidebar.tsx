@@ -11,11 +11,14 @@ import { setSideMenu } from "@/app/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useWindowScroll } from "react-use";
 
-const links = [
-  { name: "Home", to: "#", id: 1 },
-  { name: "Projects", to: "#", id: 2 },
-  { name: "Contact", to: "#", id: 3 },
-];
+interface NavbarProps {
+  t: {
+    about: string;
+    projects: string;
+    contact: string;
+    language: string;
+  };
+}
 
 const itemVariants = {
   closed: {
@@ -39,13 +42,19 @@ const sideVariants = {
   },
 };
 
-const Sidebar = () => {
+const Sidebar = ({ t }: NavbarProps) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
   const { y } = useWindowScroll();
+
+  const links = [
+    { id: 1, text: t.about, to: "/" },
+    { id: 2, text: t.projects, to: "/projects" },
+    { id: 3, text: t.contact, to: "/contact" },
+  ];
 
   useEffect(() => {
     setMounted(true);
@@ -85,7 +94,7 @@ const Sidebar = () => {
               exit="closed"
               variants={sideVariants}>
               <ThemeSwitcher />
-              {links.map(({ name, to, id }) => (
+              {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
                     className={`font-dimensions text-[120px] flex flex-col gap-16 py-8 text-4xl drop-shadow-2xl
@@ -96,7 +105,7 @@ const Sidebar = () => {
                     }`}
                     href={to}
                     variants={itemVariants}>
-                    {name}
+                    {text}
                   </motion.a>
                 </Magnetic>
               ))}

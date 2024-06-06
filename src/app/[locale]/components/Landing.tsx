@@ -21,7 +21,7 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
   ];
   return (
     <main>
-      <PreloadWrapper words={words} time={2500}>
+      <PreloadWrapper words={words} time={2000}>
         <div key={1}>
           <LocomotiveScroll />
 
