@@ -15,7 +15,13 @@ interface HomeProps {
 
 const Projects = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["projects"]);
-  const words = [];
+
+  const headerTranslations = {
+    about: t("about"),
+    projects: t("projects"),
+    contact: t("contact"),
+    language: t("language"),
+  };
 
   return (
     <TranslationsProvider
@@ -26,7 +32,7 @@ const Projects = async ({ params: { locale } }: HomeProps) => {
         <div key={1} className="fixed -z-10 bg-transparent h-[100vh] w-full">
           <StarsBackground />
         </div>
-        <Header />
+        <Header t={headerTranslations} />
         <ProjectsLanding
           transition={t("transition")}
           title={t("title")}

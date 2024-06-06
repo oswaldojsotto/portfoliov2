@@ -5,17 +5,26 @@ import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
-import LanguageDropdown from "./language";
+// import LanguageDropdown from "./language";
 
-const NavBar = () => {
+interface NavbarProps {
+  t: {
+    about: string;
+    projects: string;
+    contact: string;
+    language: string;
+  };
+}
+
+const NavBar = ({ t }: NavbarProps) => {
   const router = useRouter();
 
   const items1 = [
-    { id: 1, text: "ABOUT", to: "/" },
-    { id: 2, text: "PROJECTS", to: "/projects" },
+    { id: 1, text: t.about, to: "/" },
+    { id: 2, text: t.projects, to: "/projects" },
   ];
 
-  const items2 = [{ id: 3, text: "CONTACT", to: "/contact" }];
+  const items2 = [{ id: 3, text: t.contact, to: "/contact" }];
 
   const goToProject = (page: string) => {
     router.push(page);

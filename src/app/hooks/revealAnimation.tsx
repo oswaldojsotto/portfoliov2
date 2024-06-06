@@ -22,12 +22,12 @@ const RevealAnimation = ({ children }: RevealAnimationProps) => {
     <motion.div
       ref={ref}
       variants={{
-        hidden: { opacity: 0, y: 75 },
+        hidden: { opacity: 0, y: 95 },
         visible: { opacity: 1, y: 0 },
       }}
       initial="hidden"
       animate="visible"
-      transition={{ duration: 0.4, delay: 0.25 }}>
+      transition={{ duration: 0.4, delay: 2.6 }}>
       {children}
     </motion.div>
   );

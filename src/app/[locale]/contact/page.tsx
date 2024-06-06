@@ -12,13 +12,20 @@ interface HomeProps {
 const Contact = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["contact"]);
 
+  const headerTranslations = {
+    about: t("about"),
+    projects: t("projects"),
+    contact: t("contact"),
+    language: t("language"),
+  };
+
   return (
     <TranslationsProvider
       resources={resources}
       locale={locale}
       namespaces={["contact"]}>
       <main>
-        <Header />
+        <Header t={headerTranslations} />
         <ContactLanding
           transition={t("transition")}
           title={t("title")}

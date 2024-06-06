@@ -12,7 +12,12 @@ interface HomeProps {
 const Home = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["landing"]);
 
-  console.log(t);
+  const headerTranslations = {
+    about: t("about"),
+    projects: t("projects"),
+    contact: t("contact"),
+    language: t("language"),
+  };
 
   return (
     <TranslationsProvider
@@ -20,7 +25,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       locale={locale}
       namespaces={["landing"]}>
       <main>
-        <Header />
+        <Header t={headerTranslations} />
         <Landing title={t("title")} subtitle={t("subtitle")} />
       </main>
     </TranslationsProvider>
