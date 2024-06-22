@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";

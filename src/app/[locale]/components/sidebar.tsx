@@ -4,10 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-import gsap from "gsap";
 import { useDispatch, useSelector } from "react-redux";
-import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
-import { setSideMenu } from "@/app/store/sidemenuSlice";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useWindowScroll } from "react-use";
 
@@ -40,6 +39,10 @@ const Sidebar = ({ t }: HeaderProps) => {
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
   const { y } = useWindowScroll();
+
+  // useEffect(() => {
+  //   console.log(y);
+  // }, [y]);
 
   const links = [
     { id: 1, text: t.about, to: "/" },
