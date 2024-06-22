@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Sidebar from "./sidebar";
-import NavBar from "./NavBar";
+import Sidebar from "@/[locale]/components/sidebar";
+import NavBar from "@/[locale]/components/navbar";
 
 const Header = ({ t }: HeaderProps) => {
   return (
