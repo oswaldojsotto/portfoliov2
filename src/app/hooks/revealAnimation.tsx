@@ -3,10 +3,11 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 interface RevealAnimationProps {
+  delayWait?: number;
   children: React.ReactNode;
 }
 
-const RevealAnimation = ({ children }: RevealAnimationProps) => {
+const RevealAnimation = ({ children, delayWait }: RevealAnimationProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -27,7 +28,7 @@ const RevealAnimation = ({ children }: RevealAnimationProps) => {
       }}
       initial="hidden"
       animate="visible"
-      transition={{ duration: 0.4, delay: 2.6 }}>
+      transition={{ duration: 0.4, delay: delayWait ? delayWait : 1 }}>
       {children}
     </motion.div>
   );

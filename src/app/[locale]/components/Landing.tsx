@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import StarsBackground from "./stars-background";
-import LocomotiveScroll from "@/app/hooks/locomotiveScroll";
-import HeroSection from "@/app/[locale]/components/hero-section";
+import LocomotiveScroll from "@/hooks/locomotiveScroll";
+import HeroSection from "@/[locale]/components/hero-section";
 // import Header from "./header";
 
-import ProjectsList from "@/app/[locale]/projects/projects-list";
+import ProjectsList from "@/[locale]/projects/projects-list";
 import MarqueeTech from "./slider/slider";
 import PreloadWrapper from "./preloading/wrapper";
 

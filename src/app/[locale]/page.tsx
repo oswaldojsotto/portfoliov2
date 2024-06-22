@@ -1,7 +1,13 @@
-import initTranslations from "@/app/i18n";
+import initTranslations from "@/i18n";
 import TranslationsProvider from "../TranslationsProvider";
-import Landing from "@/app/[locale]/components/landing";
+import Landing from "@/[locale]/components/landing";
 import Header from "./components/header";
+
+interface HomeProps {
+  params: {
+    locale: string;
+  };
+}
 
 const Home = async ({ params: { locale } }: HomeProps) => {
   const { t, resources } = await initTranslations(locale, ["landing"]);
