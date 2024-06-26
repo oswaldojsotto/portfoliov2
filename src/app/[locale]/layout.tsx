@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Agdasima } from "next/font/google";
-import "@/app/[locale]/styles/globals.css";
+import "../[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 

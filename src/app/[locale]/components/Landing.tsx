@@ -23,9 +23,8 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
     <main>
       <PreloadWrapper words={words} time={2000}>
         <div key={1}>
-          <LocomotiveScroll />
-
           <div key={1} className="fixed -z-10 bg-transparent h-[100vh] w-full">
+            <LocomotiveScroll />
             <StarsBackground />
           </div>
           <div key={2} className="px-8 xl:px-[15%]  ">
@@ -33,7 +32,8 @@ const Landing = ({ title, subtitle }: { title: string; subtitle: string }) => {
             <ProjectsList />
           </div>
 
-          <MarqueeTech />
+          {/* <MarqueeTech /> */}
+          <div className="pb-[10rem]">contactii</div>
         </div>
       </PreloadWrapper>
     </main>

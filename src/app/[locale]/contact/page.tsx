@@ -1,41 +1,31 @@
-import initTranslations from "@/i18n";
-import ContactLanding from "./contact-landing";
-import Header from "@/[locale]/components/header";
-import TranslationsProvider from "@/TranslationsProvider";
+"use client";
+import React, { useRef } from "react";
+import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
+import RevealAnimation from "@/hooks/revealAnimation";
 
-interface HomeProps {
-  params: {
-    locale: string;
-  };
-}
-
-const Contact = async ({ params: { locale } }: HomeProps) => {
-  const { t, resources } = await initTranslations(locale, ["contact"]);
-
-  const headerTranslations = {
-    about: t("about"),
-    projects: t("projects"),
-    contact: t("contact"),
-    language: t("language"),
-    english: t("english"),
-    spanish: t("spanish"),
-    italian: t("italian"),
-  };
+const Contact = ({ params }: { params: { slug: string } }) => {
+  const firstText = useRef(null);
+  const slider = useRef(null);
 
   return (
-    <TranslationsProvider
-      resources={resources}
-      locale={locale}
-      namespaces={["contact"]}>
-      <main>
-        <Header t={headerTranslations} />
-        <ContactLanding
-          transition={t("transition")}
-          title={t("title")}
-          subtitle={t("subtitle")}
-        />
-      </main>
-    </TranslationsProvider>
+    <PreloadWrapper words={["Contact"]}>
+      <div className="relative py-32  px-8 xl:px-[15%]">
+        <RevealAnimation delayWait={1.6}>
+          <div ref={slider} className="w-full flex justify-start">
+            <p
+              ref={firstText}
+              data-scroll
+              data-scroll-speed="0.8"
+              className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll   tracking-[4px]
+                text-dark dark:text-light justify-start whitespace-nowrap
+                text-[62px] xs:text-[100px] sm:text-[130px] md:text-[160px] lg:text-[190px]  xl:text-[268px]
+                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
+              Contact Page
+            </p>
+          </div>
+        </RevealAnimation>
+      </div>
+    </PreloadWrapper>
   );
 };
 

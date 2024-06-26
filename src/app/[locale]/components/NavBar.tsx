@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
+import React, { useEffect } from "react";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,8 @@ const NavBar = ({ t }: HeaderProps) => {
 
   const items1 = [
     { id: 1, text: t.about, to: "/" },
-    { id: 2, text: t.projects, to: "/projects" },
+    // { id: 2, text: t.projects, to: "/projects" },
+    { id: 2, text: t.projects, to: "/proyectos" },
   ];
 
   const items2 = [{ id: 3, text: t.contact, to: "/contact" }];

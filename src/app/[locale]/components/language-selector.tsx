@@ -7,7 +7,7 @@ import i18nConfig from "@/../../i18nConfig";
 import { useTheme } from "next-themes";
 import Magnetic from "./magnetic/Magnetic";
 import { useDispatch, useSelector } from "react-redux";
-import { setLanguageSelectorMenu } from "@/app/store/sidemenuSlice";
+import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
 
 const itemVariants: Variants = {
   open: {

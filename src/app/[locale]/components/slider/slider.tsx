@@ -2,7 +2,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
-import tech from "@/app/[locale]/components/slider/tech.json";
+import tech from "@/[locale]/components/slider/tech.json";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 

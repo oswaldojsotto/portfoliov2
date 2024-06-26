@@ -4,12 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-import gsap from "gsap";
 import { useDispatch, useSelector } from "react-redux";
-import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
-import { setSideMenu } from "@/app/store/sidemenuSlice";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
-import { useWindowScroll } from "react-use";
+import { useScroll } from "@/hooks/useScroll";
+import { useRouter } from "next/navigation";
 
 const itemVariants = {
   closed: {
@@ -37,15 +37,22 @@ const Sidebar = ({ t }: HeaderProps) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
+  const router = useRouter();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
-  const { y } = useWindowScroll();
+  const {
+    position: { y },
+  } = useScroll();
 
   const links = [
     { id: 1, text: t.about, to: "/" },
     { id: 2, text: t.projects, to: "/projects" },
     { id: 3, text: t.contact, to: "/contact" },
   ];
+
+  const goTo = (page: string) => {
+    router.push(page);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -89,12 +96,12 @@ const Sidebar = ({ t }: HeaderProps) => {
                 <Magnetic key={id}>
                   <motion.a
                     className={`font-dimensions text-[120px] flex flex-col gap-16 py-8 text-4xl drop-shadow-2xl
-                    transition-all hover:text-orange dark:hover:text-pink tracking-wide ${
+                    transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
                       currentTheme === "dark"
                         ? "text-light drop-shadow-2xl"
                         : "text-dark drop-shadow-2xl"
                     }`}
-                    href={to}
+                    onClick={() => goTo(to)}
                     variants={itemVariants}>
                     {text}
                   </motion.a>

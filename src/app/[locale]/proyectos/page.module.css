@@ -1,0 +1,14 @@
+.main {
+    height: 200vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    }
+    
+  .gallery{
+    z-index: 100000;
+    margin-top: 20rem;
+    margin-bottom: 40rem;
+    width: 70%;
+  }
