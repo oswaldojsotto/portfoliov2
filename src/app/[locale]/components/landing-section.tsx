@@ -5,6 +5,7 @@ import HeroSection from "./hero-section";
 import PreloadWrapper from "./preloading/wrapper";
 import ProjectsList from "../projects/projects-list";
 import MarqueeTech from "./slider/slider";
+import Footer from "./footer";
 
 const LandingSection = ({
   title,
@@ -34,6 +35,7 @@ const LandingSection = ({
           <HeroSection title={title} subtitle={subtitle} />
           <ProjectsList />
           <MarqueeTech />
+          <Footer />
         </div>
       </PreloadWrapper>
     </div>

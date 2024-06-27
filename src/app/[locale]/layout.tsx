@@ -48,7 +48,6 @@ export default function RootLayout({
                 <LocomotiveScroll />
                 <StarsBackground />
               </div>
-
               {children}
             </div>
           </ThemeProvider>
