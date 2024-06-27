@@ -4,7 +4,6 @@ import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import Magnetic from "./magnetic/Magnetic";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,13 +18,12 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.1 } },
 };
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ t }: HeaderProps) => {
   const { theme, systemTheme } = useTheme();
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const router = useRouter();
   const currentPathname = usePathname();
-  // const [isOpen, setIsOpen] = useState(false);
   const isOpen = useSelector(
     (state: any) => state.sidemenu.languageSelectorState
   );
@@ -71,17 +69,17 @@ const LanguageSelector = () => {
   const languageList = [
     {
       id: 1,
-      name: "ENGLISH",
+      name: t.english,
       value: "en",
     },
     {
       id: 2,
-      name: "SPANISH",
+      name: t.spanish,
       value: "es",
     },
     {
       id: 3,
-      name: "ITALIAN",
+      name: t.italian,
       value: "it",
     },
   ];
@@ -100,23 +98,13 @@ const LanguageSelector = () => {
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>
-            {/* <Image
-              src={`${
-                currentTheme === "light"
-                  ? `translate-light.svg`
-                  : `translate-dark.svg`
-              }`}
-              width={36}
-              height={10}
-              alt="translate"
-            /> */}
             <div className="group relative cursor-pointer items-center flex h-16 dark:text-light text-dark ">
               <div className="w-[100%] flex justify-center pr-4 items-center transition duration-300 ease-in-out">
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
                 <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
-                  LANGUAGE
+                  {t.language}
                 </p>
                 <motion.div
                   className="flex flex-row justify-between"
@@ -125,21 +113,7 @@ const LanguageSelector = () => {
                     closed: { rotate: 0 },
                   }}
                   transition={{ duration: 0.1 }}
-                  style={{ originY: 0.55 }}>
-                  <div className={`w-[1rem] min-w-[1rem] max-w-[1rem]`}>
-                    <Image
-                      className="-mt-1"
-                      src={`${
-                        currentTheme === "light"
-                          ? `sort-down-light.svg`
-                          : `sort-down-dark.svg`
-                      }`}
-                      width={16}
-                      height={16}
-                      alt="dropdown"
-                    />
-                  </div>
-                </motion.div>
+                  style={{ originY: 0.55 }}></motion.div>
               </div>
             </div>
           </motion.button>

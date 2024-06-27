@@ -3,38 +3,46 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
-import Magnetic from "../magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import ProjectItem from "./project-item";
 import { useRouter } from "next/navigation";
 
 const projects = [
   {
     id: 1,
-    title: "Movie Trailers",
-    src: "movieapp.png",
-    color: "yellow",
-    link: "/movie-trailers",
+    title: "BLOCKCHAIN-APP",
+    src: "blockchainapp-preview.png",
+    link: "/blockchain-app",
+    work: "DESIGN & DEVELOPMENT",
   },
   {
     id: 2,
-    title: "shopapp",
-    src: "shopapp.png",
-    color: "blue",
-    link: "/shopapp",
+    title: "SEVEN SUITE",
+    src: "sevensuite-preview.png",
+    link: "/seven-suite",
+    work: "DEVELOPMENT",
   },
+
   {
     id: 3,
-    title: "notes",
-    src: "note2.png",
-    color: "red",
-    link: "/notes",
+    title: "NEXT AUTHORIZE",
+    src: "nextauth-preview.png",
+    link: "/next-authorize",
+    work: "DESIGN & DEVELOPMENT",
   },
   {
     id: 4,
-    title: "newsproject",
-    src: "newsproject.png",
-    color: "green",
-    link: "/newsproject",
+    title: "SHOP",
+    src: "shop-preview.png",
+    link: "/shop-app",
+    work: "DESIGN & DEVELOPMENT",
+  },
+  {
+    id: 5,
+    title: "MOVIE TRAILERS",
+    src: "movie-trailers-preview.png",
+    link: "/movie-trailers",
+    work: "DESIGN & DEVELOPMENT",
   },
 ];
 
@@ -139,6 +147,7 @@ const ProjectsList = () => {
               manageModal={manageModal}
               key={index}
               link={project.link}
+              work={project.work}
             />
           );
         })}
@@ -155,11 +164,10 @@ const ProjectsList = () => {
             style={{ top: index * -100 + "%" }}
             className="relative w-full h-full transition-all duration-700">
             {projects.map((project, index) => {
-              const { src, color } = project;
+              const { src } = project;
               return (
                 <div
                   className="w-full h-full flex flex-col justify-center"
-                  style={{ backgroundColor: color }}
                   key={`modal_${index}`}>
                   <Image
                     src={`/projects/${src}`}

@@ -1,16 +1,16 @@
-import initTranslations from "@/i18n";
-import ContactLanding from "./contact-landing";
 import Header from "@/[locale]/components/header";
+import StarsBackground from "@/[locale]/components/stars-background";
+import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 
-interface HomeProps {
-  params: {
-    locale: string;
-  };
-}
-
-const Contact = async ({ params: { locale } }: HomeProps) => {
-  const { t, resources } = await initTranslations(locale, ["contact"]);
+const ProjectsLayout = async ({
+  children,
+  params: { locale },
+}: Readonly<{
+  children: React.ReactNode;
+  params: { locale: string };
+}>) => {
+  const { t, resources } = await initTranslations(locale, ["projects"]);
 
   const headerTranslations = {
     about: t("about"),
@@ -21,22 +21,20 @@ const Contact = async ({ params: { locale } }: HomeProps) => {
     spanish: t("spanish"),
     italian: t("italian"),
   };
-
   return (
     <TranslationsProvider
       resources={resources}
       locale={locale}
-      namespaces={["contact"]}>
+      namespaces={["projects"]}>
       <main>
+        <div className="absolute w-full h-screen ">
+          <StarsBackground />
+        </div>
         <Header t={headerTranslations} />
-        <ContactLanding
-          transition={t("transition")}
-          title={t("title")}
-          subtitle={t("subtitle")}
-        />
+        {children}
       </main>
     </TranslationsProvider>
   );
 };
 
-export default Contact;
+export default ProjectsLayout;

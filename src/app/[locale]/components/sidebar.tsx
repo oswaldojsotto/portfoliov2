@@ -5,14 +5,10 @@ import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
 import { useDispatch, useSelector } from "react-redux";
-import Magnetic from "@/app/[locale]/components/magnetic/Magnetic";
-import { setSideMenu } from "@/app/store/sidemenuSlice";
-
-const links = [
-  { name: "Home", to: "#", id: 1 },
-  { name: "Projects", to: "#", id: 2 },
-  { name: "Contact", to: "#", id: 3 },
-];
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import { setSideMenu } from "@/store/sidemenuSlice";
+import ThemeSwitcher from "./theme-switcher";
+import { useWindowScroll } from "react-use";
 
 const itemVariants = {
   closed: {
@@ -36,16 +32,33 @@ const sideVariants = {
   },
 };
 
-const Sidebar = () => {
+const Sidebar = ({ t }: HeaderProps) => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
+  const { y } = useWindowScroll();
+
+  // useEffect(() => {
+  //   console.log(y);
+  // }, [y]);
+
+  const links = [
+    { id: 1, text: t.about, to: "/" },
+    { id: 2, text: t.projects, to: "/projects" },
+    { id: 3, text: t.contact, to: "/contact" },
+  ];
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  React.useEffect(() => {
+    if (y === 0) {
+      dispatch(setSideMenu(false));
+    }
+  }, [y, dispatch]);
 
   if (!mounted) return null;
 
@@ -54,7 +67,7 @@ const Sidebar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            className={`fixed h-[101vh] flex justify-center  overflow-hidden ${
+            className={`fixed h-[101vh] flex left-0 z-10  justify-center  overflow-hidden ${
               currentTheme === "dark"
                 ? "bg-dark drop-shadow-2xl"
                 : "bg-light drop-shadow-2xl"
@@ -68,13 +81,14 @@ const Sidebar = () => {
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              onClick={() => dispatch(setSideMenu(false))}
+              // onClick={() => dispatch(setSideMenu(false))}
               className="my-[8rem] mx-[2rem]"
               initial="closed"
               animate="open"
               exit="closed"
               variants={sideVariants}>
-              {links.map(({ name, to, id }) => (
+              <ThemeSwitcher />
+              {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
                     className={`font-dimensions text-[120px] flex flex-col gap-16 py-8 text-4xl drop-shadow-2xl
@@ -85,7 +99,7 @@ const Sidebar = () => {
                     }`}
                     href={to}
                     variants={itemVariants}>
-                    {name}
+                    {text}
                   </motion.a>
                 </Magnetic>
               ))}
@@ -93,12 +107,14 @@ const Sidebar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <div
-        className="fixed mx-7 my-4"
+      <motion.div
+        animate={{ scale: y > 100 ? 1 : 0 }}
+        transition={{ ease: "easeOut", duration: 0.2 }}
+        className="fixed left-8 z-20 my-4 hidden sm:flex "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>
-            <div className="z-[1]">
+            <motion.div className="z-[1]">
               <Hamburger
                 hideOutline
                 rounded
@@ -107,10 +123,29 @@ const Sidebar = () => {
                 toggled={isOpen}
                 onToggle={() => dispatch(setSideMenu(!isOpen))}
               />
-            </div>
+            </motion.div>
           </Magnetic>
         </RoundedButton>
-      </div>
+      </motion.div>
+      <motion.div
+        transition={{ ease: "easeOut", duration: 0.2 }}
+        className="fixed left-8 z-20 my-4 flex sm:hidden "
+        onClick={() => dispatch(setSideMenu(!isOpen))}>
+        <RoundedButton backgroundColor="#a2a2a2">
+          <Magnetic>
+            <motion.div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </motion.div>
+          </Magnetic>
+        </RoundedButton>
+      </motion.div>
     </main>
   );
 };

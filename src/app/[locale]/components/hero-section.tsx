@@ -1,14 +1,8 @@
 "use client";
-import RevealAnimation from "@/app/hooks/revealAnimation";
-import {
-  setLanguageSelectorMenu,
-  setSideMenu,
-} from "@/app/store/sidemenuSlice";
-import React, { useEffect, useRef } from "react";
+import RevealAnimation from "@/hooks/revealAnimation";
+import { setLanguageSelectorMenu, setSideMenu } from "@/store/sidemenuSlice";
+import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
-import { AnimatePresence } from "framer-motion";
 
 interface HeroSectionProps {
   title: string;
@@ -31,7 +25,7 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
       className=" w-full z-[1] h-[100vh] flex flex-col justify-center sm:justify-center 
       md:justify-center  -space-y-[2rem] "
       onClick={() => closeMenus()}>
-      <RevealAnimation>
+      <RevealAnimation delayWait={2.6}>
         <div ref={slider} className="w-full flex justify-start">
           <p
             ref={firstText}
@@ -41,12 +35,12 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[62px] xs:text-[100px] sm:text-[198px] md:text-[248px] lg:text-[268px]  xl:text-[318px]
                 mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
-            OSWALDO J. SOTTO...
+            {`OSWALDO J. SOTTO`}
           </p>
         </div>
       </RevealAnimation>
 
-      <RevealAnimation>
+      <RevealAnimation delayWait={2.6}>
         <h1
           data-scroll
           data-scroll-speed="0.1"
@@ -56,11 +50,11 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
         </h1>
       </RevealAnimation>
 
-      <RevealAnimation>
+      <RevealAnimation delayWait={2.6}>
         <div
           data-scroll
           data-scroll-speed="0.1"
-          className="text-dark dark:text-light my-4 font-agdasima   text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
+          className="text-dark dark:text-light my-4 font-agdasima font-semibold dark:font-medium  text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
           sm:-mt-[2px] lg:mt-4 ">
           {subtitle}
         </div>
