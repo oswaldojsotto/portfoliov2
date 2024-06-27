@@ -12,8 +12,8 @@ const NavBar = ({ t }: HeaderProps) => {
 
   const items1 = [
     { id: 1, text: t.about, to: "/" },
-    // { id: 2, text: t.projects, to: "/projects" },
-    { id: 2, text: t.projects, to: "/proyectos" },
+    { id: 2, text: t.projects, to: "/projects" },
+    // { id: 2, text: t.projects, to: "/proyectos" },
   ];
 
   const items2 = [{ id: 3, text: t.contact, to: "/contact" }];

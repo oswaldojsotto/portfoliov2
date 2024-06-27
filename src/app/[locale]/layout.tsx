@@ -4,6 +4,8 @@ import { Agdasima } from "next/font/google";
 import "../[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
+import StarsBackground from "./components/stars-background";
+import LocomotiveScroll from "@/hooks/locomotiveScroll";
 
 const agdasima = Agdasima({
   subsets: ["latin"],
@@ -41,7 +43,14 @@ export default function RootLayout({
         suppressHydrationWarning>
         <body>
           <ThemeProvider enableSystem={true} attribute="class">
-            <div className="-z-10 bg-transparent h-[100vh]">{children}</div>
+            <div className="-z-10 bg-transparent h-[100vh]">
+              <div className="fixed -z-10 bg-transparent h-[100vh] w-full">
+                <LocomotiveScroll />
+                <StarsBackground />
+              </div>
+
+              {children}
+            </div>
           </ThemeProvider>
         </body>
       </html>

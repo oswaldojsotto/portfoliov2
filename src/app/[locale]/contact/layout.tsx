@@ -1,6 +1,4 @@
 import Header from "@/[locale]/components/header";
-import StarsBackground from "@/[locale]/components/stars-background";
-import LocomotiveScroll from "@/hooks/locomotiveScroll";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 
@@ -28,10 +26,7 @@ const ContactLayout = async ({
       locale={locale}
       namespaces={["projects"]}>
       <main>
-        <div className="fixed w-full h-screen ">
-          <LocomotiveScroll />
-          <StarsBackground />
-        </div>
+        <div className="fixed w-full h-screen "></div>
         <Header t={headerTranslations} />
         {children}
       </main>

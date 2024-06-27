@@ -1,5 +1,3 @@
-import Header from "@/[locale]/components/header";
-import StarsBackground from "@/[locale]/components/stars-background";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 
@@ -26,13 +24,7 @@ const ProjectsLayout = async ({
       resources={resources}
       locale={locale}
       namespaces={["projects"]}>
-      <main>
-        <div className="absolute w-full h-screen ">
-          <StarsBackground />
-        </div>
-        <Header t={headerTranslations} />
-        {children}
-      </main>
+      <main>{children}</main>
     </TranslationsProvider>
   );
 };

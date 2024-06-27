@@ -8,6 +8,7 @@ import * as random from "maath/random/dist/maath-random.esm";
 export default function StarsBackground() {
   return (
     <Canvas
+      gl={{ preserveDrawingBuffer: true }}
       className=" dark:bg-dark bg-light -z-30 fixed"
       camera={{ position: [0, 0, 1] }}>
       <Stars />

@@ -14,7 +14,7 @@ const PreloadWrapper = ({ children, words, time = 1000 }: PreloaderProps) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }, time);
   });
   return (
