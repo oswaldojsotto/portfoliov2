@@ -1,6 +1,7 @@
 import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
+import Footer from "../components/footer";
 
 const ContactLayout = async ({
   children,
@@ -26,9 +27,9 @@ const ContactLayout = async ({
       locale={locale}
       namespaces={["projects"]}>
       <main>
-        <div className="fixed w-full h-screen "></div>
         <Header t={headerTranslations} />
         {children}
+        <Footer />
       </main>
     </TranslationsProvider>
   );

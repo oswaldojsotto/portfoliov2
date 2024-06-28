@@ -5,6 +5,7 @@ import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
+import Perspective from "./perspective";
 // import LanguageDropdown from "./language";
 
 const NavBar = ({ t }: HeaderProps) => {
