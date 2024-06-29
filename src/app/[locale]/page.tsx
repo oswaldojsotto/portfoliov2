@@ -2,7 +2,6 @@ import initTranslations from "@/i18n";
 import TranslationsProvider from "../TranslationsProvider";
 import Header from "./components/header";
 import LandingSection from "./components/landing-section";
-// import Footer from "./components/footer";
 
 interface HomeProps {
   params: {
@@ -35,7 +34,6 @@ const Home = async ({ params: { locale } }: HomeProps) => {
         <div>
           <Header t={headerTranslations} />
           <LandingSection title={t("title")} subtitle={t("subtitle")} />
-          {/* <Footer /> */}
         </div>
       </main>
     </TranslationsProvider>
