@@ -6,15 +6,10 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}.lenis.lenis-smo
 
 
 
-/* html[data-scroll-orientation="horizontal"] {
-    body {
-        width: fit-content;
-    }
-    [data-scroll-container] {
-        display: flex;
-    }
-} */
-  
+.only-bottom-shadow {
+    /* box-shadow: 0 8px 5px rgb(41, 41, 41); */
+    /* opacity: 0.5; */
+}
 
 
 ::-webkit-scrollbar {
@@ -24,3 +19,5 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}.lenis.lenis-smo
 /* .autotext {
     font-size: auto;
   } */
+
+  

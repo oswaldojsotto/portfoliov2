@@ -1,6 +1,7 @@
 import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
+import Footer from "../components/footer";
 
 const ProjectsLayout = async ({
   children,
@@ -28,6 +29,7 @@ const ProjectsLayout = async ({
       <main>
         <Header t={headerTranslations} />
         {children}
+        <Footer />
       </main>
     </TranslationsProvider>
   );

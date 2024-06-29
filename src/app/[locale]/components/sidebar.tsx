@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
@@ -10,6 +10,7 @@ import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
+import Perspective from "./perspective";
 
 const itemVariants = {
   closed: {
@@ -49,6 +50,18 @@ const Sidebar = ({ t }: HeaderProps) => {
     { id: 2, text: t.projects, to: "/projects" },
     { id: 3, text: t.contact, to: "/contact" },
   ];
+
+  const plane = useRef(null);
+  const maxRotate = 45;
+
+  // const manageMouseMove = e => {
+  //   const x = e.clientX / window.innerWidth;
+  //   const y = e.clientY / window.innerHeight;
+  //   const perspective = window.innerWidth * 4;
+  //   const rotateX = maxRotate * x - maxRotate / 2;
+  //   const rotateY = (maxRotate * y - maxRotate / 2) * -1;
+  //   plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
+  // };
 
   const goTo = (page: string) => {
     router.push(page);
@@ -92,6 +105,9 @@ const Sidebar = ({ t }: HeaderProps) => {
               exit="closed"
               variants={sideVariants}>
               <ThemeSwitcher />
+              {/* <div>
+                <Perspective />
+              </div> */}
               {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a

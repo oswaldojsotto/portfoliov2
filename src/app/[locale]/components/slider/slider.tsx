@@ -19,7 +19,7 @@ const MarqueeTech = () => {
       <Marquee
         gradient
         speed={80}
-        gradientWidth={200}
+        gradientWidth={10}
         gradientColor={`${theme === "dark" ? "#262526" : "white"}`}
         className="font-agdasima">
         {tech.map((item: { name: string; route: string }) => (
