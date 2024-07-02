@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Preloader from "./preloader";
+import { ReactLenis, useLenis } from "lenis/react";
 
 interface PreloaderProps {
   children: React.ReactNode;
@@ -19,10 +20,12 @@ const PreloadWrapper = ({ children, words, time = 1000 }: PreloaderProps) => {
   });
   return (
     <main>
-      <AnimatePresence mode="wait">
-        {loading && <Preloader words={words} />}
-      </AnimatePresence>
-      <div key={1}>{children}</div>
+      <ReactLenis root options={{ lerp: 0.05, duration: 1.5, syncTouch: true }}>
+        <AnimatePresence mode="wait">
+          {loading && <Preloader words={words} />}
+        </AnimatePresence>
+        <div key={1}>{children}</div>
+      </ReactLenis>
     </main>
   );
 };

@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import Header from "./header";
 import HeroSection from "./hero-section";
 import PreloadWrapper from "./preloading/wrapper";
 import ProjectsList from "../projects/projects-list";
@@ -31,7 +30,7 @@ const LandingSection = ({
   return (
     <div>
       <PreloadWrapper words={words} time={2000}>
-        <div className="px-8 xl:px-[15%]">
+        <div className="px-8 xl:px-[15%] ">
           <HeroSection title={title} subtitle={subtitle} />
           <ProjectsList />
           <MarqueeTech />

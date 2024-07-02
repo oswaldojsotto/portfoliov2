@@ -1,15 +1,16 @@
  "use client";
-import  { useEffect } from "react";
+import  { useEffect, useLayoutEffect } from "react";
 
 
-const LocomotiveScroll = () => {
+const LocomotiveScroller = () => {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import("locomotive-scroll")).default;
       const locomotiveScroll = new LocomotiveScroll();
+      console.log('scroll');
     })();
   }, []);
   return null
 };
 
-export default LocomotiveScroll;
+export default LocomotiveScroller;

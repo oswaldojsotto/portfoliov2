@@ -2,7 +2,6 @@ import initTranslations from "@/i18n";
 import TranslationsProvider from "../TranslationsProvider";
 import Header from "./components/header";
 import LandingSection from "./components/landing-section";
-
 interface HomeProps {
   params: {
     locale: string;
@@ -28,9 +27,7 @@ const Home = async ({ params: { locale } }: HomeProps) => {
       locale={locale}
       namespaces={["landing"]}>
       <main>
-        <div
-          key={1}
-          className="fixed -z-10 bg-transparent h-[100vh] w-full"></div>
+        <div key={1} className="absolute bg-transparent h-[100vh] w-full"></div>
         <div>
           <Header t={headerTranslations} />
           <LandingSection title={t("title")} subtitle={t("subtitle")} />

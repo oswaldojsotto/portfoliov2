@@ -10,7 +10,7 @@ const ContactLayout = async ({
   children: React.ReactNode;
   params: { locale: string };
 }>) => {
-  const { t, resources } = await initTranslations(locale, ["projects"]);
+  const { t, resources } = await initTranslations(locale, ["contact"]);
 
   const headerTranslations = {
     about: t("about"),
@@ -25,7 +25,7 @@ const ContactLayout = async ({
     <TranslationsProvider
       resources={resources}
       locale={locale}
-      namespaces={["projects"]}>
+      namespaces={["contact"]}>
       <main>
         <Header t={headerTranslations} />
         {children}

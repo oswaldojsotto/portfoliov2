@@ -5,7 +5,7 @@ import "../[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 import StarsBackground from "./components/stars-background";
-import LocomotiveScroll from "@/hooks/locomotiveScroll";
+// import LocomotiveScroller from "@/hooks/locomotiveScroller";
 
 const agdasima = Agdasima({
   subsets: ["latin"],
@@ -38,14 +38,14 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        className={`${dimensions.variable} ${agdasima.variable}  `}
+        className={`${dimensions.variable} ${agdasima.variable}`}
         lang={locale}
         suppressHydrationWarning>
         <body>
           <ThemeProvider enableSystem={true} attribute="class">
-            <div className="-z-10 bg-transparent h-[100vh]">
-              <div className="fixed -z-10 bg-transparent h-[100vh] w-full">
-                <LocomotiveScroll />
+            <div className=" bg-transparent h-[100vh]">
+              <div className="fixed -z-10 bg-transparent h-[100vh] w-full ">
+                {/* <LocomotiveScroller /> */}
                 <StarsBackground />
               </div>
               {children}
