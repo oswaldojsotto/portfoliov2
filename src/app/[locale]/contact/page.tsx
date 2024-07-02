@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 
@@ -7,11 +7,15 @@ const Contact = ({ params }: { params: { slug: string } }) => {
   const firstText = useRef(null);
   const slider = useRef(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <PreloadWrapper words={["Contact"]}>
       <div className="relative py-32  px-8 xl:px-[15%]">
         <RevealAnimation delayWait={1.6}>
-          <div ref={slider} className="w-full flex justify-start">
+          <div ref={slider} className="w-full flex justify-start flex-col">
             <p
               ref={firstText}
               data-scroll
@@ -24,6 +28,7 @@ const Contact = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
         </RevealAnimation>
+        <div className="my-[100vh]"></div>
       </div>
     </PreloadWrapper>
   );

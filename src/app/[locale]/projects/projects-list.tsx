@@ -129,7 +129,7 @@ const ProjectsList = () => {
       onMouseMove={e => {
         moveItems(e.clientX, e.clientY);
       }}
-      className="flex flex-col  items-center">
+      className="flex flex-col items-center">
       <div
         className="w-full flex justify-end bg py-1   tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
        text-[100px] xs:text-[120px]  cursor-default ">

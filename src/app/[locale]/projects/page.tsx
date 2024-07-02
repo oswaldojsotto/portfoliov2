@@ -4,7 +4,7 @@ import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import ProjectsList from "./projects-list";
 
-const Contact = ({ params }: { params: { slug: string } }) => {
+const Projects = ({ params }: { params: { slug: string } }) => {
   const firstText = useRef(null);
   const slider = useRef(null);
 
@@ -32,4 +32,4 @@ const Contact = ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default Contact;
+export default Projects;
