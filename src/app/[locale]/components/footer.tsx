@@ -15,11 +15,9 @@ const Footer = () => {
     <div className=" flex flex-col w-full h-[30vh] bottom-0">
       <div className="absolute flex w-full bg-light dark:bg-dark  h-8 rounded-b-[48px] " />
       <div className=" flex w-full h-[30vh] dark:bg-light bg-dark margin-0 ">
-        <Parallax
-          className={` xl:-mt-16  -z-1 w-full px-8 xl:px-[15%] py-8`}
-          speed={2}>
-          <div className="flex justify-between h-[8rem]">
-            <div className="flex gap-4">
+        <Parallax className={` xl:-mt-16  -z-1 w-full px-8  py-8`} speed={2}>
+          <div className="flex justify-between h-[8rem] bg-red">
+            <div className="flex  justify-between gap-4">
               {links.map(link => (
                 <div
                   key={link.id}
