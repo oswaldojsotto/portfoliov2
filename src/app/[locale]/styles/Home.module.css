@@ -1,16 +1,4 @@
-.container {
-    height: 100vh;
-    left: 0;
-    width: 100vw;
-    position: fixed;
-    background-color: lightgrey;
-  }
-  .body{
-    
-    transform-style: preserve-3d;
-    margin-top: 25px;
-    margin-left: 25px;
-  }
+ 
   .textContainer{
     position: relative;
     cursor: pointer;
@@ -18,31 +6,33 @@
     transform-style: preserve-3d;
   }
   
-  .textContainer p{
-    font-size: 6vw;
-    font-weight: 700;
+  .textContainer  p{
+    width: 100%;
+    font-size: 4vw;
     margin: 0px;
     transition: all 0.4s;
-    color: white;
-    line-height: 8vw;
+    /* color: #262526; */
+    letter-spacing: 2px;
+    line-height: 7vw;
   }
   
-  .textContainer .secondary{
+   .secondary{
     transform: rotateX(-90deg) translateY(3.5vw);
     transform-origin: bottom center;
     position: absolute;
     top: 0;
-    color: black;
     opacity: 0;
+  }
+  .textContainer:hover .secondary{
+    /* color: #EA2027; */
+    opacity: 1;
   }
   
   .textContainer:hover{
     transform: rotateX(90deg);
   }
   
-  .textContainer:hover .secondary{
-    opacity: 1;
-  }
+  
   
   .textContainer:hover .primary{
     transform: translateY(-100%);

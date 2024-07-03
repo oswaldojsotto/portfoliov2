@@ -10,7 +10,6 @@ import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
-import Perspective from "./perspective";
 
 const itemVariants = {
   closed: {
@@ -51,18 +50,6 @@ const Sidebar = ({ t }: HeaderProps) => {
     { id: 3, text: t.contact, to: "/contact" },
   ];
 
-  const plane = useRef(null);
-  const maxRotate = 45;
-
-  // const manageMouseMove = e => {
-  //   const x = e.clientX / window.innerWidth;
-  //   const y = e.clientY / window.innerHeight;
-  //   const perspective = window.innerWidth * 4;
-  //   const rotateX = maxRotate * x - maxRotate / 2;
-  //   const rotateY = (maxRotate * y - maxRotate / 2) * -1;
-  //   plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
-  // };
-
   const goTo = (page: string) => {
     router.push(page);
   };
@@ -71,7 +58,7 @@ const Sidebar = ({ t }: HeaderProps) => {
     setMounted(true);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (y === 0) {
       dispatch(setSideMenu(false));
     }
@@ -86,8 +73,8 @@ const Sidebar = ({ t }: HeaderProps) => {
           <motion.nav
             className={`fixed h-[101vh] flex left-0 z-10  justify-center  overflow-hidden ${
               currentTheme === "dark"
-                ? "bg-dark drop-shadow-2xl"
-                : "bg-light drop-shadow-2xl"
+                ? "bg-dark drop-shadow-2xl text-light"
+                : "bg-light drop-shadow-2xl text-dark"
             }`}
             initial={{ width: 0 }}
             animate={{
@@ -105,9 +92,7 @@ const Sidebar = ({ t }: HeaderProps) => {
               exit="closed"
               variants={sideVariants}>
               <ThemeSwitcher />
-              {/* <div>
-                <Perspective />
-              </div> */}
+
               {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
@@ -133,18 +118,16 @@ const Sidebar = ({ t }: HeaderProps) => {
         className="fixed left-8 z-20 my-4 hidden sm:flex "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <Magnetic>
-            <motion.div className="z-[1]">
-              <Hamburger
-                hideOutline
-                rounded
-                size={24}
-                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-                toggled={isOpen}
-                onToggle={() => dispatch(setSideMenu(!isOpen))}
-              />
-            </motion.div>
-          </Magnetic>
+          <motion.div className="z-[1]">
+            <Hamburger
+              hideOutline
+              rounded
+              size={24}
+              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+              toggled={isOpen}
+              onToggle={() => dispatch(setSideMenu(!isOpen))}
+            />
+          </motion.div>
         </RoundedButton>
       </motion.div>
       <motion.div
@@ -152,18 +135,16 @@ const Sidebar = ({ t }: HeaderProps) => {
         className="fixed left-8 z-20 my-4 flex sm:hidden "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <Magnetic>
-            <motion.div className="z-[1]">
-              <Hamburger
-                hideOutline
-                rounded
-                size={24}
-                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-                toggled={isOpen}
-                onToggle={() => dispatch(setSideMenu(!isOpen))}
-              />
-            </motion.div>
-          </Magnetic>
+          <motion.div className="z-[1]">
+            <Hamburger
+              hideOutline
+              rounded
+              size={24}
+              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+              toggled={isOpen}
+              onToggle={() => dispatch(setSideMenu(!isOpen))}
+            />
+          </motion.div>
         </RoundedButton>
       </motion.div>
     </main>
