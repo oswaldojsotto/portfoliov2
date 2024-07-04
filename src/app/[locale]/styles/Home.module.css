@@ -7,13 +7,11 @@
   }
   
   .textContainer  p{
-    width: 100%;
-    font-size: 4vw;
+    font-size: 60px;
     margin: 0px;
     transition: all 0.4s;
-    /* color: #262526; */
     letter-spacing: 2px;
-    line-height: 7vw;
+    line-height: 73px;
   }
   
    .secondary{
@@ -24,7 +22,6 @@
     opacity: 0;
   }
   .textContainer:hover .secondary{
-    /* color: #EA2027; */
     opacity: 1;
   }
   
