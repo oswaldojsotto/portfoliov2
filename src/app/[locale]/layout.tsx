@@ -45,7 +45,6 @@ export default function RootLayout({
           <ThemeProvider enableSystem={true} attribute="class">
             <div className=" bg-transparent h-[100vh]">
               <div className="fixed -z-10 bg-transparent h-[100vh] w-full ">
-                {/* <LocomotiveScroller /> */}
                 <StarsBackground />
               </div>
               {children}

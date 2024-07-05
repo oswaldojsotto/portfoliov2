@@ -27,6 +27,7 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
         </RevealAnimation>
+        <div className="my-[50vh]"></div>
       </div>
     </PreloadWrapper>
   );
