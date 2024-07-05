@@ -18,10 +18,10 @@ const Footer = () => {
       <div className="absolute flex w-full bg-light dark:bg-dark  h-8 rounded-b-[48px] " />
       <div className=" flex w-full h-[30vh] dark:bg-light bg-dark margin-0 ">
         <Parallax className={` xl:-mt-16  -z-1 w-full px-8  py-8`} speed={2}>
-          <div className=" w-full  justify-between h-30 px-8 xl:px-[15%] ">
-            <div className="px-5 flex  gap-1 xs:scale-[0.8] md:scale-100">
+          <div className=" w-full -mt-2 h-30 px-8 xl:px-[15%] ">
+            <div className="flex justify-between max-w-72 w-72 m-0">
               {links.map(link => (
-                <div key={link.id} className=" font-agadasima ">
+                <div key={link.id} className=" font-agadasima m-0 ">
                   <FooButton text={link.text} />
                 </div>
               ))}
