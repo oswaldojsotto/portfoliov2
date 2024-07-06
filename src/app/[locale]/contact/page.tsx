@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
+import EmailButton from "../components/email-button";
 
 const Contact = ({ params }: { params: { slug: string } }) => {
   const firstText = useRef(null);
@@ -25,7 +26,9 @@ const Contact = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
         </RevealAnimation>
-        <div className="my-[20vh]"></div>
+        <div className="my-[20vh]">
+          <EmailButton />
+        </div>
       </div>
     </PreloadWrapper>
   );

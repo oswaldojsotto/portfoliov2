@@ -13,11 +13,20 @@ const agdasima = Agdasima({
   weight: "400",
 });
 
+// const dimensions = localFont({
+//   src: [
+//     {
+//       path: "../../../public/fonts/starfish.ttf",
+//       weight: "400",
+//     },
+//   ],
+//   variable: "--font-dimensions",
+// });
 const dimensions = localFont({
   src: [
     {
-      path: "../../../public/fonts/dimensions.ttf",
-      weight: "400",
+      path: "../../../public/fonts/dimensions500.ttf",
+      weight: "200",
     },
   ],
   variable: "--font-dimensions",
