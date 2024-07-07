@@ -18,15 +18,15 @@ const Contact = ({ params }: { params: { slug: string } }) => {
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col">
             <p
-              className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll   tracking-[0.5rem]
-                text-dark dark:text-light justify-start whitespace-nowrap
-                text-[62px] xs:text-[100px] sm:text-[130px] md:text-[160px] lg:text-[190px]  xl:text-[268px]
-                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
+              className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
+                text-dark dark:text-light justify-center whitespace-nowrap
+                text-[92px] xs:text-[150px] sm:text-[200px] md:text-[230px] lg:text-[230px]  xl:text-[268px]
+                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-10px]    ">
               GET IN TOUCH
             </p>
           </div>
         </RevealAnimation>
-        <div className="my-[20vh]">
+        <div className="flex justify-center lg: mt-4 xl:-mt-6 scale-75 sm:scale-100">
           <EmailButton />
         </div>
       </div>

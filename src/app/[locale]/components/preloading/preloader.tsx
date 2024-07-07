@@ -53,7 +53,7 @@ const Preloader = ({ words }: PreloaderTypes) => {
       variants={slideUp}
       initial="initial"
       exit="exit"
-      className={`${styles.introduction} bg-red`}>
+      className={`${styles.introduction}`}>
       {dimension.width > 0 && (
         <>
           <motion.p variants={opacity} initial="initial" animate="enter">
