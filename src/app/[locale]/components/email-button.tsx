@@ -44,12 +44,12 @@ const EmailButton = ({ email = false }: { email?: boolean }) => {
       </div>
       <div
         className="group w-full h-[3.1rem] overflow-hidden bg-dark text-light dark:bg-light dark:text-dark rounded-r-md
-      justify-end text-sm  flex flex-col transition-all duration-200  font-agdasima  cursor-pointer">
+      justify-end text-sm  flex flex-col transition-all duration-200  font-agdasima font-medium cursor-pointer">
         <div className="group-hover:-translate-y-[52px] transition-all duration-200  flex justify-center flex-col  h-[3rem] ">
-          <p className="text-[26px] px-2 flex justify-center pt-[4rem]  py-[1rem] font-agdasima">
+          <p className="text-[26px] px-2 flex justify-center pt-[4rem]  py-[1rem] font-agdasima font-medium">
             {copied ? "COPIADO AL PORTAPAPELES!" : "OSWALDOJSOTTO@GMAIL.COM"}
           </p>
-          <p className="text-[26px] px-2 flex justify-center transition-all duration-200  py-[1rem] font-agdasima ">
+          <p className="text-[26px] px-2 flex justify-center transition-all duration-200  py-[1rem] font-agdasima font-medium">
             {copied ? "COPIADO AL PORTAPAPELES!" : "OSWALDOJSOTTO@GMAIL.COM"}
             <span
               className="absolute bottom-0 right-0 h-[2px]  bg-indigo-300 transition-all delay-200 
