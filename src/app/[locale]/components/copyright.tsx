@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 
 const Copyright = () => {
   return (
-    <div className="flex h-16 w-72    ">
+    <div className="flex h-16 w-72  scale-[1]   ">
       <div className="absolute flex h-8 w-56 ml-16 border-b-2 border-b-light dark:border-b-dark  rounded-sm " />
       <div className="absolute flex flex-col h-16 w-72 border-2 border-light dark:border-dark rounded-sm">
         <p className="ml-16 flex  px-[14px] font-agdasima text-[20px] text-light dark:text-dark dark:border-dark font-bold">

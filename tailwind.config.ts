@@ -20,7 +20,7 @@ const config: Config = {
     
     colors: {
       red: 'red',
-      light: "#FFFFFF",
+      light: "#F2EBE2",
       dark: "#262526",
       orange: '#EA2027',
       pink: '#E5A4CB',

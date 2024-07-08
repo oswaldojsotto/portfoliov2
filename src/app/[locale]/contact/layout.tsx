@@ -2,6 +2,7 @@ import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 import Footer from "../components/footer";
+import Footer1 from "../components/footer1";
 
 const ContactLayout = async ({
   children,
@@ -29,7 +30,10 @@ const ContactLayout = async ({
       <main>
         <Header t={headerTranslations} />
         {children}
-        <Footer />
+        <div className="w-full h-[5vh] bg-dark dark:bg-light ">
+          <div className=" flex w-full bg-light dark:bg-dark  h-[5vh] rounded-b-[48px] z-100 " />
+        </div>
+        <Footer1 />
       </main>
     </TranslationsProvider>
   );
