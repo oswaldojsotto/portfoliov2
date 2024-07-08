@@ -1,13 +1,10 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import EmailButton from "../components/email-button";
 
 const Contact = ({ params }: { params: { slug: string } }) => {
-  const firstText = useRef(null);
-  const slider = useRef(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   });
