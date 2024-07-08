@@ -5,7 +5,7 @@ import PreloadWrapper from "./preloading/wrapper";
 import ProjectsList from "../projects/projects-list";
 import Footer from "./footer";
 import InnerContact from "./inner-contact";
-import Slider from "../framer-slider/slider";
+import Slider from "./framer-slider/slider";
 import Footer1 from "./footer1";
 
 const LandingSection = ({

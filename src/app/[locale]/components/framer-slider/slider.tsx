@@ -10,7 +10,7 @@ import {
   useAnimationFrame,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
-import tech from "@/[locale]/framer-slider/tech.json";
+import tech from "@/[locale]/components/framer-slider/tech.json";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 
