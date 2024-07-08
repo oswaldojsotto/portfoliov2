@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import HeroSection from "./hero-section";
 import PreloadWrapper from "./preloading/wrapper";
 import ProjectsList from "../projects/projects-list";
-import MarqueeTech from "./slider/slider";
 import Footer from "./footer";
 import InnerContact from "./inner-contact";
 import Slider from "../framer-slider/slider";
