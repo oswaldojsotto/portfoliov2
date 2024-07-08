@@ -68,20 +68,20 @@ const Slider = () => {
     setCurrentTheme(theme);
   }, [theme]);
   return (
-    <section>
+    <section className="mt-8 mb-16">
       <ParallaxText baseVelocity={1}>
         <div className="flex w-full">
           {tech.map((item: { name: string; route: string }) => (
             <Image
               key={item.name}
               data-tip={item.name}
-              className="w-[7rem] min-w-[7rem] max-w-[7rem] px-4 py-4"
+              className="w-[5.5rem] min-w-[5.5rem] max-w-[5.5rem] px-4 py-4 opacity-[0.8]"
               src={`/tech/${currentTheme === "dark" ? "white" : "color"}/${
                 item.route
               }`}
-              alt="soto"
-              width={18}
-              height={18}
+              alt={`${item.name}`}
+              width={12}
+              height={12}
             />
           ))}
         </div>
