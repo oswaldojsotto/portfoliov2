@@ -34,7 +34,8 @@
     "src/app/[locale]/components/Nav/anim.js",
     "src/app/[locale]/components/projects/projects-list.tsx",
     "src/app/[locale]/components/slider/slider.jsx",
-    ".next/types/app/[locale]/[project-detail]/page.tsx"
+    ".next/types/app/[locale]/[project-detail]/page.tsx",
+    "src/app/[locale]/framer-slider/slider.tsx"
   ],
   "exclude": ["node_modules"]
 }

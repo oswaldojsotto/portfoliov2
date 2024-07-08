@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@motionone/utils": "^10.18.0",
     "@react-three/drei": "^9.102.6",
     "@reduxjs/toolkit": "^2.2.1",
     "@studio-freight/hamo": "^0.6.33",

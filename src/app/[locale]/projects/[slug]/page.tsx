@@ -1,22 +1,19 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
-  const firstText = useRef(null);
-  const slider = useRef(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <PreloadWrapper words={[params.slug.toString().toLocaleUpperCase()]}>
       <div className="relative py-32  px-8 xl:px-[15%]">
-        {/* <h1 className="font-dimensions px-2 text-[128px]">
-          {params.slug.toString().toLocaleUpperCase()}
-        </h1> */}
         <RevealAnimation delayWait={1.6}>
-          <div ref={slider} className="w-full flex justify-start">
+          <div className="w-full flex justify-start">
             <p
-              ref={firstText}
               data-scroll
               data-scroll-speed="0.8"
               className="font-dimensions flex -pt-[5rem] max-h-[26rem]   data-scroll   tracking-[4px]
@@ -27,7 +24,7 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
         </RevealAnimation>
-        <div className="my-[50vh]"></div>
+        {/* <div className=" flex w-full bg-red dark:bg-red  h-8 rounded-b-[48px] z-100" /> */}
       </div>
     </PreloadWrapper>
   );
