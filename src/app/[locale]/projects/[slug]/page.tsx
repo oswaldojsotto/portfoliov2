@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import NavbarLink from "@/[locale]/components/navbar-link";
+import Gallery from "@/[locale]/components/gallery/gallery";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
 
   return (
     <PreloadWrapper words={[params.slug.toString().toLocaleUpperCase()]}>
-      <div className="relative py-32  px-8 xl:px-[15%]">
+      <div className="relative py-24  px-8 xl:px-[15%]">
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col px-4">
             <p
@@ -25,7 +26,9 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
         </RevealAnimation>
-        <div className="flex flex-col sm:flex-row w-full justify-start text-[18px] sm:text-[24px] px-4 -mt-8 sm:my-8 gap-8 xl:-mt-8">
+        <div
+          className="flex flex-col sm:flex-row w-full justify-start text-[18px] sm:text-[24px] px-4 
+        -mt-8 sm:my-8 gap-8 xl:-mt-8">
           <div className="font-agdasima text-dark dark:text-light">
             <p className="opacity-[0.8]">Role / Service</p>
             <p className="font-semibold text-[20px] md:text-[26px]">
@@ -41,6 +44,12 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
         </div>
         <div className="w-[20rem] flex px-4">
           <NavbarLink text="LiveSite" />
+          {/* <LiveButton /> */}
+        </div>
+        <div
+          className="flex w-full h-[50vh] xs:h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[100vh]  
+        justify-center mt-8">
+          <Gallery />
         </div>
       </div>
     </PreloadWrapper>

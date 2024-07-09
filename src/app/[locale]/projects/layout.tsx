@@ -2,7 +2,7 @@ import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 // import Footer from "../components/footer";
-import Footer1 from "@/[locale]/components/footer1";
+import Footer from "@/[locale]/components/footer";
 
 const ProjectsLayout = async ({
   children,
@@ -33,7 +33,7 @@ const ProjectsLayout = async ({
         <div className="w-full h-[5vh] bg-dark dark:bg-light ">
           <div className=" flex w-full bg-light dark:bg-dark  h-[5vh] rounded-b-[48px] z-100 " />
         </div>
-        <Footer1 />
+        <Footer />
         {/* <Footer /> */}
       </main>
     </TranslationsProvider>
