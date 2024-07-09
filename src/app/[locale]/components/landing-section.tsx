@@ -15,7 +15,7 @@ const LandingSection = ({
   title: string;
   subtitle: string;
 }) => {
-  const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola"];
+  const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola", "Hello"];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,7 +27,6 @@ const LandingSection = ({
         <div className="px-8 xl:px-[15%] ">
           <HeroSection title={title} subtitle={subtitle} />
           <ProjectsList />
-          {/* <MarqueeTech /> */}
         </div>
         <Slider />
         <div className="px-8 xl:px-[15%]">
