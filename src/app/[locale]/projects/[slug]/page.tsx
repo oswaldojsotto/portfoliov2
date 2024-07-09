@@ -58,13 +58,13 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
           <div className="font-agdasima text-dark dark:text-light">
             <p className="opacity-[0.8]">Role / Service</p>
             <p className="font-semibold text-[20px] md:text-[26px]">
-              {data() ? data().role : ""}
+              {data()?.role || ""}
             </p>
           </div>
           <div className="font-agdasima text-dark dark:text-light">
             <p className="opacity-[0.8]">Location / Year</p>
             <p className="font-semibold  text-[20px] md:text-[26px]">
-              {data() ? data().location : ""}
+              {data()?.location || ""}
             </p>
           </div>
         </div>
