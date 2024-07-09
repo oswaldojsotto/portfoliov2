@@ -5,17 +5,18 @@ import LanguageSelector from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
 import NavbarLink from "./navbar-link";
-// import LanguageDropdown from "./language";
+import { useTranslation } from "react-i18next";
 
-const NavBar = ({ t }: HeaderProps) => {
+const NavBar = () => {
   const router = useRouter();
+  const { t } = useTranslation("header");
 
   const items1 = [
-    { id: 1, text: t.about, to: "/" },
-    { id: 2, text: t.projects, to: "/projects" },
+    { id: 1, text: t("about"), to: "/" },
+    { id: 2, text: t("projects"), to: "/projects" },
   ];
 
-  const items2 = [{ id: 3, text: t.contact, to: "/contact" }];
+  const items2 = [{ id: 3, text: t("contact"), to: "/contact" }];
 
   const goToProject = (page: string) => {
     router.push(page);
@@ -38,7 +39,7 @@ const NavBar = ({ t }: HeaderProps) => {
               <NavbarLink text={item.text} />
             </li>
           ))}
-          <LanguageSelector t={t} />
+          <LanguageSelector />
         </ul>
       </nav>
     </>

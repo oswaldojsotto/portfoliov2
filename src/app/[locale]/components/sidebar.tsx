@@ -5,11 +5,12 @@ import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
 import { useDispatch, useSelector } from "react-redux";
-import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const itemVariants = {
   closed: {
@@ -33,21 +34,22 @@ const sideVariants = {
   },
 };
 
-const Sidebar = ({ t }: HeaderProps) => {
+const Sidebar = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const router = useRouter();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
+  const { t } = useTranslation("header");
   const {
     position: { y },
   } = useScroll();
 
   const links = [
-    { id: 1, text: t.about, to: "/" },
-    { id: 2, text: t.projects, to: "/projects" },
-    { id: 3, text: t.contact, to: "/contact" },
+    { id: 1, text: t("about"), to: "/" },
+    { id: 2, text: t("projects"), to: "/projects" },
+    { id: 3, text: t("contact"), to: "/contact" },
   ];
 
   const goTo = (page: string) => {
