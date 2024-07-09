@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { images } from "./image-data";
+// import { exampleImages } from "./image-data";
 import NavigationButton from "../navigation-button";
 import "./gallery.css";
 
@@ -31,10 +31,16 @@ const swipeConfidenceThreshold = 10000;
 const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
+type GalleryProps = {
+  images: {
+    count: number;
+    imagesArray: string[];
+  } | null;
+};
 
-const Gallery = () => {
+const Gallery = ({ images }: GalleryProps) => {
   const [[page, direction], setPage] = useState([0, 0]);
-  const imageIndex = wrap(0, images.length, page);
+  const imageIndex = wrap(0, images ? images.count : 0, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -46,7 +52,7 @@ const Gallery = () => {
         <motion.img
           className="galleryImage absolute w-full px-8 xl:px-[15%] py-8 rounded-[1rem] hover:cursor-grab active:cursor-grabbing"
           key={page}
-          src={images[imageIndex]}
+          src={images ? images.imagesArray[imageIndex] : ""}
           custom={direction}
           variants={variants}
           initial="enter"
