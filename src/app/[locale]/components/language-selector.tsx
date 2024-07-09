@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import { useTheme } from "next-themes";
-import Magnetic from "./magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
 
@@ -18,7 +18,7 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.1 } },
 };
 
-const LanguageSelector = ({ t }: HeaderProps) => {
+const LanguageSelector = () => {
   const { theme, systemTheme } = useTheme();
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
@@ -29,6 +29,7 @@ const LanguageSelector = ({ t }: HeaderProps) => {
   );
   const [isPending, startTransition] = useTransition();
   const currentLocale = i18n.language;
+  const { t } = useTranslation("header");
   const [mounted, setMounted] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
@@ -69,17 +70,17 @@ const LanguageSelector = ({ t }: HeaderProps) => {
   const languageList = [
     {
       id: 1,
-      name: t.english,
+      name: "ENGLISH",
       value: "en",
     },
     {
       id: 2,
-      name: t.spanish,
+      name: "ESPAÑOL",
       value: "es",
     },
     {
       id: 3,
-      name: t.italian,
+      name: "ITALIANO",
       value: "it",
     },
   ];
@@ -104,7 +105,7 @@ const LanguageSelector = ({ t }: HeaderProps) => {
                   ●
                 </div>
                 <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
-                  {t.language}
+                  LANGUAGE
                 </p>
                 <motion.div
                   className="flex flex-row justify-between"
