@@ -11,6 +11,7 @@ import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { CompactLanguageSelector } from "@/[locale]/components/language-selector";
 
 const itemVariants = {
   closed: {
@@ -109,7 +110,11 @@ const Sidebar = () => {
                   </motion.a>
                 </Magnetic>
               ))}
-              <div key={4} className="w-full h-16 bg-red"></div>
+              <div
+                key={4}
+                className="w-full h-16  flex flex-col justify-center">
+                <CompactLanguageSelector />
+              </div>
             </motion.div>
           </motion.nav>
         )}

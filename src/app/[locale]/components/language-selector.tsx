@@ -19,6 +19,27 @@ const itemVariants: Variants = {
   closed: { opacity: 0, y: 20, transition: { duration: 0.1 } },
 };
 
+const languageList = [
+  {
+    id: 1,
+    name: "ENGLISH",
+    value: "en",
+    ico: "/flags/eng.svg",
+  },
+  {
+    id: 2,
+    name: "ESPAÑOL",
+    value: "es",
+    ico: "/flags/spa.svg",
+  },
+  {
+    id: 3,
+    name: "ITALIANO",
+    value: "it",
+    ico: "/flags/ita.svg",
+  },
+];
+
 const LanguageSelector = () => {
   const { theme, systemTheme } = useTheme();
   const dispatch = useDispatch();
@@ -67,27 +88,6 @@ const LanguageSelector = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const languageList = [
-    {
-      id: 1,
-      name: "ENGLISH",
-      value: "en",
-      ico: "/flags/eng.svg",
-    },
-    {
-      id: 2,
-      name: "ESPAÑOL",
-      value: "es",
-      ico: "/flags/spa.svg",
-    },
-    {
-      id: 3,
-      name: "ITALIANO",
-      value: "it",
-      ico: "/flags/ita.svg",
-    },
-  ];
 
   if (!mounted) return null;
 
@@ -165,4 +165,71 @@ const LanguageSelector = () => {
     </motion.nav>
   );
 };
-export default LanguageSelector;
+
+const CompactLanguageSelector = () => {
+  const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+  const router = useRouter();
+  const currentPathname = usePathname();
+  const isOpen = useSelector(
+    (state: any) => state.sidemenu.languageSelectorState
+  );
+  const [, startTransition] = useTransition();
+  const currentLocale = i18n.language;
+
+  const [, setCurrentLanguage] = useState(i18n.language);
+
+  const handleClick = () => {
+    dispatch(setLanguageSelectorMenu(!isOpen));
+  };
+
+  const onSelectLanguage = (language: string) => {
+    const newLocale = language;
+    setCurrentLanguage(language);
+
+    if (
+      currentLocale === i18nConfig.defaultLocale &&
+      !i18nConfig.prefixDefault
+    ) {
+      startTransition(() => {
+        router.push("/" + newLocale + currentPathname);
+      });
+    } else {
+      startTransition(() => {
+        router.push(
+          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+        );
+      });
+    }
+
+    router.refresh();
+
+    handleClick();
+  };
+  return (
+    <div>
+      <div className="flex justify-between">
+        {languageList.map(({ id, name, value, ico }) => {
+          return (
+            <div key={id} className="w-auto flex h-auto cursor-pointer ">
+              <Magnetic>
+                <Image
+                  src={ico}
+                  width={30}
+                  height={30}
+                  alt={name}
+                  onClick={() => {
+                    onSelectLanguage(value);
+                    dispatch(setLanguageSelectorMenu(false));
+                  }}
+                />
+              </Magnetic>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export { LanguageSelector, CompactLanguageSelector };
