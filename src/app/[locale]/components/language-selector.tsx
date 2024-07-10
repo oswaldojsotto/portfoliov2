@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import { useTheme } from "next-themes";
-import Magnetic from "@/[locale]/components/magnetic/magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
+import Image from "next/image";
 
 const itemVariants: Variants = {
   open: {
@@ -72,16 +73,19 @@ const LanguageSelector = () => {
       id: 1,
       name: "ENGLISH",
       value: "en",
+      ico: "/flags/eng.svg",
     },
     {
       id: 2,
       name: "ESPAÑOL",
       value: "es",
+      ico: "/flags/spa.svg",
     },
     {
       id: 3,
       name: "ITALIANO",
       value: "it",
+      ico: "/flags/ita.svg",
     },
   ];
 
@@ -140,14 +144,18 @@ const LanguageSelector = () => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}>
-          {languageList.map(({ id, name, value }) => {
+          {languageList.map(({ id, name, value, ico }) => {
             return (
               <motion.li
                 key={id}
-                className="font-agdasima text-[18px] max-h-[4rem] py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
+                className="font-agdasima text-[18px] max-h-[4rem] flex gap-2 py-1.5 -my-1 cursor-pointer pl-2 text-light 
+                hover:text-dark hover:bg-light 
                 dark:text-neutral-800  dark:hover:bg-dark dark:hover:text-light font-medium "
                 variants={itemVariants}
                 onClick={() => onSelectLanguage(value)}>
+                <div className="w-auto h-auto ">
+                  <Image src={ico} width={26} height={26} alt={name} />
+                </div>
                 {name}
               </motion.li>
             );
