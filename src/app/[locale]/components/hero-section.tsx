@@ -1,18 +1,14 @@
 "use client";
 import RevealAnimation from "@/hooks/revealAnimation";
 import { setLanguageSelectorMenu, setSideMenu } from "@/store/sidemenuSlice";
-import React, { useRef } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Parallax } from "./parallax";
+import { useTranslation } from "react-i18next";
 
-interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-}
-
-const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
+const HeroSection = () => {
   const dispatch = useDispatch();
-
+  const { t } = useTranslation("landing");
   const closeMenus = () => {
     dispatch(setSideMenu(false));
     dispatch(setLanguageSelectorMenu(false));
@@ -41,7 +37,7 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
             className="font-dimensions max-h-[10rem] tracking-[2px] sm:tracking-[4px]   text-dark dark:text-light 
           text-[40px] xs:text-[58px] sm:text-[78px] md:text-[98px]  lg:text-[118px]
           md:-mt-20 lg:-mt-[60px] xl:-mt-24">
-            {title}
+            {t("title")}
           </h1>
         </RevealAnimation>
 
@@ -50,7 +46,7 @@ const HeroSection = ({ title, subtitle }: HeroSectionProps) => {
             className="text-dark dark:text-light my-4 font-agdasima font-semibold dark:font-medium  
             text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px]
           sm:-mt-[2px] lg:mt-4 xs:-mt-[1rem] -mt-[1rem]">
-            {subtitle}
+            {t("subtitle")}
           </div>
         </RevealAnimation>
       </Parallax>

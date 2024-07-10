@@ -1,13 +1,6 @@
 {
-  "about": "SOBRE",
+  "dev": "DESARROLLO",
+  "desdev": "DISEÑO & DESARROLLO",
   "projects": "PROYECTOS",
-  "contact": "CONTACTO",
-  "language": "IDIOMA",
-  "transition": "PROYECTOS",
-  "title": "DESARROLLADOR WEB - FRONTEND",
-  "subtitle": "Soy desarrollador frontend con pasión por el buen diseño y experiencias de usuarios.",
-  "selectLanguage": "Lenguaje",
-  "english": "Inglés",
-  "spanish": "Español",
-  "italian": "Italiano"
+  "view": "VER"
 }

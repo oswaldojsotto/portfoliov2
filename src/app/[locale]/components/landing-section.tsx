@@ -1,20 +1,13 @@
 "use client";
 import React, { useEffect } from "react";
-import HeroSection from "./hero-section";
-import PreloadWrapper from "./preloading/wrapper";
-import ProjectsList from "../projects/projects-list";
-// import Footer from "./footer";
-import InnerContact from "./inner-contact";
-import Slider from "./framer-slider/slider";
+import HeroSection from "@/[locale]/components/hero-section";
+import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
+import ProjectsList from "@/[locale]/projects/projects-list";
+import InnerContact from "@/[locale]/components/inner-contact";
+import Slider from "@/[locale]/components/framer-slider/slider";
 import Footer from "@/[locale]/components/footer";
 
-const LandingSection = ({
-  title,
-  subtitle,
-}: {
-  title: string;
-  subtitle: string;
-}) => {
+const LandingSection = () => {
   const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola", "Hello"];
 
   useEffect(() => {
@@ -25,7 +18,7 @@ const LandingSection = ({
     <div>
       <PreloadWrapper words={words} time={1500}>
         <div className="px-8 xl:px-[15%] ">
-          <HeroSection title={title} subtitle={subtitle} />
+          <HeroSection />
           <ProjectsList />
         </div>
         <Slider />
