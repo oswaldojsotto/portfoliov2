@@ -30,6 +30,7 @@
     "src/app/i18n.ts",
     "src/app/TranslationsProvider.js",
     "src/app/[locale]/components/Magnetic.jsx",
+    "src/app/[locale]/components/navbar.tsx",
     "src/app/[locale]/components/magnetic/magnetic.jsx",
     "src/app/[locale]/components/Nav/anim.js",
     "src/app/[locale]/components/projects/projects-list.tsx",

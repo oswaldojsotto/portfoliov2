@@ -4,46 +4,9 @@ import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "@/[locale]/components/magnetic/magnetic";
-import ProjectItem from "./project-item";
-
-const projects = [
-  {
-    id: 1,
-    title: "BLOCKCHAIN-APP",
-    src: "blockchainapp-preview.png",
-    link: "/blockchain-app",
-    work: "DESIGN & DEVELOPMENT",
-  },
-  {
-    id: 2,
-    title: "SEVEN SUITE",
-    src: "sevensuite-preview.png",
-    link: "/seven-suite",
-    work: "DEVELOPMENT",
-  },
-
-  {
-    id: 3,
-    title: "NEXT AUTHORIZE",
-    src: "nextauth-preview.png",
-    link: "/next-authorize",
-    work: "DESIGN & DEVELOPMENT",
-  },
-  {
-    id: 4,
-    title: "SHOP",
-    src: "shop-preview.png",
-    link: "/shop-app",
-    work: "DESIGN & DEVELOPMENT",
-  },
-  {
-    id: 5,
-    title: "MOVIE TRAILERS",
-    src: "movie-trailers-preview.png",
-    link: "/movie-trailers",
-    work: "DESIGN & DEVELOPMENT",
-  },
-];
+import ProjectItem from "@/[locale]/projects/project-item";
+import { projects } from "@/[locale]/projects/[slug]/projects-data";
+import { useTranslation } from "react-i18next";
 
 const scaleAnimation = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
@@ -65,9 +28,9 @@ const ProjectsList = () => {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const { active, index } = modal;
   const modalContainer = useRef(null);
-  // const router = useRouter();
   const cursor = useRef(null);
   const cursorLabel = useRef(null);
+  const { t } = useTranslation("projects");
 
   let xMoveContainer = useRef<any | null>(null);
   let yMoveContainer = useRef<any | null>(null);
@@ -131,10 +94,10 @@ const ProjectsList = () => {
       }}
       className="flex flex-col items-center">
       <div
-        className="w-full flex justify-end bg py-1   tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
-       text-[100px] xs:text-[120px]  cursor-default ">
+        className="w-full flex justify-end bg py-1 tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
+       text-[50px] md:text-[70px] xl:text-[90px] cursor-pointer ">
         <Magnetic>
-          <h1> Projects</h1>
+          <h1> {t("projects")}</h1>
         </Magnetic>
       </div>
       <div className="w-full flex flex-col mb-[4rem] font-dimensions text-[10px]">
@@ -146,7 +109,7 @@ const ProjectsList = () => {
               manageModal={manageModal}
               key={index}
               link={project.link}
-              work={project.work}
+              work={project.work === "1" ? t("dev") : t("desdev")}
             />
           );
         })}
@@ -193,7 +156,7 @@ const ProjectsList = () => {
           variants={scaleAnimation}
           initial="initial"
           animate={active ? "enter" : "closed"}>
-          VIEW
+          {t("view")}
         </motion.div>
       </>
     </main>

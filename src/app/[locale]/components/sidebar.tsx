@@ -69,7 +69,7 @@ const Sidebar = () => {
   if (!mounted) return null;
 
   return (
-    <main className="flex absolute">
+    <main className="flex fixed z-[100]">
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -87,7 +87,6 @@ const Sidebar = () => {
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              // onClick={() => dispatch(setSideMenu(false))}
               className="my-[8rem] mx-[2rem]"
               initial="closed"
               animate="open"
@@ -117,19 +116,21 @@ const Sidebar = () => {
       <motion.div
         animate={{ scale: y > 100 ? 1 : 0 }}
         transition={{ ease: "easeOut", duration: 0.2 }}
-        className="absolute left-8 z-[100] my-4 hidden sm:flex "
+        className="fixed left-8 z-20 my-4 hidden sm:flex "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <motion.div className="z-[100]">
-            <Hamburger
-              hideOutline
-              rounded
-              size={24}
-              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-              toggled={isOpen}
-              onToggle={() => dispatch(setSideMenu(!isOpen))}
-            />
-          </motion.div>
+          <Magnetic>
+            <motion.div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </motion.div>
+          </Magnetic>
         </RoundedButton>
       </motion.div>
       <motion.div
@@ -137,16 +138,18 @@ const Sidebar = () => {
         className="fixed left-8 z-20 my-4 flex sm:hidden "
         onClick={() => dispatch(setSideMenu(!isOpen))}>
         <RoundedButton backgroundColor="#a2a2a2">
-          <motion.div className="z-[1]">
-            <Hamburger
-              hideOutline
-              rounded
-              size={24}
-              color={currentTheme === "light" ? "#1C1D20" : "#eee"}
-              toggled={isOpen}
-              onToggle={() => dispatch(setSideMenu(!isOpen))}
-            />
-          </motion.div>
+          <Magnetic>
+            <motion.div className="z-[1]">
+              <Hamburger
+                hideOutline
+                rounded
+                size={24}
+                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                toggled={isOpen}
+                onToggle={() => dispatch(setSideMenu(!isOpen))}
+              />
+            </motion.div>
+          </Magnetic>
         </RoundedButton>
       </motion.div>
     </main>
