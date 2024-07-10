@@ -17,15 +17,15 @@ const HeroSection = () => {
   return (
     <div
       className=" w-full  h-[100vh] flex flex-col justify-center sm:justify-center 
-      md:justify-center  -space-y-[2rem] "
+      md:justify-center -mt-[5rem] -space-y-[2rem] xl:mb-[4rem]"
       onClick={() => closeMenus()}>
-      <Parallax className={``} speed={2.5}>
+      <Parallax className={``} speed={2}>
         <RevealAnimation delayWait={2.1}>
-          <div className="w-full flex justify-start xs:-mt-[5rem] sm:-mt-[12rem] md:-mt-[12rem]  xl:-mt-[8rem]">
+          <div className="w-full flex justify-start xs:-mt-[5rem] sm:-mt-[12rem] md:-mt-[12rem]   xl:mt-[2rem]">
             <p
               className="font-dimensions flex  max-h-[26rem]   tracking-[4px]
                 text-dark dark:text-light justify-start whitespace-nowrap
-                text-[80px] xs:text-[120px] sm:text-[158px] md:text-[218px] lg:text-[268px]  xl:text-[258px]
+                text-[80px] xs:text-[120px] sm:text-[158px] md:text-[198px] lg:text-[228px]  xl:text-[258px]
                 -mb-[2.5rem] xs:-mb-[3rem] sm:-mb-[4.5rem] md:-mb-[1.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px] xl:-mt-48 font-light  ">
               {`OSWALDO J. SOTTO`}
             </p>

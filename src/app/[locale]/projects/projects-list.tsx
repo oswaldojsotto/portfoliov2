@@ -5,7 +5,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import ProjectItem from "@/[locale]/projects/project-item";
-import { projects } from "./[slug]/projects-data";
+import { projects } from "@/[locale]/projects/[slug]/projects-data";
 import { useTranslation } from "react-i18next";
 
 const scaleAnimation = {
@@ -94,8 +94,8 @@ const ProjectsList = () => {
       }}
       className="flex flex-col items-center">
       <div
-        className="w-full flex justify-end bg py-1   tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
-       text-[100px] xs:text-[120px]  cursor-default ">
+        className="w-full flex justify-end bg py-1 tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
+       text-[50px] md:text-[70px] xl:text-[90px] cursor-pointer ">
         <Magnetic>
           <h1> {t("projects")}</h1>
         </Magnetic>
