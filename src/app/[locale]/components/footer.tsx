@@ -53,7 +53,7 @@ const Footer = () => {
               <ol className="flex justify-between sm:max-w-82 sm:w-78  m-0 scale-[0.75] md:scale-[1]">
                 {socials.map(link => (
                   <li key={link.id} className=" font-agdasima m-0 ">
-                    <a href={link.to}>
+                    <a href={link.to} target="_blank">
                       <FooButton text={link.text} />
                     </a>
                   </li>
