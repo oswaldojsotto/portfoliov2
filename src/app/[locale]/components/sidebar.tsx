@@ -12,7 +12,8 @@ import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { CompactLanguageSelector } from "@/[locale]/components/language-selector";
-import Social from "./socials";
+import { useOutsideClickEvent } from "@studio-freight/hamo";
+import Social from "@/[locale]/components/socials";
 
 const itemVariants = {
   closed: {
@@ -47,7 +48,7 @@ const Sidebar = () => {
   const {
     position: { y },
   } = useScroll();
-
+  const closeSliderRef = useRef(null);
   const links = [
     { id: 1, text: t("about"), to: "/" },
     { id: 2, text: t("projects"), to: "/projects" },
@@ -68,10 +69,14 @@ const Sidebar = () => {
     }
   }, [y, dispatch]);
 
+  useOutsideClickEvent(closeSliderRef, () => {
+    dispatch(setSideMenu(false));
+  });
+
   if (!mounted) return null;
 
   return (
-    <main className="flex fixed z-[100]">
+    <main className="flex fixed z-[100]" ref={closeSliderRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -126,6 +131,7 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <motion.div
+        ref={closeSliderRef}
         animate={{ scale: y > 100 ? 1 : 0 }}
         transition={{ ease: "easeOut", duration: 0.2 }}
         className="fixed left-8 z-20 my-4 hidden sm:flex "
@@ -146,6 +152,7 @@ const Sidebar = () => {
         </RoundedButton>
       </motion.div>
       <motion.div
+        ref={closeSliderRef}
         transition={{ ease: "easeOut", duration: 0.2 }}
         className="fixed left-8 z-20 my-4 flex sm:hidden "
         onClick={() => dispatch(setSideMenu(!isOpen))}>

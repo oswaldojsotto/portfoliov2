@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useState, useTransition, useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
@@ -9,6 +9,7 @@ import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
 import Image from "next/image";
+import { useOutsideClickEvent } from "@studio-freight/hamo";
 
 const itemVariants: Variants = {
   open: {
@@ -51,7 +52,7 @@ const LanguageSelector = () => {
   );
   const [isPending, startTransition] = useTransition();
   const currentLocale = i18n.language;
-
+  const closeSelectorRef = useRef(null);
   const [mounted, setMounted] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
@@ -85,6 +86,10 @@ const LanguageSelector = () => {
     handleClick();
   };
 
+  useOutsideClickEvent(closeSelectorRef, () => {
+    dispatch(setLanguageSelectorMenu(false));
+  });
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -94,6 +99,7 @@ const LanguageSelector = () => {
   return (
     <motion.nav
       initial={false}
+      ref={closeSelectorRef}
       animate={isOpen ? "open" : "closed"}
       className="-mt-[1.4rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
       <div>
