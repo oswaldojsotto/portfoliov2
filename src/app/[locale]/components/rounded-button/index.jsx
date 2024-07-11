@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
 import gsap from "gsap";
-import Magnetic from "../magnetic/magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 
 const RoundedButton = ({
   children,
@@ -41,7 +41,7 @@ const RoundedButton = ({
   return (
     <Magnetic>
       <div
-        className={`${styles.roundedButton} `}
+        className={`${styles.roundedButton} bg-dark dark:bg-light `}
         style={{ overflow: "hidden" }}
         onMouseEnter={() => {
           manageMouseEnter();

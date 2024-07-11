@@ -3,14 +3,14 @@ import React, { Fragment } from "react";
 
 const Copyright = () => {
   return (
-    <div className="flex h-16 w-72  scale-[1]   ">
+    <div className="flex h-16 w-72  scale-[0.75] xs:scale-[1]  sm:scale-[0.75] md:scale-[1]    ">
       <div className="absolute flex h-8 w-56 ml-16 border-b-2 border-b-light dark:border-b-dark  rounded-sm " />
       <div className="absolute flex flex-col h-16 w-72 border-2 border-light dark:border-dark rounded-sm">
-        <p className="ml-16 flex  px-[14px] font-agdasima text-[20px] text-light dark:text-dark dark:border-dark font-bold">
+        <p className="ml-16 flex  px-[14px] font-agdasima text-[20px] text-light dark:text-dark dark:border-dark font-semibold">
           2024 © ALL RIGHTS RESERVED
         </p>
-        <p className="ml-16 mt-[0.8] flex   px-[34px] font-agdasima text-[20px] text-light dark:text-dark dark:border-dark font-bold">
-          OSWALDO J. SOTTO ©
+        <p className="ml-16 flex  px-[14px] font-agdasima text-[20px] text-light dark:text-dark dark:border-dark font-semibold">
+          CODE BY OSWALDO J. SOTTO ©
         </p>
       </div>
       <div className="absolute flex h-16 w-16 border-2 border-light dark:border-dark rounded-sm">

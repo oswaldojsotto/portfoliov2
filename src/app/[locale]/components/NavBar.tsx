@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import LanguageSelector from "./language-selector";
+import { LanguageSelector } from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
 import { useRouter } from "next/navigation";
 import NavbarLink from "./navbar-link";

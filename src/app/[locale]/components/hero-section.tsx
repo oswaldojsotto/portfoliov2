@@ -17,11 +17,11 @@ const HeroSection = () => {
   return (
     <div
       className=" w-full  h-[100vh] flex flex-col justify-center sm:justify-center 
-      md:justify-center -mt-[5rem] -space-y-[2rem] xl:mb-[4rem]"
+      md:justify-center  -space-y-[2rem] xl:mb-[4rem]"
       onClick={() => closeMenus()}>
-      <Parallax className={``} speed={2}>
+      <Parallax speed={2}>
         <RevealAnimation delayWait={2.1}>
-          <div className="w-full flex justify-start xs:-mt-[5rem] sm:-mt-[12rem] md:-mt-[12rem]   xl:mt-[2rem]">
+          <div className="w-full flex justify-start xs:-mt-[5rem] sm:-mt-[12rem] md:-mt-[12rem]   xl:-mt-[5rem]">
             <p
               className="font-dimensions flex  max-h-[26rem]   tracking-[4px]
                 text-dark dark:text-light justify-start whitespace-nowrap

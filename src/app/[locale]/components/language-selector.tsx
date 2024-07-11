@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import { useTheme } from "next-themes";
-import Magnetic from "@/[locale]/components/magnetic/magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
+import Image from "next/image";
 
 const itemVariants: Variants = {
   open: {
@@ -17,6 +18,27 @@ const itemVariants: Variants = {
   },
   closed: { opacity: 0, y: 20, transition: { duration: 0.1 } },
 };
+
+const languageList = [
+  {
+    id: 1,
+    name: "ENGLISH",
+    value: "en",
+    ico: "/flags/eng.svg",
+  },
+  {
+    id: 2,
+    name: "ESPAÑOL",
+    value: "es",
+    ico: "/flags/spa.svg",
+  },
+  {
+    id: 3,
+    name: "ITALIANO",
+    value: "it",
+    ico: "/flags/ita.svg",
+  },
+];
 
 const LanguageSelector = () => {
   const { theme, systemTheme } = useTheme();
@@ -29,7 +51,7 @@ const LanguageSelector = () => {
   );
   const [isPending, startTransition] = useTransition();
   const currentLocale = i18n.language;
-  const { t } = useTranslation("header");
+
   const [mounted, setMounted] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
@@ -67,24 +89,6 @@ const LanguageSelector = () => {
     setMounted(true);
   }, []);
 
-  const languageList = [
-    {
-      id: 1,
-      name: "ENGLISH",
-      value: "en",
-    },
-    {
-      id: 2,
-      name: "ESPAÑOL",
-      value: "es",
-    },
-    {
-      id: 3,
-      name: "ITALIANO",
-      value: "it",
-    },
-  ];
-
   if (!mounted) return null;
 
   return (
@@ -95,7 +99,7 @@ const LanguageSelector = () => {
       <div>
         <Magnetic>
           <motion.button
-            className="flex gap-2 my-6 w-32"
+            className="flex gap-2 my-6 w-32 justify-center"
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>
@@ -104,9 +108,19 @@ const LanguageSelector = () => {
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
-                <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
-                  LANGUAGE
-                </p>
+
+                <div className="flex justify-center">
+                  <Image
+                    src={`${
+                      currentTheme === "dark"
+                        ? `/language-light.svg`
+                        : `/language-dark.svg`
+                    }`}
+                    width={40}
+                    height={40}
+                    alt="language"
+                  />
+                </div>
                 <motion.div
                   className="flex flex-row justify-between"
                   variants={{
@@ -140,14 +154,18 @@ const LanguageSelector = () => {
             },
           }}
           style={{ pointerEvents: isOpen ? "auto" : "none" }}>
-          {languageList.map(({ id, name, value }) => {
+          {languageList.map(({ id, name, value, ico }) => {
             return (
               <motion.li
                 key={id}
-                className="font-agdasima text-[18px] max-h-[4rem] py-1.5 -my-1 cursor-pointer pl-2 text-light hover:text-dark hover:bg-light 
+                className="font-agdasima text-[18px] max-h-[4rem] flex gap-2 py-1.5 -my-1 cursor-pointer pl-2 text-light 
+                hover:text-dark hover:bg-light 
                 dark:text-neutral-800  dark:hover:bg-dark dark:hover:text-light font-medium "
                 variants={itemVariants}
                 onClick={() => onSelectLanguage(value)}>
+                <div className="w-auto h-auto ">
+                  <Image src={ico} width={26} height={26} alt={name} />
+                </div>
                 {name}
               </motion.li>
             );
@@ -157,4 +175,71 @@ const LanguageSelector = () => {
     </motion.nav>
   );
 };
-export default LanguageSelector;
+
+const CompactLanguageSelector = () => {
+  const dispatch = useDispatch();
+  const { i18n } = useTranslation();
+  const router = useRouter();
+  const currentPathname = usePathname();
+  const isOpen = useSelector(
+    (state: any) => state.sidemenu.languageSelectorState
+  );
+  const [, startTransition] = useTransition();
+  const currentLocale = i18n.language;
+
+  const [, setCurrentLanguage] = useState(i18n.language);
+
+  const handleClick = () => {
+    dispatch(setLanguageSelectorMenu(!isOpen));
+  };
+
+  const onSelectLanguage = (language: string) => {
+    const newLocale = language;
+    setCurrentLanguage(language);
+
+    if (
+      currentLocale === i18nConfig.defaultLocale &&
+      !i18nConfig.prefixDefault
+    ) {
+      startTransition(() => {
+        router.push("/" + newLocale + currentPathname);
+      });
+    } else {
+      startTransition(() => {
+        router.push(
+          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+        );
+      });
+    }
+
+    router.refresh();
+
+    handleClick();
+  };
+  return (
+    <div>
+      <div className="flex justify-between">
+        {languageList.map(({ id, name, value, ico }) => {
+          return (
+            <div key={id} className="w-auto flex h-auto cursor-pointer ">
+              <Magnetic>
+                <Image
+                  src={ico}
+                  width={30}
+                  height={30}
+                  alt={name}
+                  onClick={() => {
+                    onSelectLanguage(value);
+                    dispatch(setLanguageSelectorMenu(false));
+                  }}
+                />
+              </Magnetic>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export { LanguageSelector, CompactLanguageSelector };

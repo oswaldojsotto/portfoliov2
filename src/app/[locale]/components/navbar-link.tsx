@@ -1,5 +1,5 @@
 import React from "react";
-import Magnetic from "./magnetic/magnetic";
+import Magnetic from "./magnetic/Magnetic";
 
 const NavbarLink = ({ text }: { text: string }) => {
   return (

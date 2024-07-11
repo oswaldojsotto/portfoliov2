@@ -5,12 +5,14 @@ import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
 import { useDispatch, useSelector } from "react-redux";
-import Magnetic from "@/[locale]/components/magnetic/magnetic";
+import Magnetic from "@/[locale]/components/magnetic/Magnetic";
 import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import { CompactLanguageSelector } from "@/[locale]/components/language-selector";
+import Social from "./socials";
 
 const itemVariants = {
   closed: {
@@ -80,14 +82,14 @@ const Sidebar = () => {
             }`}
             initial={{ width: 0 }}
             animate={{
-              width: 350,
+              width: 320,
             }}
             exit={{
               width: 0,
               transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              className="my-[8rem] mx-[2rem]"
+              className="my-[6rem] mx-[2rem]"
               initial="closed"
               animate="open"
               exit="closed"
@@ -97,11 +99,11 @@ const Sidebar = () => {
               {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
-                    className={`font-dimensions text-[120px] flex flex-col gap-16 py-8 text-4xl drop-shadow-2xl
+                    className={`font-dimensions text-[60px]  md:text-[90px] flex flex-col gap-16 py-4 md:py-8 text-4xl drop-shadow-2xl
                     transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
                       currentTheme === "dark"
-                        ? "text-light drop-shadow-2xl"
-                        : "text-dark drop-shadow-2xl"
+                        ? "text-light drop-shadow-[10rem]"
+                        : "text-dark drop-shadow-[10rem]"
                     }`}
                     onClick={() => goTo(to)}
                     variants={itemVariants}>
@@ -109,6 +111,16 @@ const Sidebar = () => {
                   </motion.a>
                 </Magnetic>
               ))}
+              <div
+                key={4}
+                className="w-full h-16  flex flex-col justify-center">
+                <CompactLanguageSelector />
+              </div>
+              <div
+                key={5}
+                className="w-full h-16  flex flex-col justify-center">
+                <Social />
+              </div>
             </motion.div>
           </motion.nav>
         )}
@@ -125,7 +137,7 @@ const Sidebar = () => {
                 hideOutline
                 rounded
                 size={24}
-                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
                 toggled={isOpen}
                 onToggle={() => dispatch(setSideMenu(!isOpen))}
               />
@@ -144,7 +156,7 @@ const Sidebar = () => {
                 hideOutline
                 rounded
                 size={24}
-                color={currentTheme === "light" ? "#1C1D20" : "#eee"}
+                color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
                 toggled={isOpen}
                 onToggle={() => dispatch(setSideMenu(!isOpen))}
               />
