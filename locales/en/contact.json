@@ -1,9 +1,4 @@
 {
-  "about": "HOME",
-  "projects": "PROJECTS",
-  "contact": "CONTACT",
-  "language": "LANGUAGE",
-  "transition": "CONTACT",
-  "title": "FRONTEND - WEB DEVELOPER",
-  "subtitle": "I'm a frontend developer with passion for great design and user experiences."
+  "contact": "GET IN TOUCH",
+  "clipboard": "COPIED TO CLIPBOARD!"
 }

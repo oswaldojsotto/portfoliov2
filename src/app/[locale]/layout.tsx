@@ -5,7 +5,6 @@ import "../[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "../store/StoreProvider";
 import StarsBackground from "./components/stars-background";
-// import LocomotiveScroller from "@/hooks/locomotiveScroller";
 
 const agdasima = Agdasima({
   subsets: ["latin"],
@@ -24,7 +23,7 @@ const dimensions = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Oswaldo J. Sotto",
+  title: "Oswaldo J. Sotto ©",
   description: "Frontend Developer - Portfolio",
 };
 

@@ -3,8 +3,11 @@ import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import EmailButton from "../components/email-button";
+import { useTranslation } from "react-i18next";
 
-const Contact = ({ params }: { params: { slug: string } }) => {
+const Contact = () => {
+  const { t } = useTranslation("contact");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -19,7 +22,7 @@ const Contact = ({ params }: { params: { slug: string } }) => {
                 text-dark dark:text-light justify-center whitespace-nowrap
                 text-[92px] xs:text-[150px] sm:text-[200px] md:text-[230px] lg:text-[230px]  xl:text-[268px]
                 mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-10px]    ">
-              GET IN TOUCH
+              {t("contact")}
             </p>
           </div>
         </RevealAnimation>

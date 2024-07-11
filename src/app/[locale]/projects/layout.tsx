@@ -2,6 +2,12 @@ import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 import Footer from "@/[locale]/components/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects - Oswaldo Sotto ©",
+  description: "Projects Portfolio - Oswaldo Sotto ©",
+};
 
 const ProjectsLayout = async ({
   children,

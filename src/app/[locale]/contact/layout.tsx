@@ -2,6 +2,12 @@ import Header from "@/[locale]/components/header";
 import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 import Footer from "@/[locale]/components/footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact - Oswaldo Sotto ©",
+  description: "Contact Portfolio - Oswaldo Sotto ©",
+};
 
 const ContactLayout = async ({
   children,
@@ -10,13 +16,16 @@ const ContactLayout = async ({
   children: React.ReactNode;
   params: { locale: string };
 }>) => {
-  const { t, resources } = await initTranslations(locale, ["contact"]);
+  const { t, resources } = await initTranslations(locale, [
+    "contact",
+    "header",
+  ]);
 
   return (
     <TranslationsProvider
       resources={resources}
       locale={locale}
-      namespaces={["contact"]}>
+      namespaces={["contact", "header"]}>
       <main>
         <Header />
         {children}
