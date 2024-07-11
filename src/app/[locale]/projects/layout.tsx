@@ -10,13 +10,13 @@ const ProjectsLayout = async ({
   children: React.ReactNode;
   params: { locale: string };
 }>) => {
-  const { resources } = await initTranslations(locale, ["projects"]);
+  const { resources } = await initTranslations(locale, ["projects", "header"]);
 
   return (
     <TranslationsProvider
       resources={resources}
       locale={locale}
-      namespaces={["projects"]}>
+      namespaces={["projects", "header"]}>
       <main>
         <Header />
         {children}

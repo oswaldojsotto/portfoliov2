@@ -51,7 +51,7 @@ const LanguageSelector = () => {
   );
   const [isPending, startTransition] = useTransition();
   const currentLocale = i18n.language;
-  const { t } = useTranslation("header");
+
   const [mounted, setMounted] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
@@ -99,7 +99,7 @@ const LanguageSelector = () => {
       <div>
         <Magnetic>
           <motion.button
-            className="flex gap-2 my-6 w-32"
+            className="flex gap-2 my-6 w-32 justify-center"
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>
@@ -108,9 +108,19 @@ const LanguageSelector = () => {
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
                   ●
                 </div>
-                <p className="font-dimensions text-[3rem] tracking-[4px] hover:text-orange dark:hover:text-pink transition-all ">
-                  LANGUAGE
-                </p>
+
+                <div className="flex justify-center">
+                  <Image
+                    src={`${
+                      currentTheme === "dark"
+                        ? `/language-light.svg`
+                        : `/language-dark.svg`
+                    }`}
+                    width={40}
+                    height={40}
+                    alt="language"
+                  />
+                </div>
                 <motion.div
                   className="flex flex-row justify-between"
                   variants={{

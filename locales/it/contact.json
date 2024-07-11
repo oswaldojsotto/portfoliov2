@@ -1,13 +1,9 @@
 {
-  "about": "SU DI ME",
+  "about": "INIZIO",
   "projects": "PROGETTI",
   "contact": "CONTATTO",
   "language": "LINGUA",
   "transition": "CONTATTO",
   "title": "SVILUPPATORE WEB - FRONTEND",
-  "subtitle": "Sono sviluppatore frontend con passione dei buoni progetti ed esperienze degli utenti.",
-  "selectLanguage": "Lingua",
-  "english": "Inglese",
-  "spanish": "Spagnolo",
-  "italian": "Italiano"
+  "subtitle": "Sono sviluppatore frontend con passione dei buoni progetti ed esperienze degli utenti."
 }

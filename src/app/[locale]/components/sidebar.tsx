@@ -12,6 +12,7 @@ import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
 import { CompactLanguageSelector } from "@/[locale]/components/language-selector";
+import Social from "./socials";
 
 const itemVariants = {
   closed: {
@@ -85,10 +86,10 @@ const Sidebar = () => {
             }}
             exit={{
               width: 0,
-              transition: { delay: 0.5, duration: 0.3 },
+              transition: { delay: 0.7, duration: 0.3 },
             }}>
             <motion.div
-              className="my-[8rem] mx-[2rem]"
+              className="my-[6rem] mx-[2rem]"
               initial="closed"
               animate="open"
               exit="closed"
@@ -101,8 +102,8 @@ const Sidebar = () => {
                     className={`font-dimensions text-[60px]  md:text-[90px] flex flex-col gap-16 py-4 md:py-8 text-4xl drop-shadow-2xl
                     transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
                       currentTheme === "dark"
-                        ? "text-light drop-shadow-2xl"
-                        : "text-dark drop-shadow-2xl"
+                        ? "text-light drop-shadow-[10rem]"
+                        : "text-dark drop-shadow-[10rem]"
                     }`}
                     onClick={() => goTo(to)}
                     variants={itemVariants}>
@@ -114,6 +115,11 @@ const Sidebar = () => {
                 key={4}
                 className="w-full h-16  flex flex-col justify-center">
                 <CompactLanguageSelector />
+              </div>
+              <div
+                key={5}
+                className="w-full h-16  flex flex-col justify-center">
+                <Social />
               </div>
             </motion.div>
           </motion.nav>
