@@ -3,10 +3,12 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useClipboard } from "@/hooks/useClipboard";
+import { useTranslation } from "react-i18next";
 
 const EmailButton = ({ email = false }: { email?: boolean }) => {
   const [copied, setCopied] = useState(false);
   const { theme } = useTheme();
+  const { t } = useTranslation("contact");
   const [currentTheme, setCurrentTheme] = useState<string | undefined>("dark");
   const { copyToClipboard } = useClipboard();
 
@@ -47,10 +49,10 @@ const EmailButton = ({ email = false }: { email?: boolean }) => {
       justify-end text-sm  flex flex-col transition-all duration-200  font-agdasima font-medium cursor-pointer">
         <div className="group-hover:-translate-y-[52px] transition-all duration-200  flex justify-center flex-col  h-[3rem] ">
           <p className="text-[26px] px-2 flex justify-center pt-[4rem]  py-[1rem] font-agdasima font-medium">
-            {copied ? "COPIADO AL PORTAPAPELES!" : "OSWALDOJSOTTO@GMAIL.COM"}
+            {copied ? t("clipboard") : "OSWALDOJSOTTO@GMAIL.COM"}
           </p>
           <p className="text-[26px] px-2 flex justify-center transition-all duration-200  py-[1rem] font-agdasima font-medium">
-            {copied ? "COPIADO AL PORTAPAPELES!" : "OSWALDOJSOTTO@GMAIL.COM"}
+            {copied ? t("clipboard") : "OSWALDOJSOTTO@GMAIL.COM"}
             <span
               className="absolute bottom-0 right-0 h-[2px]  bg-indigo-300 transition-all delay-200 
           duration-100"
