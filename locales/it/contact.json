@@ -1,4 +1,8 @@
 {
-  "contact": "CONTATTAMI",
-  "clipboard": "COPIATO NEGLI APPUNTI!"
+  "ctitle": "CONTATTAMI",
+  "preload": "CONTATTO",
+  "clipboard": "COPIATO NEGLI APPUNTI!",
+  "availability": "DISPONIBILE A LAVORARE",
+  "socials": "SOCIALI",
+  "remote": "REMOTO"
 }
