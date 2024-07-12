@@ -15,7 +15,6 @@ import { useTranslation } from "react-i18next";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
   const { t } = useTranslation("projects");
-  const [site, setSite] = useState("/");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -62,7 +61,7 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
           <div className="font-agdasima text-dark dark:text-light">
             <p className="opacity-[0.8]">{t("role")}</p>
             <p className="font-semibold text-[20px] md:text-[26px]">
-              {data()?.role || ""}
+              {data()?.role === 1 ? t("dev") : t("desdev") || ""}
             </p>
           </div>
           <div className="font-agdasima text-dark dark:text-light">
