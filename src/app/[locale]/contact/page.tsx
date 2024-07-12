@@ -41,10 +41,6 @@ const Contact = () => {
     setCurrentTheme(theme);
   }, [theme]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return (
     <PreloadWrapper words={[t("preload")]}>
       <section className="relative py-32 h-[100vh] px-8 xl:px-[15%]">
@@ -57,11 +53,11 @@ const Contact = () => {
               {t("ctitle")}
             </p>
           </div>
+          <div className="flex justify-center  -mt-6 scale-75 lg:scale-100">
+            <EmailButton />
+          </div>
         </RevealAnimation>
-        <div className="flex justify-center  -mt-6 scale-75 lg:scale-100">
-          <EmailButton />
-        </div>
-        <div className="relative bottom-0 w-full my-[12rem] xs:my-32 sm:my-16 md:my-42  font-medium">
+        <div className="relative bottom-0 w-full my-[12rem] xs:my-32 sm:my-16 md:my-42  font-semibold">
           <div
             className="flex justify-between w-full font-agdasima text-[17px] md:text-[20px] 
         dark:text-light text-dark  px-8 mt-32 sm:-mt-2 md:mt-0  ">

@@ -35,7 +35,7 @@ const HeroSection = () => {
         <RevealAnimation delayWait={2.1}>
           <h1
             className="font-dimensions max-h-[10rem] tracking-[2px] sm:tracking-[4px]   text-dark dark:text-light 
-          text-[40px] xs:text-[58px] sm:text-[78px] md:text-[98px]  lg:text-[118px]
+          text-[40px] xs:text-[52px] sm:text-[68px] md:text-[88px]  lg:text-[108px]
           md:-mt-20 lg:-mt-[60px] xl:-mt-24">
             {t("title")}
           </h1>
