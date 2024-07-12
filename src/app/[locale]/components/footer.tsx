@@ -3,15 +3,17 @@ import React from "react";
 import Copyright from "./copyright";
 import FooButton from "./foo-button";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const router = useRouter();
+  const { t } = useTranslation("header");
 
   const routes = [
-    { id: 1, text: "HOME", to: "/" },
-    { id: 2, text: "PROJECTS", to: "/projects" },
-    { id: 3, text: "ABOUT", to: "/about" },
-    { id: 4, text: "CONTACT", to: "/contact" },
+    { id: 1, text: t("home"), to: "/" },
+    { id: 2, text: t("projects"), to: "/projects" },
+    { id: 3, text: t("about"), to: "/about" },
+    { id: 4, text: t("contact"), to: "/contact" },
   ];
   const socials = [
     {
