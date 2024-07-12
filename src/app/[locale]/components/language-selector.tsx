@@ -101,11 +101,11 @@ const LanguageSelector = () => {
       initial={false}
       ref={closeSelectorRef}
       animate={isOpen ? "open" : "closed"}
-      className="-mt-[1.4rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
+      className="-mt-[2rem] filter:drop-shadow(1px 1px 1px #4700b3) ">
       <div>
         <Magnetic>
           <motion.button
-            className="flex gap-2 my-6 w-32 justify-center"
+            className="flex my-6 w-28 justify-center -ml-2"
             whileTap={{ scale: 0.97 }}
             disabled={isPending}
             onClick={handleClick}>

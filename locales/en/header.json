@@ -1,7 +1,6 @@
 {
-  "about": "HOME",
+  "home": "HOME",
+  "about": "ABOUT",
   "projects": "PROJECTS",
-  "contact": "CONTACT",
-  "language": "LANGUAGE",
-  "transition": "CONTACT"
+  "contact": "CONTACT"
 }

@@ -39,11 +39,12 @@ const sideVariants = {
 
 const Sidebar = () => {
   const dispatch = useDispatch();
-  const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
+  // const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const router = useRouter();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation("header");
   const {
     position: { y },
@@ -52,7 +53,8 @@ const Sidebar = () => {
   const links = [
     { id: 1, text: t("about"), to: "/" },
     { id: 2, text: t("projects"), to: "/projects" },
-    { id: 3, text: t("contact"), to: "/contact" },
+    { id: 3, text: "ABOUT", to: "/about" },
+    { id: 4, text: t("contact"), to: "/contact" },
   ];
 
   const goTo = (page: string) => {
@@ -70,7 +72,7 @@ const Sidebar = () => {
   }, [y, dispatch]);
 
   useOutsideClickEvent(closeSliderRef, () => {
-    dispatch(setSideMenu(false));
+    setIsOpen(false);
   });
 
   if (!mounted) return null;
@@ -104,7 +106,7 @@ const Sidebar = () => {
               {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
-                    className={`font-dimensions text-[60px]  md:text-[90px] flex flex-col gap-16 py-4 md:py-8 text-4xl drop-shadow-2xl
+                    className={`font-dimensions text-[60px]  md:text-[80px] flex flex-col gap-16 my-6 md:-my-4 md:py-6 md:mb-1 text-4xl drop-shadow-2xl
                     transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
                       currentTheme === "dark"
                         ? "text-light drop-shadow-[10rem]"
@@ -131,11 +133,10 @@ const Sidebar = () => {
         )}
       </AnimatePresence>
       <motion.div
-        ref={closeSliderRef}
         animate={{ scale: y > 100 ? 1 : 0 }}
         transition={{ ease: "easeOut", duration: 0.2 }}
         className="fixed left-8 z-20 my-4 hidden sm:flex "
-        onClick={() => dispatch(setSideMenu(!isOpen))}>
+        onClick={() => setIsOpen(!isOpen)}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>
             <motion.div className="z-[1]">
@@ -145,17 +146,17 @@ const Sidebar = () => {
                 size={24}
                 color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
                 toggled={isOpen}
-                onToggle={() => dispatch(setSideMenu(!isOpen))}
+                onToggle={() => setIsOpen(!isOpen)}
               />
             </motion.div>
           </Magnetic>
         </RoundedButton>
       </motion.div>
       <motion.div
-        ref={closeSliderRef}
+        // ref={closeSliderRef}
         transition={{ ease: "easeOut", duration: 0.2 }}
         className="fixed left-8 z-20 my-4 flex sm:hidden "
-        onClick={() => dispatch(setSideMenu(!isOpen))}>
+        onClick={() => setIsOpen(!isOpen)}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>
             <motion.div className="z-[1]">
@@ -165,7 +166,7 @@ const Sidebar = () => {
                 size={24}
                 color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
                 toggled={isOpen}
-                onToggle={() => dispatch(setSideMenu(!isOpen))}
+                onToggle={() => setIsOpen(!isOpen)}
               />
             </motion.div>
           </Magnetic>

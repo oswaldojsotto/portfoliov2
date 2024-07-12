@@ -10,7 +10,8 @@ const Footer = () => {
   const routes = [
     { id: 1, text: "HOME", to: "/" },
     { id: 2, text: "PROJECTS", to: "/projects" },
-    { id: 3, text: "CONTACT", to: "/contact" },
+    { id: 3, text: "ABOUT", to: "/about" },
+    { id: 4, text: "CONTACT", to: "/contact" },
   ];
   const socials = [
     {
@@ -27,15 +28,15 @@ const Footer = () => {
   };
   return (
     <section
-      className="relative h-[200px] "
+      className="relative h-[200px] font-extralight"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
       <div className="relative h-[calc(100vh+200px)] -top-[100vh]">
         <div className="h-[200px] sticky top-[calc(100vh-200px)]">
           <div
             className="h-[200px] px-8 xl:px-[15%] bg-dark dark:bg-light w-full text-dark fixed bottom-0 flex 
           sm:flex-row flex-col  justify-between">
-            <div className=" sm:py-8 flex flex-col gap-4 md:justify-between ">
-              <ol className="flex justify-between sm:max-w-82 sm:w-78  m-0 scale-[0.75] md:scale-[1]">
+            <div className=" sm:py-8 flex flex-col gap-2 md:justify-between ">
+              <ol className="flex justify-between sm:max-w-82 sm:w-78 -ml-4 xs:m-0 scale-[0.75] md:scale-[0.85]">
                 {routes.map(link => (
                   <li
                     key={link.id}
@@ -49,8 +50,8 @@ const Footer = () => {
                 <Copyright />
               </div>
             </div>
-            <div className=" sm:py-8 flex flex-col gap-4 md:justify-between ">
-              <ol className="flex justify-between sm:max-w-82 sm:w-78  m-0 scale-[0.75] md:scale-[1]">
+            <div className="sm:-ml-16  sm:py-8 flex flex-col  md:justify-start ">
+              <ol className="flex justify-between md:max-w-82 md:w-78 gap-1 m-0 scale-[0.75] md:scale-[0.85]">
                 {socials.map(link => (
                   <li key={link.id} className=" font-agdasima m-0 ">
                     <a href={link.to} target="_blank">
