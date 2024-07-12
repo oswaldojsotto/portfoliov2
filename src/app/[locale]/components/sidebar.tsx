@@ -4,9 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-import { useDispatch, useSelector } from "react-redux";
 import Magnetic from "@/[locale]/components/magnetic/Magnetic";
-import { setSideMenu } from "@/store/sidemenuSlice";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";
@@ -38,8 +36,6 @@ const sideVariants = {
 };
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
-  // const isOpen = useSelector((state: any) => state.sidemenu.sideMenuState);
   const { theme, systemTheme } = useTheme();
   const router = useRouter();
   const currentTheme = theme === "system" ? systemTheme : theme;
@@ -51,9 +47,9 @@ const Sidebar = () => {
   } = useScroll();
   const closeSliderRef = useRef(null);
   const links = [
-    { id: 1, text: t("about"), to: "/" },
+    { id: 1, text: t("home"), to: "/" },
     { id: 2, text: t("projects"), to: "/projects" },
-    { id: 3, text: "ABOUT", to: "/about" },
+    { id: 3, text: t("about"), to: "/about" },
     { id: 4, text: t("contact"), to: "/contact" },
   ];
 
@@ -66,10 +62,10 @@ const Sidebar = () => {
   }, []);
 
   useEffect(() => {
-    if (y === 0) {
-      dispatch(setSideMenu(false));
+    if (y <= 100) {
+      setIsOpen(false);
     }
-  }, [y, dispatch]);
+  }, [y]);
 
   useOutsideClickEvent(closeSliderRef, () => {
     setIsOpen(false);
