@@ -1,6 +1,6 @@
 {
-  "about": "INICIO",
+  "home": "INICIO",
+  "about": "SOBRE_MI",
   "projects": "PROYECTOS",
-  "contact": "CONTACTO",
-  "language": "IDIOMA"
+  "contact": "CONTACTO"
 }

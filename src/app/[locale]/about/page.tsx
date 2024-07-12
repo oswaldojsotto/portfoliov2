@@ -4,6 +4,7 @@ import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "next-themes";
+import NavbarLink from "../components/navbar-link";
 
 const About = () => {
   // const { theme } = useTheme();
@@ -16,13 +17,20 @@ const About = () => {
           <div className="w-full flex justify-start flex-col md:-mt-24 ">
             <p
               className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
-                text-dark dark:text-light justify-center whitespace-nowrap
-                text-[92px] xs:text-[150px] sm:text-[200px] md:text-[230px] lg:text-[220px]">
-              about
+                text-dark dark:text-light justify-start whitespace-nowrap
+                text-[72px] xs:text-[102px] sm:text-[132px] md:text-[162px] lg:text-[172px]">
+              About me
             </p>
           </div>
-          <div className="flex justify-center  -mt-6 scale-75 lg:scale-100">
-            {/* <EmailButton /> */}
+          <div className="flex justify-center font-agdasima text-dark dark:text-light">
+            <p className="flex text-justify text-[14px] sm:text-[17px] md:text-[19px] lg:text-[22px] ">
+              {t("description")}
+            </p>
+          </div>
+          <div className="-ml-1 my-2">
+            <a href="/cv/oswaldo_sotto_cv_english.pdf" target="_blank">
+              <NavbarLink text={t("cv")} />
+            </a>
           </div>
         </RevealAnimation>
         <div className="my-[20rem]"></div>

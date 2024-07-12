@@ -12,12 +12,12 @@ const NavBar = () => {
   const { t } = useTranslation("header");
 
   const items1 = [
-    { id: 1, text: t("about"), to: "/" },
+    { id: 1, text: t("home"), to: "/" },
     { id: 2, text: t("projects"), to: "/projects" },
   ];
 
   const items2 = [
-    { id: 3, text: "ABOUT", to: "/about" },
+    { id: 3, text: t("about"), to: "/about" },
     { id: 4, text: t("contact"), to: "/contact" },
   ];
 
