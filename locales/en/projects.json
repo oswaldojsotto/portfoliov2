@@ -2,5 +2,11 @@
   "dev": "DEVELOPMENT",
   "desdev": "DESIGN & DEVELOPMENT",
   "projects": "PROJECTS",
-  "view": "VIEW"
+  "view": "VIEW",
+  "description": "These are some projects I have worked on, whether for established companies and brands, freelance or personal projects.",
+  "ghub": "SOURCE_CODE",
+  "work": "MY_WORK",
+  "role": "Role / Service",
+  "location": "Location / Year",
+  "visit": "VISIT_SITE"
 }

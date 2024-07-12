@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import NavbarLink from "@/[locale]/components/navbar-link";
@@ -11,8 +11,11 @@ import {
   nextAuthData,
   shopData,
 } from "@/[locale]/components/gallery/image-data";
+import { useTranslation } from "react-i18next";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
+  const { t } = useTranslation("projects");
+
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -56,20 +59,22 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
           className="flex flex-col sm:flex-row w-full justify-start text-[18px] sm:text-[24px] px-4 
         -mt-8 sm:my-8 gap-8 xl:-mt-8">
           <div className="font-agdasima text-dark dark:text-light">
-            <p className="opacity-[0.8]">Role / Service</p>
+            <p className="opacity-[0.8]">{t("role")}</p>
             <p className="font-semibold text-[20px] md:text-[26px]">
-              {data()?.role || ""}
+              {data()?.role === 1 ? t("dev") : t("desdev") || ""}
             </p>
           </div>
           <div className="font-agdasima text-dark dark:text-light">
-            <p className="opacity-[0.8]">Location / Year</p>
+            <p className="opacity-[0.8]">{t("location")}</p>
             <p className="font-semibold  text-[20px] md:text-[26px]">
               {data()?.location || ""}
             </p>
           </div>
         </div>
         <div className="w-[20rem] flex px-4">
-          <NavbarLink text="LiveSite" />
+          <a href={data()?.url || "/"} target="_blank">
+            <NavbarLink text={t("visit")} />
+          </a>
         </div>
         <div
           className="flex w-full h-[50vh] xs:h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[100vh]  
