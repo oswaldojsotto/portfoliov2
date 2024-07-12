@@ -1,13 +1,16 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
-import EmailButton from "../components/email-button";
+import EmailButton from "@/[locale]/components/email-button";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const Contact = () => {
+  const { theme } = useTheme();
   const { t } = useTranslation("contact");
+  const [currentTheme, setCurrentTheme] = useState<string | undefined>("dark");
 
   const socials = [
     {
@@ -35,48 +38,64 @@ const Contact = () => {
   ];
 
   useEffect(() => {
+    setCurrentTheme(theme);
+  }, [theme]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   });
 
   return (
-    <PreloadWrapper words={["Contact"]}>
+    <PreloadWrapper words={[t("preload")]}>
       <section className="relative py-32 h-[100vh] px-8 xl:px-[15%]">
         <RevealAnimation delayWait={1.6}>
-          <div className="w-full flex justify-start flex-col">
+          <div className="w-full flex justify-start flex-col md:-mt-24 ">
             <p
               className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
                 text-dark dark:text-light justify-center whitespace-nowrap
-                text-[92px] xs:text-[150px] sm:text-[200px] md:text-[230px] lg:text-[230px]  xl:text-[268px]
-                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-10px]    ">
-              {t("contact")}
+                text-[92px] xs:text-[150px] sm:text-[200px] md:text-[230px] lg:text-[220px]">
+              {t("ctitle")}
             </p>
           </div>
         </RevealAnimation>
-        <div className="flex justify-center lg: mt-4 xl:-mt-6 scale-75 sm:scale-100">
+        <div className="flex justify-center  -mt-6 scale-75 lg:scale-100">
           <EmailButton />
         </div>
-        <div className="flex justify-between w-full font-agdasima text-[25px] dark:text-light text-dark mt-16 px-8  bottom-8 ">
-          <div className="flex gap-1">
-            <p className="my-0.5">AVAILABLE TO WORK</p>
-            <div>
-              <Image src="/live1.gif" width={42} height={42} alt="live" />
+        <div className="relative bottom-0 w-full my-[12rem] xs:my-32 sm:my-16 md:my-42  font-medium">
+          <div
+            className="flex justify-between w-full font-agdasima text-[17px] md:text-[20px] 
+        dark:text-light text-dark  px-8 mt-32 sm:-mt-2 md:mt-0  ">
+            <div className="flex gap-1">
+              <p className="my-0.5">{t("availability")}</p>
+              <div className="-mt-[5px]">
+                <Image src="/live1.gif" width={42} height={42} alt="live" />
+              </div>
+            </div>
+            <p className="my-0.5">{t("socials")}</p>
+          </div>
+          <div className="flex justify-between w-full font-agdasima text-[17px] md:text-[20px]  px-8 mb-8 dark:text-light text-dark  ">
+            <div className="flex flex-col gap-1">
+              <p className="my-0.5">CARACAS, VENEZUELA</p>
+              <p>{t("remote")}</p>
+            </div>
+            <div className="flex gap-4">
+              {socials.map(({ id, to, text, srcLight, srcDark }) => (
+                <a
+                  key={id}
+                  href={to}
+                  target="_blank"
+                  className="flex gap- max-w-[42px] ">
+                  <Image
+                    className="w-6 h-6"
+                    src={currentTheme === "dark" ? srcDark : srcLight}
+                    width={18}
+                    height={18}
+                    alt={text}
+                  />
+                </a>
+              ))}
             </div>
           </div>
-          <p className="my-0.5">SOCIALS</p>
-        </div>
-        <div className="flex justify-between w-full font-agdasima text-[20px]  px-8 dark:text-light text-dark  bottom-8  ">
-          <div className="flex gap-1">
-            <p className="my-0.5">CARACAS, VENEZUELA</p>
-          </div>
-          {socials.map(({ id, to, text, srcLight, srcDark }) => (
-            <a
-              key={id}
-              href={to}
-              target="_blank"
-              className="flex gap-1 max-w-[42px]">
-              <Image src={srcDark} width={22} height={22} alt={text} />
-            </a>
-          ))}
         </div>
       </section>
     </PreloadWrapper>

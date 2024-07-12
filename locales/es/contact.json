@@ -1,4 +1,8 @@
 {
-  "contact": "CONTACTAME",
-  "clipboard": "COPIADO AL PORTAPAPELES!"
+  "ctitle": "CONTACTAME",
+  "preload": "CONTACTO",
+  "clipboard": "COPIADO AL PORTAPAPELES!",
+  "availability": "DISPONIBLE PARA TRABAJAR",
+  "socials": "SOCIALES",
+  "remote": "REMOTO"
 }

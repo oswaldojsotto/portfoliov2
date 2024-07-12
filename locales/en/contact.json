@@ -1,4 +1,8 @@
 {
-  "contact": "GET IN TOUCH",
-  "clipboard": "COPIED TO CLIPBOARD!"
+  "ctitle": "GET IN TOUCH",
+  "preload": "CONTACT",
+  "clipboard": "COPIED TO CLIPBOARD!",
+  "availability": "AVAILABLE TO WORK",
+  "socials": "SOCIALS",
+  "remote": "REMOTE"
 }
