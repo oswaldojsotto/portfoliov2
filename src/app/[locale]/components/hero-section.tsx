@@ -25,7 +25,7 @@ const HeroSection = () => {
             <p
               className="font-dimensions flex  max-h-[26rem]   tracking-[4px]
                 text-dark dark:text-light justify-start whitespace-nowrap
-                text-[80px] xs:text-[120px] sm:text-[158px] md:text-[198px] lg:text-[228px]  xl:text-[258px]
+                text-[80px] xs:text-[120px] sm:text-[158px] md:text-[198px] lg:text-[228px]  xl:text-[251px]
                 -mb-[2.5rem] xs:-mb-[3rem] sm:-mb-[4.5rem] md:-mb-[1.5rem] lg:mb-[-3.5rem] lg:-mt-16 xl:mb-[-30px] xl:-mt-48 font-light  ">
               {`OSWALDO J. SOTTO`}
             </p>

@@ -30,15 +30,15 @@ const Footer = () => {
   };
   return (
     <section
-      className="relative h-[200px] font-extralight"
+      className="relative h-[200px] font-extralight "
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}>
       <div className="relative h-[calc(100vh+200px)] -top-[100vh]">
         <div className="h-[200px] sticky top-[calc(100vh-200px)]">
           <div
-            className="h-[200px] px-8 xl:px-[15%] bg-dark dark:bg-light w-full text-dark fixed bottom-0 flex 
+            className="h-[200px] px-4 xs:px-8 xl:px-[15%] bg-dark dark:bg-light w-full text-dark fixed bottom-0 flex 
           sm:flex-row  justify-between gap-4">
             <div className="h-full w-[7rem] xs:w-full ">
-              <ol className="flex justify-center md:justify-between h-full flex-col md:flex-row md:my-[1.7rem]    ">
+              <ol className="flex justify-center md:justify-between h-full flex-col md:flex-row md:my-[1.7rem] ">
                 {routes.map(link => (
                   <li
                     className="scale-[0.8] xs:scale-100"
