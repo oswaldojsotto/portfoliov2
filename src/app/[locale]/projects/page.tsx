@@ -10,7 +10,7 @@ const Projects = () => {
   const { t } = useTranslation("projects");
 
   return (
-    <PreloadWrapper words={["Projects"]}>
+    <PreloadWrapper words={[t("projects")]}>
       <div className="relative py-32  px-8 xl:px-[15%]">
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col md:-mt-24 ">

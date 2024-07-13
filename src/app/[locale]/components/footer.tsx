@@ -10,7 +10,7 @@ const Footer = () => {
   const { t } = useTranslation("header");
 
   const routes = [
-    { id: 1, text: t("home"), to: "/" },
+    // { id: 1, text: t("home"), to: "/" },
     { id: 2, text: t("projects"), to: "/projects" },
     { id: 3, text: t("about"), to: "/about" },
     { id: 4, text: t("contact"), to: "/contact" },
@@ -36,33 +36,34 @@ const Footer = () => {
         <div className="h-[200px] sticky top-[calc(100vh-200px)]">
           <div
             className="h-[200px] px-8 xl:px-[15%] bg-dark dark:bg-light w-full text-dark fixed bottom-0 flex 
-          sm:flex-row flex-col  justify-between">
-            <div className=" sm:py-8 flex flex-col gap-2 md:justify-between ">
-              <ol className="flex justify-between sm:max-w-82 sm:w-78 -ml-4 xs:m-0 scale-[0.75] md:scale-[0.85]">
+          sm:flex-row  justify-between gap-4">
+            <div className="h-full w-[7rem] xs:w-full ">
+              <ol className="flex justify-center md:justify-between h-full flex-col md:flex-row md:my-[1.7rem]    ">
                 {routes.map(link => (
                   <li
+                    className="scale-[0.8] xs:scale-100"
                     key={link.id}
-                    className=" font-agdasima m-0 "
                     onClick={() => goToProject(link.to)}>
                     <FooButton text={link.text} />
                   </li>
                 ))}
               </ol>
-              <div className="flex w-full justify-center">
-                <Copyright />
-              </div>
             </div>
-            <div className="sm:-ml-16  sm:py-8 flex flex-col  md:justify-start ">
-              <ol className="flex justify-between md:max-w-82 md:w-78 gap-1 m-0 scale-[0.75] md:scale-[0.85]">
+            <div className=" h-full flex justify-center flex-col w-[15.5rem] xs:w-full -ml-4 xs:-ml-0 -mt-0.5 md:-mt-0">
+              <ol className="flex justify-center  xs:justify-between my-1 w-full xs:w-full">
                 {socials.map(link => (
-                  <li key={link.id} className=" font-agdasima m-0 ">
+                  <li
+                    key={link.id}
+                    className="scale-[0.8] xs:scale-100 flex -mx-[1rem] ">
                     <a href={link.to} target="_blank">
                       <FooButton text={link.text} />
                     </a>
                   </li>
                 ))}
               </ol>
-              <div className="flex w-full justify-center"></div>
+              <div className="flex justify-center sm:justify-end my-4 -ml-4 sx:ml-0">
+                <Copyright />
+              </div>
             </div>
           </div>
         </div>
