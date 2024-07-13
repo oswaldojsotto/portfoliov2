@@ -3,11 +3,9 @@ import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import { useTranslation } from "react-i18next";
-import { useTheme } from "next-themes";
-import NavbarLink from "../components/navbar-link";
+import CvModal from "../components/cv-modal";
 
 const About = () => {
-  // const { theme } = useTheme();
   const { t } = useTranslation("contact");
 
   return (
@@ -19,7 +17,7 @@ const About = () => {
               className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[72px] xs:text-[102px] sm:text-[132px] md:text-[162px] lg:text-[172px]">
-              About me
+              {t("preload")}
             </p>
           </div>
           <div className="flex justify-center font-agdasima text-dark dark:text-light">
@@ -27,13 +25,10 @@ const About = () => {
               {t("description")}
             </p>
           </div>
-          <div className="-ml-1 my-2">
-            <a href="/cv/oswaldo_sotto_cv_english.pdf" target="_blank">
-              <NavbarLink text={t("cv")} />
-            </a>
-          </div>
+
+          <CvModal text={t("cv")} />
         </RevealAnimation>
-        <div className="my-[20rem]"></div>
+        {/* <div className="my-[20rem]"></div> */}
       </section>
     </PreloadWrapper>
   );

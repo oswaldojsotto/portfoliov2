@@ -9,7 +9,7 @@ export default function StarsBackground() {
   return (
     <Canvas
       gl={{ preserveDrawingBuffer: true }}
-      className=" dark:bg-dark bg-light -z-30 fixed"
+      className=" dark:bg-dark bg-light -z-30 fixed h-0"
       camera={{ position: [0, 0, 1] }}>
       <Stars />
     </Canvas>

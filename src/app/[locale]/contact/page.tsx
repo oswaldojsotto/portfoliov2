@@ -64,7 +64,13 @@ const Contact = () => {
             <div className="flex gap-1">
               <p className="my-0.5">{t("availability")}</p>
               <div className="-mt-[5px]">
-                <Image src="/live1.gif" width={42} height={42} alt="live" />
+                <Image
+                  unoptimized
+                  src="/live1.gif"
+                  width={42}
+                  height={42}
+                  alt="live"
+                />
               </div>
             </div>
             <p className="my-0.5">{t("socials")}</p>

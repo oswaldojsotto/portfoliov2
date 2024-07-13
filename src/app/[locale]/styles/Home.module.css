@@ -1,4 +1,4 @@
- 
+/*  
   .textContainer{
     position: relative;
     cursor: pointer;
@@ -34,4 +34,4 @@
   .textContainer:hover .primary{
     transform: translateY(-100%);
     opacity: 0;
-  }
+  } */
