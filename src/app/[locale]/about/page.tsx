@@ -17,7 +17,7 @@ const About = () => {
               className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[72px] xs:text-[102px] sm:text-[132px] md:text-[162px] lg:text-[172px]">
-              About me
+              {t("preload")}
             </p>
           </div>
           <div className="flex justify-center font-agdasima text-dark dark:text-light">
