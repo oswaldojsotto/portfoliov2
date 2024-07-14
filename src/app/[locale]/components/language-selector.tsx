@@ -6,7 +6,6 @@ import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
 import { useTheme } from "next-themes";
 import Magnetic from "@/[locale]/components/magnetic/magnetic";
-// import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import { useDispatch, useSelector } from "react-redux";
 import { setLanguageSelectorMenu } from "@/store/sidemenuSlice";
 import Image from "next/image";

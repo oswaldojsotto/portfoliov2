@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import NavbarLink from "@/[locale]/components/navbar-link";
-import Gallery from "@/[locale]/components/gallery/gallery";
 import {
   movieTrailersData,
   sevenSuiteData,
@@ -12,6 +11,7 @@ import {
   shopData,
 } from "@/[locale]/components/gallery/image-data";
 import { useTranslation } from "react-i18next";
+import Carousel from "@/[locale]/components/gallery/carousel";
 
 const ProjectDetail = ({ params }: { params: { slug: string } }) => {
   const { t } = useTranslation("projects");
@@ -82,7 +82,8 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
         <div
           className="flex w-full h-[50vh] xs:h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[100vh]  
         justify-center mt-8">
-          <Gallery images={data()} />
+          {/* <Gallery images={data()} /> */}
+          <Carousel images={data()} />
         </div>
       </div>
     </PreloadWrapper>
