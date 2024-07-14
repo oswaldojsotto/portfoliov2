@@ -1,32 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Magnetic from "./magnetic/Magnetic";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 const Social = () => {
+  const { theme } = useTheme();
+
+  const [currentTheme, setCurrentTheme] = useState<string | undefined>("dark");
+
+  useEffect(() => {
+    setCurrentTheme(theme);
+  }, [theme]);
+
   const socials = [
     {
       id: 1,
-      text: "LinkedIn",
-      link: "https://www.linkedin.com/in/oswaldojsotto/",
+      text: "LINKEDIN",
+      to: "https://www.linkedin.com/in/oswaldojsotto/",
+      srcLight: "/linkedin-color.svg",
+      srcDark: "/linkedin-white.svg",
     },
-    { id: 2, text: "Github", link: "https://github.com/oswaldojsotto" },
-    { id: 3, text: "Whatsapp", link: "https://wa.me/+584129984137" },
+    {
+      id: 2,
+      text: "GITHUB",
+      to: "https://github.com/oswaldojsotto",
+      srcLight: "/github-color.svg",
+      srcDark: "/github-white.svg",
+    },
+
+    {
+      id: 3,
+      text: "WHATSAPP",
+      to: "https://wa.me/+584129984137",
+      srcLight: "/whatsapp-color.svg",
+      srcDark: "/whatsapp-white.svg",
+    },
   ];
 
   return (
-    <div
-      className={`font-agdasima py-4 w-full font-medium text-[17px] md:text-[20px] flex justify-between 
-        gap-2 border-t border-dark dark:border-light 
-      `}>
-      {socials.map(({ id, text, link }) => (
+    <div className="flex justify-between w-full">
+      {socials.map(({ id, to, text, srcLight, srcDark }) => (
         <Magnetic key={id}>
-          <div className="flex gap-2">
-            <a
-              className="flex cursor-pointer gap-2"
-              href={link}
-              target="_blank">
-              {text}
-            </a>
-          </div>
+          <a key={id} href={to} target="_blank" className="">
+            <Image
+              className="w-6 h-6"
+              src={currentTheme === "dark" ? srcDark : srcLight}
+              width={18}
+              height={18}
+              alt={text}
+            />
+          </a>
         </Magnetic>
       ))}
     </div>

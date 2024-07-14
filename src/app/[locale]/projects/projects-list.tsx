@@ -95,7 +95,7 @@ const ProjectsList = () => {
       className="flex flex-col items-center">
       <div
         className="w-full flex justify-end bg py-1 tracking-[2px] font-dimensions text-dark dark:text-light font-extralight
-       text-[50px] md:text-[70px] xl:text-[90px] cursor-pointer ">
+       text-[50px] md:text-[70px]  cursor-pointer ">
         <Magnetic>
           <h1> {t("projects")}</h1>
         </Magnetic>

@@ -102,7 +102,7 @@ const Sidebar = () => {
               {links.map(({ text, to, id }) => (
                 <Magnetic key={id}>
                   <motion.a
-                    className={`font-dimensions text-[60px]  md:text-[80px] flex flex-col gap-16 my-6 md:-my-4 md:py-6 md:mb-1 text-4xl drop-shadow-2xl
+                    className={`font-dimensions text-[35px]  md:text-[40px] flex flex-col gap-16 my-6 md:-my-4 md:py-6 md:mb-1 text-4xl drop-shadow-2xl
                     transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
                       currentTheme === "dark"
                         ? "text-light drop-shadow-[10rem]"

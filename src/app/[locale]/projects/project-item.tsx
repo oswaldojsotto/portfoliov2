@@ -29,9 +29,7 @@ const ProjectItem = ({
      hover:opacity-[1] transition-all  hover:border-opacity-1 duration-700 cursor-none border-dark dark:border-light
      hover:text-orange dark:hover:text-pink  gap-4
      ">
-      <p
-        className="tracking-[5px]  whitespace-nowrap sm:hover:text-[90px]
-      text-[50px] xs:text-[70px] sm:text-[90px] md:text-[100px] pointer-events-none select-none">
+      <p className="text-[25px] xs:text-[30px] sm:text-[45px] md:text-[55px] lg:text-[70px]  whitespace-nowrap  pointer-events-none select-none">
         {title}
       </p>
       <div className=" text-right max-w-[6rem] xs:max-w-full">
