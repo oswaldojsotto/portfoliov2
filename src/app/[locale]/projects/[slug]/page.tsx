@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import NavbarLink from "@/[locale]/components/navbar-link";
-import Gallery from "@/[locale]/components/gallery/gallery";
 import {
   movieTrailersData,
   sevenSuiteData,
