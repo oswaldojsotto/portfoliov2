@@ -3,7 +3,7 @@ import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import ProjectsList from "@/[locale]/projects/projects-list";
-import NavbarLink from "../components/navbar-link";
+import NavbarLink from "@/[locale]/components/navbar-link";
 import { useTranslation } from "react-i18next";
 
 const Projects = () => {

@@ -2,8 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-// import { exampleImages } from "./image-data";
-import NavigationButton from "../navigation-button";
+import NavigationButton from "@/[locale]/components/navigation-button";
 import "./gallery.css";
 
 const variants = {

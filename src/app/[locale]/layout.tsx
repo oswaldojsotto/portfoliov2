@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Agdasima } from "next/font/google";
-import "../[locale]/styles/globals.css";
+import "@/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
-import StoreProvider from "../store/StoreProvider";
-import StarsBackground from "./components/stars-background";
+import StoreProvider from "@/store/StoreProvider";
+import StarsBackground from "@/[locale]/components/stars-background";
 
-const agdasima = Agdasima({
-  subsets: ["latin"],
-  variable: "--font-agdasima",
-  weight: "400",
-});
+export const metadata: Metadata = {
+  title: "Oswaldo J. Sotto ©",
+  description: "Frontend Developer - Portfolio",
+};
 
 const dimensions = localFont({
   src: [
@@ -21,20 +19,16 @@ const dimensions = localFont({
   ],
   variable: "--font-dimensions",
 });
-// const dimensions = localFont({
-//   src: [
-//     {
-//       path: "../../../public/fonts/dimensions500.ttf",
-//       weight: "200",
-//     },
-//   ],
-//   variable: "--font-dimensions",
-// });
 
-export const metadata: Metadata = {
-  title: "Oswaldo J. Sotto ©",
-  description: "Frontend Developer - Portfolio",
-};
+const agdasima = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/agdasima.ttf",
+      weight: "100",
+    },
+  ],
+  variable: "--font-agdasima",
+});
 
 export default function RootLayout({
   children,

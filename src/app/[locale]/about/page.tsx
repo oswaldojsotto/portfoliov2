@@ -3,7 +3,7 @@ import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import { useTranslation } from "react-i18next";
-import CvModal from "../components/cv-modal";
+import CvModal from "@/[locale]/components/cv-modal";
 
 const About = () => {
   const { t } = useTranslation("contact");
