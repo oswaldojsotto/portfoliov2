@@ -11,22 +11,11 @@ export const metadata: Metadata = {
 };
 
 const dimensions = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/dimis.ttf",
-      weight: "100",
-    },
-  ],
+  src: "../../../public/fonts/dimis.ttf",
   variable: "--font-dimensions",
 });
-
 const agdasima = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/agdasima.ttf",
-      weight: "100",
-    },
-  ],
+  src: "../../../public/fonts/agdasima.ttf",
   variable: "--font-agdasima",
 });
 
