@@ -45,37 +45,40 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col px-4">
             <p
-              data-scroll
-              data-scroll-speed="0.8"
-              className="font-dimensions flex -pt-[5rem] max-h-[26rem]tracking-[4px] 
-                text-dark dark:text-light justify-start whitespace-nowrap
-                text-[82px] xs:text-[100px] sm:text-[130px] md:text-[160px] lg:text-[190px]  xl:text-[218px]
-                mb-[2rem] xs:mb-[1rem] sm:-mb-[1.5rem] md:-mb-[2.5rem] lg:mb-[-4.5rem] lg:-mt-16 xl:mb-[-30px]    ">
+              className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
+                text-[40px] xs:text-[50px] sm:text-[70px] md:text-[90px] lg:text-[100px]  xl:text-[140px]">
               {projectName}
             </p>
           </div>
         </RevealAnimation>
-        <div
-          className="flex flex-col sm:flex-row w-full justify-start text-[18px] sm:text-[24px] px-4 
-        -mt-8 sm:my-8 gap-8 xl:-mt-8">
-          <div className="font-agdasima text-dark dark:text-light">
-            <p className="opacity-[0.8]">{t("role")}</p>
-            <p className="font-semibold text-[20px] md:text-[26px]">
-              {data()?.role === 1 ? t("dev") : t("desdev") || ""}
-            </p>
+        <RevealAnimation delayWait={1.7}>
+          <div className="flex flex-col sm:flex-row w-full justify-start text-[22px] sm:text-[30px] mt-12 gap-8 px-2">
+            <div className=" text-dark dark:text-light">
+              <p className="opacity-[0.8] font-dimensions">{t("role")}</p>
+              <p className="font-semibold font-agdasima text-[20px] md:text-[26px]">
+                {data()?.role === 1 ? t("dev") : t("desdev") || ""}
+              </p>
+            </div>
+            <div className="text-dark dark:text-light">
+              <p className="opacity-[0.8] font-dimensions">{t("location")}</p>
+              <p className="font-semibold font-agdasima text-[20px] md:text-[26px]">
+                {data()?.location || ""}
+              </p>
+            </div>
           </div>
-          <div className="font-agdasima text-dark dark:text-light">
-            <p className="opacity-[0.8]">{t("location")}</p>
-            <p className="font-semibold  text-[20px] md:text-[26px]">
-              {data()?.location || ""}
-            </p>
+        </RevealAnimation>
+        <RevealAnimation delayWait={1.8}>
+          <div className="w-[20rem] my-4 flex px-2">
+            <a href={data()?.url || "/"} target="_blank">
+              <NavbarLink text={t("visit")} />
+            </a>
           </div>
-        </div>
-        <div className="w-[20rem] flex px-4">
-          <a href={data()?.url || "/"} target="_blank">
-            <NavbarLink text={t("visit")} />
-          </a>
-        </div>
+          <div
+            className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
+          text-[40px] xs:text-[50px] sm:text-[70px] md:text-[90px] lg:text-[100px]  xl:text-[140px]">
+            GALLERY
+          </div>
+        </RevealAnimation>
         <div
           className="flex w-full h-[50vh] xs:h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[100vh]  
         justify-center mt-8">

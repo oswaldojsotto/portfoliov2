@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
 
-// const words = ["Hello", "Ciao", "Hola", "Hello", "Ciao", "Hola", "Loading..."];
-
 interface PreloaderTypes {
   words: string[];
 }
@@ -56,7 +54,11 @@ const Preloader = ({ words }: PreloaderTypes) => {
       className={`${styles.introduction}`}>
       {dimension.width > 0 && (
         <>
-          <motion.p variants={opacity} initial="initial" animate="enter">
+          <motion.p
+            variants={opacity}
+            initial="initial"
+            animate="enter"
+            className="text-[30px] xs:text-[40px] sm:text-[50px] md:text-[70px] lg:text-[90px]">
             <span></span>
             {words[index]}
           </motion.p>
