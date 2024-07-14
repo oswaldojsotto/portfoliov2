@@ -15,12 +15,21 @@ const agdasima = Agdasima({
 const dimensions = localFont({
   src: [
     {
-      path: "../../../public/fonts/dimensions500.ttf",
-      weight: "200",
+      path: "../../../public/fonts/dimis.ttf",
+      weight: "100",
     },
   ],
   variable: "--font-dimensions",
 });
+// const dimensions = localFont({
+//   src: [
+//     {
+//       path: "../../../public/fonts/dimensions500.ttf",
+//       weight: "200",
+//     },
+//   ],
+//   variable: "--font-dimensions",
+// });
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto ©",
