@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 const dimensions = localFont({
-  src: "../fonts/dimis.ttf",
+  src: "../fonts/dimis.TTF",
   variable: "--font-dimensions",
 });
 const agdasima = localFont({
