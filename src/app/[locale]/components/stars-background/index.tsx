@@ -28,8 +28,9 @@ function Stars() {
     ref.current.rotation.y -= delta / 15;
   });
   return (
+    // @ts-ignore: Unreachable code error
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled>
+      <Points ref={ref} positions={sphere as any} stride={3} frustumCulled>
         <PointMaterial
           transparent
           color={starColor}
