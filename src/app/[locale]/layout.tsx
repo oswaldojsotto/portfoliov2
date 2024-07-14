@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   description: "Frontend Developer - Portfolio",
 };
 
-// const dimensions = localFont({
-//   src: "../dimis.ttf",
-//   variable: "--font-dimensions",
-// });
+const dimensions = localFont({
+  src: "../dimitri.ttf",
+  variable: "--font-dimensions",
+});
 const agdasima = localFont({
   src: "../agdasima.ttf",
   variable: "--font-agdasima",
@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        className={`${agdasima.variable}`}
-        // className={`${dimensions.variable} ${agdasima.variable}`}
+        // className={`${agdasima.variable}`}
+        className={`${dimensions.variable} ${agdasima.variable}`}
         lang={locale}
         suppressHydrationWarning>
         <body>
