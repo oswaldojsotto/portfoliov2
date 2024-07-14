@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
+import localFont from "next/font/local";
 import "@/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "@/store/StoreProvider";
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
   description: "Frontend Developer - Portfolio",
 };
 
-// const dimensions = localFont({
-//   src: "../fonts/dimis.ttf",
-//   variable: "--font-dimensions",
-// });
-// const agdasima = localFont({
-//   src: "../fonts/agdasima.ttf",
-//   variable: "--font-agdasima",
-// });
+const dimensions = localFont({
+  src: "../dimis.ttf",
+  variable: "--font-dimensions",
+});
+const agdasima = localFont({
+  src: "../agdasima.ttf",
+  variable: "--font-agdasima",
+});
 
 export default function RootLayout({
   children,
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        // className={`${dimensions.variable} ${agdasima.variable}`}
+        className={`${dimensions.variable} ${agdasima.variable}`}
         lang={locale}
         suppressHydrationWarning>
         <body>
