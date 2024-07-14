@@ -1,7 +1,7 @@
 import initTranslations from "@/i18n";
-import TranslationsProvider from "../TranslationsProvider";
-import Header from "./components/header";
-import LandingSection from "./components/landing-section";
+import TranslationsProvider from "@/TranslationsProvider";
+import Header from "@/[locale]/components/header";
+import LandingSection from "@/[locale]/components/landing-section";
 interface HomeProps {
   params: {
     locale: string;

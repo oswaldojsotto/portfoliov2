@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { LanguageSelector } from "./language-selector";
 import ThemeSwitcher from "./theme-switcher";
@@ -7,7 +6,7 @@ import { useRouter } from "next/navigation";
 import NavbarLink from "./navbar-link";
 import { useTranslation } from "react-i18next";
 
-const NavBar = () => {
+const Navbar = () => {
   const router = useRouter();
   const { t } = useTranslation("header");
 
@@ -49,4 +48,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

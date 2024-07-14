@@ -5,7 +5,7 @@ import RevealAnimation from "@/hooks/revealAnimation";
 import EmailButton from "@/[locale]/components/email-button";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import Social from "../components/socials";
+import Social from "@/[locale]/components/socials";
 
 const Contact = () => {
   const { t } = useTranslation("contact");

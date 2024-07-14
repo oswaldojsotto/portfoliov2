@@ -1,13 +1,18 @@
 "use client";
 import RevealAnimation from "@/hooks/revealAnimation";
 import React from "react";
-import { useDispatch } from "react-redux";
 import { Parallax } from "./parallax";
 import { useTranslation } from "react-i18next";
 import NavbarLink from "./navbar-link";
+import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
+  const router = useRouter();
   const { t } = useTranslation("landing");
+
+  const goTo = (page: string) => {
+    router.push(page);
+  };
 
   return (
     <div className=" w-full h-[100vh] flex flex-col md:mb-[20vh] justify-center">
@@ -34,10 +39,9 @@ const HeroSection = () => {
 
         <RevealAnimation delayWait={2.3}>
           <div
-            className="text-dark dark:text-light w-full my-4 font-agdasima font-semibold dark:font-medium  
-                whitespace-nowrap flex justify-center
-            text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px] 
-          ">
+            className="text-dark dark:text-light w-full my-4 font-agdasima font-semibold dark:font-medium whitespace-nowrap 
+            flex justify-center text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px] -ml-4"
+            onClick={() => goTo("/about")}>
             <NavbarLink text={t("aboutme")} />
           </div>
         </RevealAnimation>

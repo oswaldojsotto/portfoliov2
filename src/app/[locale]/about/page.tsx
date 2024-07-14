@@ -3,7 +3,7 @@ import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
 import RevealAnimation from "@/hooks/revealAnimation";
 import { useTranslation } from "react-i18next";
-import CvModal from "../components/cv-modal";
+import CvModal from "@/[locale]/components/cv-modal";
 
 const About = () => {
   const { t } = useTranslation("contact");
@@ -14,7 +14,7 @@ const About = () => {
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col md:-mt-12 ">
             <p
-              className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
+              className="font-dimensions flex -pt-[1rem] max-h-[26rem] 
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[52px] xs:text-[82px] sm:text-[90px] md:text-[95px] lg:text-[100px]">
               {t("preload")}

@@ -15,8 +15,10 @@ const InnerContact = () => {
     <div className="flex flex-col w-full justify-between h-[18rem] xs:h-[20rem] md:flex-row font-dimensions mb-32 xs:mb-16 ">
       <div
         className="w-full h-[12rem] flex text-[45px] sm:text-[55px] md:text-[75px] text-dark dark:text-light md:flex-col
-       md:pb-[8rem] tracking-[4px]">
-        <p className="text-dark dark:text-light pr-2 md:-my-4 md:flex-col md:mt-[0.5rem] font-dimensions">
+       md:pb-[8rem] ">
+        <p
+          className="text-dark dark:text-light pr-2 md:-my-4 md:flex-col md:mt-[0.5rem] 
+        font-dimensions text-[42px] md:text-[62px] lg:text-[76px]">
           {t("ctitle")}
         </p>
       </div>
