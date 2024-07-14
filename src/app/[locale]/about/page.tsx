@@ -14,7 +14,7 @@ const About = () => {
         <RevealAnimation delayWait={1.6}>
           <div className="w-full flex justify-start flex-col md:-mt-12 ">
             <p
-              className="font-dimensions flex -pt-[1rem] max-h-[26rem] tracking-[0.5rem]
+              className="font-dimensions flex -pt-[1rem] max-h-[26rem] 
                 text-dark dark:text-light justify-start whitespace-nowrap
                 text-[52px] xs:text-[82px] sm:text-[90px] md:text-[95px] lg:text-[100px]">
               {t("preload")}

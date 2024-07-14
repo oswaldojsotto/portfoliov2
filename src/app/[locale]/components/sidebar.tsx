@@ -103,7 +103,7 @@ const Sidebar = () => {
                 <Magnetic key={id}>
                   <motion.a
                     className={`font-dimensions text-[35px]  md:text-[40px] flex flex-col gap-16 my-6 md:-my-4 md:py-6 md:mb-1 text-4xl drop-shadow-2xl
-                    transition-all hover:text-orange dark:hover:text-pink tracking-wide cursor-pointer bg-red${
+                    transition-all hover:text-orange dark:hover:text-pink  cursor-pointer bg-red${
                       currentTheme === "dark"
                         ? "text-light drop-shadow-[10rem]"
                         : "text-dark drop-shadow-[10rem]"
