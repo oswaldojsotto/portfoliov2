@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import Image from "next/image";
-import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import ProjectItem from "@/[locale]/projects/project-item";
 import { projects } from "@/[locale]/projects/[slug]/projects-data";
 import { useTranslation } from "react-i18next";

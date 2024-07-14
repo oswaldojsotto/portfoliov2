@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
-import Magnetic from "@/[locale]/components/magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import ThemeSwitcher from "./theme-switcher";
 import { useScroll } from "@/hooks/useScroll";
 import { useRouter } from "next/navigation";

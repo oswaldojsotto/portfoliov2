@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Magnetic from "./magnetic/Magnetic";
+import Magnetic from "@/[locale]/components/magnetic/magnetic";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
