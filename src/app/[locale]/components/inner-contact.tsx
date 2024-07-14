@@ -12,19 +12,21 @@ const InnerContact = () => {
   };
 
   return (
-    <div className="flex flex-col w-full justify-between h-[18rem] md:h-[14rem] md:flex-row font-dimensions my-16 ">
+    <div className="flex flex-col w-full justify-between h-[18rem] xs:h-[20rem] md:flex-row font-dimensions mb-32 xs:mb-16 ">
       <div
         className="w-full h-[12rem] flex text-[45px] sm:text-[55px] md:text-[75px] text-dark dark:text-light md:flex-col
        md:pb-[8rem] tracking-[4px]">
-        <p className="text-dark dark:text-light pr-2 md:-my-4 md:flex-col md:mt-[2.5rem]">
+        <p className="text-dark dark:text-light pr-2 md:-my-4 md:flex-col md:mt-[0.5rem] font-dimensions">
           {t("ctitle")}
         </p>
       </div>
       <div className="w-full h-[32rem] md:h-[14rem] font-agdasima text-dark dark:text-light">
-        <p className=" text-[25px]  sm:text-[30px] font-semibold">
+        <p className=" text-[25px]  sm:text-[30px] font-semibold font-dimensions">
           {t("csubtitle")}
         </p>
-        <p className=" text-[18px] sm:text-[20px]">{t("cmessage")}</p>
+        <p className=" text-[18px] font-agdasima sm:text-[20px]">
+          {t("cmessage")}
+        </p>
         <div className="-ml-1" onClick={() => goToProject("/contact")}>
           <NavbarLink text="CONTACT" />
         </div>

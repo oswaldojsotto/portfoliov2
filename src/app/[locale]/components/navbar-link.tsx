@@ -9,7 +9,7 @@ const NavbarLink = ({ text }: { text: string }) => {
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
             ●
           </div>
-          <p className="font-dimensions text-[28px]  hover:text-orange dark:hover:text-pink transition-all">
+          <p className="font-dimensions text-[28px]  hover:text-orange dark:hover:text-pink transition-all border-b-2">
             {text}
           </p>
         </div>
