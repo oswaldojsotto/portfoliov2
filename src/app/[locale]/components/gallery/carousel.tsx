@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import ImageGallery from "react-image-gallery";
-import NavigationButton from "../navigation-button";
+import NavigationButton from "@/[locale]/components/navigation-button";
 
 type GalleryProps = {
   images: {
@@ -17,28 +17,28 @@ const Carousel = ({ images }: GalleryProps) => {
     : [];
 
   const CustomControls = () => (
-    <div className="w-full absolute z-10 my-[17rem] flex justify-between px-8">
-      <button
+    <div className="w-full absolute my-[25%] z-[10] flex justify-between px-2">
+      <div
         onClick={() =>
           galleryRef.current.slideToIndex(
             galleryRef.current.getCurrentIndex() - 1
           )
         }>
         <NavigationButton direction="left" />
-      </button>
-      <button
+      </div>
+      <div
         onClick={() =>
           galleryRef.current.slideToIndex(
             galleryRef.current.getCurrentIndex() + 1
           )
         }>
         <NavigationButton direction="right" />
-      </button>
+      </div>
     </div>
   );
 
   return (
-    <div>
+    <div className="mx-8 absolute gallery">
       <ImageGallery
         ref={galleryRef}
         items={photos}
