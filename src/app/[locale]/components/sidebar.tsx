@@ -74,18 +74,18 @@ const Sidebar = () => {
   if (!mounted) return null;
 
   return (
-    <main className="flex fixed z-[100]" ref={closeSliderRef}>
+    <main className="flex fixed  sidebar" ref={closeSliderRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.nav
-            className={`fixed h-[101vh] flex left-0 z-10  justify-center  overflow-hidden ${
+            className={`fixed h-[101vh] flex left-0 z-[10]  justify-center  overflow-hidden sidebar ${
               currentTheme === "dark"
                 ? "bg-dark drop-shadow-2xl text-light"
                 : "bg-light drop-shadow-2xl text-dark"
             }`}
             initial={{ width: 0 }}
             animate={{
-              width: 320,
+              width: 330,
             }}
             exit={{
               width: 0,
@@ -131,7 +131,7 @@ const Sidebar = () => {
       <motion.div
         animate={{ scale: y > 100 ? 1 : 0 }}
         transition={{ ease: "easeOut", duration: 0.2 }}
-        className="fixed left-8 z-20 my-4 hidden sm:flex "
+        className="fixed left-8 sidebarbutton my-4 hidden sm:flex "
         onClick={() => setIsOpen(!isOpen)}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>
@@ -151,7 +151,7 @@ const Sidebar = () => {
       <motion.div
         // ref={closeSliderRef}
         transition={{ ease: "easeOut", duration: 0.2 }}
-        className="fixed left-8 z-20 my-4 flex sm:hidden "
+        className="fixed left-8 sidebarbutton my-4 flex sm:hidden "
         onClick={() => setIsOpen(!isOpen)}>
         <RoundedButton backgroundColor="#a2a2a2">
           <Magnetic>

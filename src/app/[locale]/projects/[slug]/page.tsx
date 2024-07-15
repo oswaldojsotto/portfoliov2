@@ -75,14 +75,13 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
           </div>
           <div
             className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
-          text-[40px] xs:text-[50px] sm:text-[70px] md:text-[90px] lg:text-[100px]  xl:text-[140px]">
-            GALLERY
+          text-[30px] xs:text-[40px] sm:text-[60px] md:text-[70px] lg:text-[80px]  xl:text-[100px]">
+            {t("gallery")}
           </div>
         </RevealAnimation>
         <div
           className="flex w-full h-[50vh] xs:h-[60vh] sm:h-[80vh] md:h-[90vh] lg:h-[100vh]  
         justify-center mt-8">
-          {/* <Gallery images={data()} /> */}
           <Carousel images={data()} />
         </div>
       </div>

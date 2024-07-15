@@ -34,7 +34,6 @@ const About = () => {
             <CvModal text={t("cv")} />
           </div>
         </RevealAnimation>
-        {/* <div className="my-[20rem]"></div> */}
       </section>
     </PreloadWrapper>
   );

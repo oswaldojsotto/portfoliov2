@@ -8,5 +8,6 @@
   "work": "MI_TRABAJO",
   "role": "Rol / Servicio",
   "location": "Ubicación / Año",
-  "visit": "VISITAR_SITIO"
+  "visit": "VISITAR_SITIO",
+  "gallery": "GALERIA"
 }

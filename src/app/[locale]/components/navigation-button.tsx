@@ -6,7 +6,7 @@ const NavigationButton = ({ direction }: { direction: "left" | "right" }) => {
       <button
         type="button"
         className={`bg-dark text-light rounded-l-md border border-light py-2 hover:bg-orange 
-        hover:text-light px-3 outline-none transition duration-300 ${
+        hover:text-light px-3 outline-none transition duration-300  ${
           direction === "right" ? "rotate-180" : "rotate-0"
         }`}>
         <div className="flex flex-row align-middle">
