@@ -8,6 +8,19 @@ import StarsBackground from "@/[locale]/components/stars-background";
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto ©",
   description: "Frontend Developer - Portfolio",
+  openGraph: {
+    title: "Oswaldo J. Sotto ©",
+    description: "Frontend Developer - Portfolio",
+    url: "https://oswaldosotto.com",
+    images: [
+      {
+        url: "/logo.png",
+        width: 400,
+        height: 400,
+        alt: "oswaldojsottoLogo",
+      },
+    ],
+  },
 };
 
 const dimensions = localFont({
