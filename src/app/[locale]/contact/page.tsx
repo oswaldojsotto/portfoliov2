@@ -48,7 +48,7 @@ const Contact = () => {
             </div>
             <div className="flex justify-between w-full font-agdasima text-[17px] md:text-[20px]  px-8 mb-8 dark:text-light text-dark  ">
               <div className="flex flex-col gap-1">
-                <p className="my-0.5">CARACAS, VENEZUELA</p>
+                <p className="my-0.5"></p>
                 <p>{t("remote")}</p>
               </div>
               <div className="flex w-24 flex-col h-8">
