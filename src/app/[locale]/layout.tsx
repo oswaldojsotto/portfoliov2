@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Oswaldo J. Sotto ©",
     description: "Frontend Developer - Portfolio",
-    url: "https://oswaldosotto.com",
+    url: "https://oswaldo-sotto.xyz/en/",
     images: [
       {
         url: "/logo.png",
@@ -42,7 +42,6 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        // className={`${agdasima.variable}`}
         className={`${dimensions.variable} ${agdasima.variable}`}
         lang={locale}
         suppressHydrationWarning>
