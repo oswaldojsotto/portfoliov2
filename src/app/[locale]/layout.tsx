@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://oswaldo-sotto.xyz/en/",
     images: [
       {
-        url: "/logo.png",
+        url: "/big-logo.png",
         width: 400,
         height: 400,
         alt: "oswaldojsottoLogo",
