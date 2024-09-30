@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Oswaldo J. Sotto ©",
     description: "Frontend Developer - Portfolio",
-    url: "https://oswaldo-sotto.xyz/en/",
+    url: "https://oswaldo-sotto.xyz/",
     images: [
       {
         url: "https://oswaldo-sotto.xyz/big-logo.png",
