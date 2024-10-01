@@ -4,11 +4,13 @@ import "@/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "@/store/StoreProvider";
 import StarsBackground from "@/[locale]/components/stars-background";
+import { openGraphImage } from '../shared-metadata'
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto ©",
   description: "Frontend Developer - Portfolio",
   openGraph: {
+    ...openGraphImage,
     title: "Oswaldo J. Sotto ©",
     description: "Frontend Developer - Portfolio",
     url: "https://oswaldo-sotto.xyz/",
