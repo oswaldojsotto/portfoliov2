@@ -1,0 +1,1 @@
+export const openGraphImage = { images: ['https://www.oswaldo-sotto.xyz/big-logo.png'] }
