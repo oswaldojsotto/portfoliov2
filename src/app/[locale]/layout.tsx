@@ -4,10 +4,25 @@ import "@/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "@/store/StoreProvider";
 import StarsBackground from "@/[locale]/components/stars-background";
+import { openGraphImage } from '../shared-metadata'
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto ©",
   description: "Frontend Developer - Portfolio",
+  openGraph: {
+    ...openGraphImage,
+    title: "Oswaldo J. Sotto ©",
+    description: "Frontend Developer - Portfolio",
+    url: "https://oswaldo-sotto.xyz/",
+    images: [
+      {
+        url: "https://oswaldo-sotto.xyz/big-logo.png",
+        width: 256,
+        height: 256,
+        alt: "oswaldojsottoLogo",
+      },
+    ],
+  },
 };
 
 const dimensions = localFont({
@@ -29,7 +44,6 @@ export default function RootLayout({
   return (
     <StoreProvider>
       <html
-        // className={`${agdasima.variable}`}
         className={`${dimensions.variable} ${agdasima.variable}`}
         lang={locale}
         suppressHydrationWarning>
