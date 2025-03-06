@@ -1,10 +1,10 @@
 "use client";
-import RevealAnimation from "@/hooks/revealAnimation";
 import React from "react";
 import { Parallax } from "./parallax";
 import { useTranslation } from "react-i18next";
 import NavbarLink from "./navbar-link";
 import { useRouter } from "next/navigation";
+import RevealAnimation from "@/hooks/reveal-animation";
 
 const HeroSection = () => {
   const router = useRouter();

@@ -25,7 +25,10 @@ const scaleAnimation = {
 };
 
 const ProjectsList = () => {
-  const [modal, setModal] = useState({ active: false, index: 0 });
+  const [modal, setModal] = useState({
+    active: false,
+    index: 0,
+  });
   const { active, index } = modal;
   const modalContainer = useRef(null);
   const cursor = useRef(null);
@@ -41,32 +44,56 @@ const ProjectsList = () => {
 
   useEffect(() => {
     //Move Container
-    xMoveContainer.current = gsap.quickTo(modalContainer.current, "left", {
-      duration: 0.8,
-      ease: "power3",
-    });
-    yMoveContainer.current = gsap.quickTo(modalContainer.current, "top", {
-      duration: 0.8,
-      ease: "power3",
-    });
+    xMoveContainer.current = gsap.quickTo(
+      modalContainer.current,
+      "left",
+      {
+        duration: 0.8,
+        ease: "power3",
+      }
+    );
+    yMoveContainer.current = gsap.quickTo(
+      modalContainer.current,
+      "top",
+      {
+        duration: 0.8,
+        ease: "power3",
+      }
+    );
     //Move cursor
-    xMoveCursor.current = gsap.quickTo(cursor.current, "left", {
-      duration: 0.5,
-      ease: "power3",
-    });
-    yMoveCursor.current = gsap.quickTo(cursor.current, "top", {
-      duration: 0.5,
-      ease: "power3",
-    });
+    xMoveCursor.current = gsap.quickTo(
+      cursor.current,
+      "left",
+      {
+        duration: 0.5,
+        ease: "power3",
+      }
+    );
+    yMoveCursor.current = gsap.quickTo(
+      cursor.current,
+      "top",
+      {
+        duration: 0.5,
+        ease: "power3",
+      }
+    );
     //Move cursor label
-    xMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "left", {
-      duration: 0.45,
-      ease: "power3",
-    });
-    yMoveCursorLabel.current = gsap.quickTo(cursorLabel.current, "top", {
-      duration: 0.45,
-      ease: "power3",
-    });
+    xMoveCursorLabel.current = gsap.quickTo(
+      cursorLabel.current,
+      "left",
+      {
+        duration: 0.45,
+        ease: "power3",
+      }
+    );
+    yMoveCursorLabel.current = gsap.quickTo(
+      cursorLabel.current,
+      "top",
+      {
+        duration: 0.45,
+        ease: "power3",
+      }
+    );
   }, []);
 
   const moveItems = (x: number, y: number) => {
@@ -100,7 +127,7 @@ const ProjectsList = () => {
           <h1> {t("projects")}</h1>
         </Magnetic>
       </div>
-      <div className="w-full flex flex-col mb-[4rem] font-dimensions text-[10px]">
+      <div className="w-full h-full flex flex-col mb-[4rem] font-dimensions text-[10px] ">
         {projects.map((project, index) => {
           return (
             <ProjectItem
@@ -109,7 +136,11 @@ const ProjectsList = () => {
               manageModal={manageModal}
               key={index}
               link={project.link}
-              work={project.work === "1" ? t("dev") : t("desdev")}
+              work={
+                project.work === "1"
+                  ? t("dev")
+                  : t("desdev")
+              }
             />
           );
         })}
@@ -148,7 +179,9 @@ const ProjectsList = () => {
           pointer-events-none font-dimensions cursor-default select-none "
           variants={scaleAnimation}
           initial="initial"
-          animate={active ? "enter" : "closed"}></motion.div>
+          animate={
+            active ? "enter" : "closed"
+          }></motion.div>
         <motion.div
           ref={cursorLabel}
           className="w-[80px] h-[80px]  dark:text-light  text-dark fixed z-[3] flex flex-col  select-none

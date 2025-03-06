@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
-import RevealAnimation from "@/hooks/revealAnimation";
+import RevealAnimation from "@/hooks/reveal-animation";
 import EmailButton from "@/[locale]/components/email-button";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
-import RevealAnimation from "@/hooks/revealAnimation";
+import RevealAnimation from "@/hooks/reveal-animation";
 import NavbarLink from "@/[locale]/components/navbar-link";
 import {
   movieTrailersData,
@@ -9,21 +9,33 @@ import {
   blockchainAppData,
   nextAuthData,
   shopData,
+  gamingLandingData,
+  inventoryData,
 } from "@/[locale]/components/gallery/image-data";
 import { useTranslation } from "react-i18next";
 import Carousel from "@/[locale]/components/gallery/carousel";
 
-const ProjectDetail = ({ params }: { params: { slug: string } }) => {
+const ProjectDetail = ({
+  params,
+}: {
+  params: { slug: string };
+}) => {
   const { t } = useTranslation("projects");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
-  const projectName = params.slug.toString().toLocaleUpperCase();
+  const projectName = params.slug
+    .toString()
+    .toLocaleUpperCase();
 
   function data() {
     switch (projectName) {
+      case "GAMING-LANDING":
+        return gamingLandingData;
+      case "INVENTORY":
+        return inventoryData;
       case "BLOCKCHAIN-APP":
         return blockchainAppData;
       case "SEVEN-SUITE":
@@ -54,13 +66,19 @@ const ProjectDetail = ({ params }: { params: { slug: string } }) => {
         <RevealAnimation delayWait={1.7}>
           <div className="flex flex-col sm:flex-row w-full justify-start text-[22px] sm:text-[30px] mt-12 gap-8 px-2">
             <div className=" text-dark dark:text-light">
-              <p className="opacity-[0.8] font-dimensions">{t("role")}</p>
+              <p className="opacity-[0.8] font-dimensions">
+                {t("role")}
+              </p>
               <p className="font-semibold font-agdasima text-[20px] md:text-[26px]">
-                {data()?.role === 1 ? t("dev") : t("desdev") || ""}
+                {data()?.role === 1
+                  ? t("dev")
+                  : t("desdev") || ""}
               </p>
             </div>
             <div className="text-dark dark:text-light">
-              <p className="opacity-[0.8] font-dimensions">{t("location")}</p>
+              <p className="opacity-[0.8] font-dimensions">
+                {t("location")}
+              </p>
               <p className="font-semibold font-agdasima text-[20px] md:text-[26px]">
                 {data()?.location || ""}
               </p>
