@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import PreloadWrapper from "@/[locale]/components/preloading/wrapper";
-import RevealAnimation from "@/hooks/revealAnimation";
+import RevealAnimation from "@/hooks/reveal-animation";
 import ProjectsList from "@/[locale]/projects/projects-list";
 import NavbarLink from "@/[locale]/components/navbar-link";
 import { useTranslation } from "react-i18next";
@@ -30,16 +30,15 @@ const Projects = () => {
           </div>
         </RevealAnimation>
         <RevealAnimation delayWait={1.8}>
-          <div className="-ml-1 my-2">
-            <a href="https://github.com/oswaldojsotto" target="_blank">
+          <div className="flex w-fit bg-transparent justify-start">
+            <a
+              href="https://github.com/oswaldojsotto"
+              target="_blank">
               <NavbarLink text={t("ghub")} />
             </a>
           </div>
         </RevealAnimation>
-
-        <RevealAnimation delayWait={1.9}>
-          <ProjectsList />
-        </RevealAnimation>
+        <ProjectsList />
       </div>
     </PreloadWrapper>
   );

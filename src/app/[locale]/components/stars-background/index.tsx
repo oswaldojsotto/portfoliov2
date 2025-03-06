@@ -19,7 +19,8 @@ export default function StarsBackground() {
 function Stars() {
   const ref = useRef<any>(null);
   const { theme } = useTheme();
-  const starColor = theme === "dark" ? "#F2EBE2" : "#333333";
+  const starColor =
+    theme === "dark" ? "#F2EBE2" : "#333333";
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(6000), { radius: 1.5 })
   );
@@ -28,9 +29,12 @@ function Stars() {
     ref.current.rotation.y -= delta / 15;
   });
   return (
-    // @ts-ignore: Unreachable code error
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere as any} stride={3} frustumCulled>
+      <Points
+        ref={ref}
+        positions={sphere as any}
+        stride={3}
+        frustumCulled>
         <PointMaterial
           transparent
           color={starColor}
