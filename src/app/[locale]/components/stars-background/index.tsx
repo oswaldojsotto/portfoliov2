@@ -20,7 +20,7 @@ function Stars() {
   const ref = useRef<any>(null);
   const { theme } = useTheme();
   const starColor =
-    theme === "dark" ? "#F2EBE2" : "#333333";
+    theme === "dark" ? "#E6E8E6" : "#0D160B";
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(6000), { radius: 1.5 })
   );
