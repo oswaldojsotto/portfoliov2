@@ -20,10 +20,10 @@ const config: Config = {
     
     colors: {
       red: 'red',
-      light: "#F2EBE2",
-      dark: "#262526",
-      orange: '#EA2027',
-      pink: '#E5A4CB',
+      light: "#E6E8E6",
+      dark: "#0D160B",
+      orange: '#F40000',
+      pink: '#F40000',
     },
     extend: {
       backgroundImage: {

@@ -4,10 +4,10 @@
   "projects": "PROGETTI",
   "view": "GUARDA",
   "description": "Questi sono alcuni progetti su cui ho lavorato, sia per imprese e marchi stabiliti, sia per freelance o progetti personali.",
-  "ghub": "CODICE_SORGENTE",
-  "work": "MIO_LAVORO",
+  "ghub": "github",
+  "work": "MIO LAVORO",
   "role": "Rol / Servizio",
   "location": "Posizione / Anno",
-  "visit": "VISITARE_SITTO",
+  "visit": "VISITARE SITTO",
   "gallery": "GALLERIA"
 }
