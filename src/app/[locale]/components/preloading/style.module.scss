@@ -6,7 +6,7 @@
     justify-content: center;
     position: fixed;
     z-index: 99;
-    background-color: #0d160b;
+    background-color: #202124;
     font-family: var(--font-dimensions);
 
     svg {
@@ -15,7 +15,7 @@
         width: 100%;
         height: calc(100% + 300px);
         path {
-            fill: #0d160b;
+            fill: #202124;
         }
     }
     p {

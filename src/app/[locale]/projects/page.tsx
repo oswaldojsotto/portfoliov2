@@ -38,7 +38,9 @@ const Projects = () => {
             </a>
           </div>
         </RevealAnimation>
-        <ProjectsList />
+        <RevealAnimation delayWait={1.8}>
+          <ProjectsList />
+        </RevealAnimation>
       </div>
     </PreloadWrapper>
   );
