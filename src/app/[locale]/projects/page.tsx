@@ -38,6 +38,8 @@ const Projects = () => {
             </a>
           </div>
         </RevealAnimation>
+      </div>
+      <div className="px-8 xl:px-[15%]">
         <ProjectsList />
       </div>
     </PreloadWrapper>
