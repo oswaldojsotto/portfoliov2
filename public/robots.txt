@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://oswaldo.site
+
+# Sitemaps
+Sitemap: https://oswaldo.site/sitemap.xml
