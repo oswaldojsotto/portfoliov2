@@ -2,19 +2,30 @@
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { opacity, slideUp } from "./anim";
+import { opacity, slideUp, slideDown } from "./anim";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { setFirstTimeLoading } from "@/store/sidemenuSlice";
 
-interface PreloaderTypes {
-  words: string[];
-}
+const Preloader = ({ words }: { words: string[] }) => {
+  const firstTimeLoading = useSelector(
+    (state: RootState) => state.sidemenu.firstTimeLoading
+  );
 
-const Preloader = ({ words }: PreloaderTypes) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setFirstTimeLoading(true));
+  });
+
   const [index, setIndex] = useState(0);
+
   const [dimension, setDimension] = useState({
     width: 0,
     height: 0,
   });
-
+  const [animationPhase, setAnimationPhase] = useState<
+    "down" | "up"
+  >("down");
   useEffect(() => {
     setDimension({
       width: window.innerWidth,
@@ -23,25 +34,36 @@ const Preloader = ({ words }: PreloaderTypes) => {
   }, []);
 
   useEffect(() => {
-    if (index == words.length - 1) return;
+    if (index === words.length - 1) return;
     setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index == 0 ? 1000 : 150
+      () => setIndex(index + 1),
+      index === 0 ? 1000 : 150
     );
   }, [index, words.length]);
+
+  useEffect(() => {
+    if (animationPhase === "down") {
+      const timer = setTimeout(
+        () => setAnimationPhase("up"),
+        1700
+      );
+      return () => {
+        clearTimeout(timer);
+        setIndex(0);
+      };
+    }
+  }, [animationPhase]);
 
   const initialPath = `M0 0 L${dimension.width} 0 L${
     dimension.width
   } ${dimension.height} Q${dimension.width / 2} ${
     dimension.height + 300
-  } 0 ${dimension.height}  L0 0`;
+  } 0 ${dimension.height} L0 0`;
   const targetPath = `M0 0 L${dimension.width} 0 L${
     dimension.width
   } ${dimension.height} Q${dimension.width / 2} ${
     dimension.height
-  } 0 ${dimension.height}  L0 0`;
+  } 0 ${dimension.height} L0 0`;
 
   const curve = {
     initial: {
@@ -61,12 +83,20 @@ const Preloader = ({ words }: PreloaderTypes) => {
     },
   };
 
+  const getVariant = () => {
+    return firstTimeLoading ? slideDown : slideUp;
+  };
+
   return (
     <motion.div
-      variants={slideUp}
       initial="initial"
-      exit="exit"
-      className={`${styles.introduction}`}>
+      animate={
+        animationPhase === "down" ? "animate" : "exit"
+      }
+      variants={
+        animationPhase === "down" ? getVariant() : slideUp
+      }
+      className={styles.introduction}>
       {dimension.width > 0 && (
         <>
           <motion.p
@@ -81,11 +111,13 @@ const Preloader = ({ words }: PreloaderTypes) => {
             <motion.path
               variants={curve}
               initial="initial"
-              exit="exit"></motion.path>
+              exit="exit"
+            />
           </svg>
         </>
       )}
     </motion.div>
   );
 };
+
 export default Preloader;

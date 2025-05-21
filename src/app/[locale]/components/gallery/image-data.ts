@@ -8,6 +8,14 @@ function getPaths(basePath: string, pics: number) {
   return paths;
 }
 
+const saasData = {
+  count: 3,
+  role: 1,
+  location: "Caracas, Venezuela © 2025",
+  imagesArray: getPaths("/projects/saas-website/", 2),
+  url: "https://saas-website-lemon.vercel.app/",
+} 
+
 
 const gamingLandingData = {
   count: 3,
@@ -28,7 +36,7 @@ const sevenSuiteData = {
   role: 1,
   location: "San Jose, Costa Rica © 2022-2024",
   imagesArray: getPaths("/projects/seven-suite/", 7),
-  url: "https://sandbox.sevensuite.app/",
+  url: "https://mysevensuite.com/",
 } 
 const blockchainAppData = {
   count: 4,
@@ -59,4 +67,4 @@ const inventoryData = {
   url: "https://inventory-zeta-vert.vercel.app/",
 } 
   
-  export { movieTrailersData, sevenSuiteData, blockchainAppData, nextAuthData, shopData, inventoryData, gamingLandingData }
+  export { movieTrailersData, sevenSuiteData, blockchainAppData, nextAuthData, shopData, inventoryData, gamingLandingData, saasData }

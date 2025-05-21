@@ -10,6 +10,7 @@ import {
   nextAuthData,
   shopData,
   gamingLandingData,
+  saasData,
   inventoryData,
 } from "@/[locale]/components/gallery/image-data";
 import { useTranslation } from "react-i18next";
@@ -34,6 +35,8 @@ const ProjectDetail = ({
     switch (projectName) {
       case "GAMING-LANDING":
         return gamingLandingData;
+      case "SAAS-WEBSITE":
+        return saasData;
       case "INVENTORY":
         return inventoryData;
       case "BLOCKCHAIN-APP":
@@ -54,7 +57,7 @@ const ProjectDetail = ({
   return (
     <PreloadWrapper words={[projectName]}>
       <div className="relative py-24  px-8 xl:px-[15%]">
-        <RevealAnimation delayWait={1.6}>
+        <RevealAnimation delayWait={2.1}>
           <div className="w-full flex justify-start flex-col px-4">
             <p
               className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
@@ -63,7 +66,7 @@ const ProjectDetail = ({
             </p>
           </div>
         </RevealAnimation>
-        <RevealAnimation delayWait={1.7}>
+        <RevealAnimation delayWait={2.2}>
           <div className="flex flex-col sm:flex-row w-full justify-start text-[22px] sm:text-[30px] mt-12 gap-8 px-2">
             <div className=" text-dark dark:text-light">
               <p className="opacity-[0.8] font-dimensions">
@@ -85,7 +88,7 @@ const ProjectDetail = ({
             </div>
           </div>
         </RevealAnimation>
-        <RevealAnimation delayWait={1.8}>
+        <RevealAnimation delayWait={2.3}>
           <div className="w-[20rem] my-4 flex px-2">
             <a href={data()?.url || "/"} target="_blank">
               <NavbarLink text={t("visit")} />

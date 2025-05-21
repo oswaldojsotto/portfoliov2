@@ -11,7 +11,7 @@ const About = () => {
   return (
     <PreloadWrapper words={[t("preload")]}>
       <section className="relative py-32 h-[100vh] px-8 xl:px-[15%]">
-        <RevealAnimation delayWait={1.6}>
+        <RevealAnimation delayWait={2.1}>
           <div className="w-full flex justify-start flex-col md:-mt-12 ">
             <p
               className="font-dimensions flex -pt-[1rem] max-h-[26rem] 
@@ -21,7 +21,7 @@ const About = () => {
             </p>
           </div>
         </RevealAnimation>
-        <RevealAnimation delayWait={1.7}>
+        <RevealAnimation delayWait={2.2}>
           <div className="flex justify-center font-agdasima text-dark dark:text-light">
             <p className="flex text-justify text-[14px] sm:text-[17px] md:text-[19px] lg:text-[22px] ">
               {t("description")}
@@ -29,7 +29,7 @@ const About = () => {
           </div>
         </RevealAnimation>
 
-        <RevealAnimation delayWait={1.8}>
+        <RevealAnimation delayWait={2.3}>
           <div className="my-8">
             <CvModal text={t("cv")} />
           </div>

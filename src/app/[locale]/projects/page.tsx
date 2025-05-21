@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <PreloadWrapper words={[t("projects")]}>
       <div className="relative py-32  px-8 xl:px-[15%]">
-        <RevealAnimation delayWait={1.6}>
+        <RevealAnimation delayWait={2.1}>
           <div className="w-full flex justify-start ">
             <p
               className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
@@ -22,14 +22,14 @@ const Projects = () => {
             </p>
           </div>
         </RevealAnimation>
-        <RevealAnimation delayWait={1.7}>
+        <RevealAnimation delayWait={2.4}>
           <div className="flex justify-start font-agdasima text-dark dark:text-light">
             <p className="flex text-justify text-[14px] sm:text-[17px] md:text-[19px] lg:text-[22px] ">
               {t("description")}
             </p>
           </div>
         </RevealAnimation>
-        <RevealAnimation delayWait={1.8}>
+        <RevealAnimation delayWait={2.5}>
           <div className="flex w-fit bg-transparent justify-start">
             <a
               href="https://github.com/oswaldojsotto"
