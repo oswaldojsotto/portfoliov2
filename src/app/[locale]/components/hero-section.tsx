@@ -46,7 +46,7 @@ const HeroSection = () => {
         <RevealAnimation delayWait={2.3}>
           <div
             className="text-dark dark:text-light w-full my-4 font-agdasima font-semibold dark:font-medium whitespace-nowrap 
-            flex justify-center text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px] -ml-4"
+            flex justify-center text-[12px] xs:text-[17px] sm:text-[22px] md:text-[26px] "
             onClick={() => goTo("/about")}>
             <NavbarLink text={t("aboutme")} />
           </div>
