@@ -43,7 +43,6 @@ const ProjectsList = () => {
   let yMoveCursorLabel = useRef<any | null>(null);
 
   useEffect(() => {
-    //Move Container
     xMoveContainer.current = gsap.quickTo(
       modalContainer.current,
       "left",
