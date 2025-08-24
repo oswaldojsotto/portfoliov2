@@ -12,6 +12,7 @@ import {
   gamingLandingData,
   saasData,
   inventoryData,
+  projectManager,
 } from "@/[locale]/components/gallery/image-data";
 import { useTranslation } from "react-i18next";
 import Carousel from "@/[locale]/components/gallery/carousel";
@@ -49,6 +50,8 @@ const ProjectDetail = ({
         return movieTrailersData;
       case "SHOP-APP":
         return shopData;
+      case "PROJECT-MANAGER":
+        return projectManager;
       default:
         return null;
     }

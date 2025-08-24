@@ -66,5 +66,12 @@ const inventoryData = {
   imagesArray: getPaths("/projects/inventory/", 2),
   url: "https://inventory-zeta-vert.vercel.app/",
 } 
+const projectManager = {
+  count: 4,
+  role: 2,
+  location: "Caracas, Venezuela © 2025",
+  imagesArray: getPaths("/projects/project-manager/", 4),
+  url: "https://dashboard-ecru-eight-49.vercel.app/dashboard/",
+} 
   
-  export { movieTrailersData, sevenSuiteData, blockchainAppData, nextAuthData, shopData, inventoryData, gamingLandingData, saasData }
+  export { movieTrailersData, sevenSuiteData, blockchainAppData, nextAuthData, shopData, inventoryData, gamingLandingData, saasData, projectManager }

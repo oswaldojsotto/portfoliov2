@@ -30,7 +30,7 @@ const About = () => {
         </RevealAnimation>
 
         <RevealAnimation delayWait={2.3}>
-          <div className="my-8">
+          <div className=" px-12 sm:px-12 md:px-7 ">
             <CvModal text={t("cv")} />
           </div>
         </RevealAnimation>
