@@ -8,6 +8,10 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}.lenis.lenis-smo
     display: none;
 }
 
+body::-webkit-scrollbar {
+    font-family: 'brockmann'
+}
+
 .sidebar {
   position: fixed;
   z-index: 10;
@@ -20,3 +24,13 @@ html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto}.lenis.lenis-smo
 .gallery {
     z-index: 1;
 }
+
+
+
+/* aaltfracloclordnpnumss01ss02supstnumkernmark */
+@layer utilities {
+  .font-brockmann-nyc {
+    font-feature-settings: 'ss01' 1;
+  }
+}
+

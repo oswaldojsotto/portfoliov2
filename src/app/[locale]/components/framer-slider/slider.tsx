@@ -19,7 +19,10 @@ interface ParallaxProps {
   baseVelocity: number;
 }
 
-function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
+function ParallaxText({
+  children,
+  baseVelocity = 100,
+}: ParallaxProps) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -27,15 +30,26 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
+  const velocityFactor = useTransform(
+    smoothVelocity,
+    [0, 1000],
+    [0, 5],
+    {
+      clamp: false,
+    }
+  );
 
-  const x = useTransform(baseX, v => `${wrap(-20, -45, v)}%`);
+  const x = useTransform(
+    baseX,
+    v => `${wrap(-20, -45, v)}%`
+  );
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    let moveBy =
+      directionFactor.current *
+      baseVelocity *
+      (delta / 1000);
 
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
@@ -43,7 +57,10 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
       directionFactor.current = 1;
     }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    moveBy +=
+      directionFactor.current *
+      moveBy *
+      velocityFactor.get();
 
     baseX.set(baseX.get() + moveBy);
   });
@@ -62,7 +79,9 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
 const Slider = () => {
   const { theme } = useTheme();
-  const [currentTheme, setCurrentTheme] = useState<string | undefined>("dark");
+  const [currentTheme, setCurrentTheme] = useState<
+    string | undefined
+  >("dark");
 
   useEffect(() => {
     setCurrentTheme(theme);
@@ -71,19 +90,23 @@ const Slider = () => {
     <section className="mt-8 mb-16">
       <ParallaxText baseVelocity={1}>
         <div className="flex w-full">
-          {tech.map((item: { name: string; route: string }) => (
-            <Image
-              key={item.name}
-              data-tip={item.name}
-              className="w-[5.5rem] min-w-[5.5rem] max-w-[5.5rem] px-4 py-4 opacity-[0.8]"
-              src={`/tech/${currentTheme === "dark" ? "white" : "color"}/${
-                item.route
-              }`}
-              alt={`${item.name}`}
-              width={12}
-              height={12}
-            />
-          ))}
+          {tech.map(
+            (item: { name: string; route: string }) => (
+              <Image
+                key={item.name}
+                data-tip={item.name}
+                className="w-[5.5rem] min-w-[5.5rem] max-w-[5.5rem] px-4 py-4 opacity-[0.8]"
+                src={`/tech/${
+                  currentTheme === "dark"
+                    ? "white"
+                    : "color"
+                }/${item.route}`}
+                alt={`${item.name}`}
+                width={12}
+                height={12}
+              />
+            )
+          )}
         </div>
       </ParallaxText>
     </section>

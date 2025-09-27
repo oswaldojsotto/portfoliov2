@@ -9,7 +9,7 @@ export default function StarsBackground() {
   return (
     <Canvas
       gl={{ preserveDrawingBuffer: true }}
-      className=" dark:bg-dark bg-light -z-30 fixed h-0"
+      className=" dark:bg-[#0A090F] bg-[#EFEFE6] -z-30 fixed h-0"
       camera={{ position: [0, 0, 1] }}>
       <Stars />
     </Canvas>
@@ -20,7 +20,7 @@ function Stars() {
   const ref = useRef<any>(null);
   const { theme } = useTheme();
   const starColor =
-    theme === "dark" ? "#E6E8E6" : "#0D160B";
+    theme !== "light" ? "#EFEFE6" : "#0A090F";
   const [sphere] = useState(() =>
     random.inSphere(new Float32Array(6000), { radius: 1.5 })
   );

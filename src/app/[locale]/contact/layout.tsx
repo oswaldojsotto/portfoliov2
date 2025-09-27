@@ -3,7 +3,7 @@ import initTranslations from "@/i18n";
 import TranslationsProvider from "@/TranslationsProvider";
 import Footer from "@/[locale]/components/footer";
 import { Metadata } from "next";
-
+import Navbar from "../components/navbar";
 export const metadata: Metadata = {
   title: "Contact - Oswaldo Sotto ©",
   description: "Contact Portfolio - Oswaldo Sotto ©",
@@ -27,7 +27,7 @@ const ContactLayout = async ({
       locale={locale}
       namespaces={["contact", "header"]}>
       <main>
-        <Header />
+        <Navbar />
         {children}
         <div className="w-full h-[5vh] bg-dark dark:bg-light ">
           <div className=" flex w-full bg-light dark:bg-dark  h-[5vh] rounded-b-[48px] z-100 " />

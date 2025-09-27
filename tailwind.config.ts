@@ -22,8 +22,10 @@ const config: Config = {
       red: 'red',
       light: "#FFFFFF",
       dark: "#202124",
-      orange: '#F40000',
+      orange: '#FF4C24',
       pink: '#F40000',
+      blue: '#5542FF',
+      green: '#39FF14'
     },
     extend: {
       backgroundImage: {
@@ -33,7 +35,9 @@ const config: Config = {
       },
       fontFamily: {
         agdasima: ["var(--font-agdasima)"], 
-        dimensions: ["var(--font-dimensions)"] 
+        dimensions: ["var(--font-dimensions)"], 
+        robotomono: ["var(--font-roboto-mono)"], 
+        brockmann: ["var(--font-brockmann)"] 
       }
     },
   },
