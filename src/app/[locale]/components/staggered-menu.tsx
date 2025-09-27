@@ -58,6 +58,14 @@ export const StaggeredMenu: React.FC<
   const preLayerElsRef = useRef<HTMLElement[]>([]);
   const backgroundRef = useRef<HTMLDivElement | null>(null);
 
+  // Add ref for the animated div
+  const animatedDivRef = useRef<HTMLDivElement | null>(
+    null
+  );
+  const widthTweenRef = useRef<gsap.core.Tween | null>(
+    null
+  );
+
   const openTlRef = useRef<gsap.core.Timeline | null>(null);
   const closeTweenRef = useRef<
     gsap.core.Tween | gsap.core.Timeline | null
@@ -87,6 +95,12 @@ export const StaggeredMenu: React.FC<
       gsap.set([panel, ...preLayers], {
         xPercent: offscreen,
       });
+
+      // Initialize the animated div width
+      const animatedDiv = animatedDivRef.current;
+      if (animatedDiv) {
+        gsap.set(animatedDiv, { width: "0px" });
+      }
     });
     return () => ctx.revert();
   }, []);
@@ -104,6 +118,43 @@ export const StaggeredMenu: React.FC<
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
+
+  // Animation function for the div width
+  const animateDivWidth = useCallback(
+    (opening: boolean) => {
+      const div = animatedDivRef.current;
+      if (!div) return;
+
+      widthTweenRef.current?.kill();
+
+      if (opening) {
+        widthTweenRef.current = gsap.fromTo(
+          div,
+          { width: div.offsetWidth }, // Start from current width
+          {
+            width: "90%",
+            duration: 0.6,
+            delay: 0.8,
+            ease: "power2.inOut",
+            overwrite: "auto",
+          }
+        );
+      } else {
+        widthTweenRef.current = gsap.fromTo(
+          div,
+          { width: div.offsetWidth }, // Start from current width
+          {
+            width: "0px",
+            duration: 0.5,
+            ease: "power2.out",
+            overwrite: "auto",
+            immediateRender: true,
+          }
+        );
+      }
+    },
+    []
+  );
 
   const animateBackgroundBlur = useCallback(
     (opening: boolean) => {
@@ -270,7 +321,12 @@ export const StaggeredMenu: React.FC<
       busyRef.current = false;
     }
     animateBackgroundBlur(true);
-  }, [buildOpenTimeline, animateBackgroundBlur]);
+    animateDivWidth(true); // Animate div width when opening
+  }, [
+    buildOpenTimeline,
+    animateBackgroundBlur,
+    animateDivWidth,
+  ]);
 
   const playClose = useCallback(() => {
     openTlRef.current?.kill();
@@ -374,7 +430,8 @@ export const StaggeredMenu: React.FC<
 
     closeTweenRef.current = tl;
     animateBackgroundBlur(false);
-  }, [animateBackgroundBlur]);
+    animateDivWidth(false); // Animate div width when closing
+  }, [animateBackgroundBlur, animateDivWidth]);
 
   const toggleMenu = useCallback(() => {
     const target = !openRef.current;
@@ -532,12 +589,21 @@ export const StaggeredMenu: React.FC<
               )}
             </ul>
 
+            {/* Animated div - you can place this wherever you want */}
+
             {displaySocials &&
               socialItems &&
               socialItems.length > 0 && (
                 <div
                   className="sm-socials mt-auto pt-8 flex flex-col gap-3 font-robotomono ml-8 text-light"
                   aria-label="Social links">
+                  <div
+                    ref={animatedDivRef}
+                    className="w-full border border-t-light  overflow-hidden"
+                    style={{
+                      width: "0px",
+                      overflow: "hidden",
+                    }}></div>
                   <h3 className="sm-socials-title m-0 text-[12px] font-sm text-white uppercase">
                     Socials
                   </h3>
