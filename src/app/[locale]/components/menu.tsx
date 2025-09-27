@@ -41,16 +41,11 @@ export const Menu = () => {
         !open && "pointer-events-none"
       }`}>
       <StaggeredMenu
-        position="right"
         items={menuItems}
         socialItems={socialItems}
         displaySocials={true}
         displayItemNumbering={true}
-        menuButtonColor="#171717"
-        openMenuButtonColor="#171717"
-        changeMenuColorOnOpen={true}
         colors={["#B19EEF", "#5227FF"]}
-        logoUrl="/path-to-your-logo.svg"
         accentColor="#ff6b6b"
         open={open}
         setOpen={setOpen}
