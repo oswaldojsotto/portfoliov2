@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { Sling as Hamburger } from "hamburger-react";
 import { useTheme } from "next-themes";
 import RoundedButton from "./rounded-button";
@@ -38,7 +38,8 @@ const sideVariants = {
 const Sidebar = () => {
   const { theme, systemTheme } = useTheme();
   const router = useRouter();
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme =
+    theme === "system" ? systemTheme : theme;
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation("header");
@@ -74,7 +75,9 @@ const Sidebar = () => {
   if (!mounted) return null;
 
   return (
-    <main className="flex fixed  sidebar" ref={closeSliderRef}>
+    <main
+      className="flex fixed  sidebar"
+      ref={closeSliderRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -140,7 +143,11 @@ const Sidebar = () => {
                 hideOutline
                 rounded
                 size={24}
-                color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
+                color={
+                  currentTheme === "dark"
+                    ? "#1C1D20"
+                    : "#eee"
+                }
                 toggled={isOpen}
                 onToggle={() => setIsOpen(!isOpen)}
               />
@@ -160,7 +167,11 @@ const Sidebar = () => {
                 hideOutline
                 rounded
                 size={24}
-                color={currentTheme === "dark" ? "#1C1D20" : "#eee"}
+                color={
+                  currentTheme === "dark"
+                    ? "#1C1D20"
+                    : "#eee"
+                }
                 toggled={isOpen}
                 onToggle={() => setIsOpen(!isOpen)}
               />

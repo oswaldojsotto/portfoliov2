@@ -8,7 +8,7 @@ import {
   useMotionValue,
   useVelocity,
   useAnimationFrame,
-} from "framer-motion";
+} from "motion/react";
 import { wrap } from "@motionone/utils";
 import tech from "@/[locale]/components/framer-slider/tech.json";
 import { useTheme } from "next-themes";

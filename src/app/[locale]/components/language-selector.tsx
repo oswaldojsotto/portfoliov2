@@ -1,6 +1,11 @@
 "use client";
-import { useEffect, useState, useTransition, useRef } from "react";
-import { motion, Variants } from "framer-motion";
+import {
+  useEffect,
+  useState,
+  useTransition,
+  useRef,
+} from "react";
+import { motion, Variants } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { useRouter, usePathname } from "next/navigation";
 import i18nConfig from "@/../../i18nConfig";
@@ -15,9 +20,17 @@ const itemVariants: Variants = {
   open: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 30 },
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 30,
+    },
   },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.1 } },
+  closed: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.1 },
+  },
 };
 
 const languageList = [
@@ -54,9 +67,12 @@ const LanguageSelector = () => {
   const currentLocale = i18n.language;
   const closeSelectorRef = useRef(null);
   const [mounted, setMounted] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const [currentLanguage, setCurrentLanguage] = useState(
+    i18n.language
+  );
 
-  const currentTheme = theme === "system" ? systemTheme : theme;
+  const currentTheme =
+    theme === "system" ? systemTheme : theme;
 
   const handleClick = () => {
     dispatch(setLanguageSelectorMenu(!isOpen));
@@ -76,7 +92,10 @@ const LanguageSelector = () => {
     } else {
       startTransition(() => {
         router.push(
-          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+          currentPathname.replace(
+            `/${currentLocale}`,
+            `/${newLocale}`
+          )
         );
       });
     }
@@ -159,7 +178,9 @@ const LanguageSelector = () => {
               },
             },
           }}
-          style={{ pointerEvents: isOpen ? "auto" : "none" }}>
+          style={{
+            pointerEvents: isOpen ? "auto" : "none",
+          }}>
           {languageList.map(({ id, name, value, ico }) => {
             return (
               <motion.li
@@ -170,7 +191,12 @@ const LanguageSelector = () => {
                 variants={itemVariants}
                 onClick={() => onSelectLanguage(value)}>
                 <div className="w-auto h-auto ">
-                  <Image src={ico} width={26} height={26} alt={name} />
+                  <Image
+                    src={ico}
+                    width={26}
+                    height={26}
+                    alt={name}
+                  />
                 </div>
                 {name}
               </motion.li>
@@ -213,7 +239,10 @@ const CompactLanguageSelector = () => {
     } else {
       startTransition(() => {
         router.push(
-          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
+          currentPathname.replace(
+            `/${currentLocale}`,
+            `/${newLocale}`
+          )
         );
       });
     }
@@ -227,7 +256,9 @@ const CompactLanguageSelector = () => {
       <div className="flex justify-between">
         {languageList.map(({ id, name, value, ico }) => {
           return (
-            <div key={id} className="w-auto flex h-auto cursor-pointer ">
+            <div
+              key={id}
+              className="w-auto flex h-auto cursor-pointer ">
               <Magnetic>
                 <Image
                   src={ico}
@@ -236,7 +267,9 @@ const CompactLanguageSelector = () => {
                   alt={name}
                   onClick={() => {
                     onSelectLanguage(value);
-                    dispatch(setLanguageSelectorMenu(false));
+                    dispatch(
+                      setLanguageSelectorMenu(false)
+                    );
                   }}
                 />
               </Magnetic>
