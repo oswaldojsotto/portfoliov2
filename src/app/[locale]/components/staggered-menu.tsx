@@ -216,7 +216,7 @@ export const StaggeredMenu: React.FC<
             duration: 0.6,
             ease: "power2.out",
             ["--sm-num-opacity" as any]: 1,
-            stagger: { each: 0.08, from: "start" },
+            stagger: { each: 0.01, from: "start" },
           },
           itemsStart + 0.1
         );
@@ -281,48 +281,98 @@ export const StaggeredMenu: React.FC<
     const layers = preLayerElsRef.current;
     if (!panel) return;
 
-    const all: HTMLElement[] = [...layers, panel];
-    closeTweenRef.current?.kill();
+    const itemEls = Array.from(
+      panel.querySelectorAll(".sm-panel-itemLabel")
+    ) as HTMLElement[];
+    const numberEls = Array.from(
+      panel.querySelectorAll(
+        ".sm-panel-list[data-numbering] .sm-panel-item"
+      )
+    ) as HTMLElement[];
+    const socialTitle = panel.querySelector(
+      ".sm-socials-title"
+    ) as HTMLElement | null;
+    const socialLinks = Array.from(
+      panel.querySelectorAll(".sm-socials-link")
+    ) as HTMLElement[];
 
-    const offscreen = 100;
-
-    closeTweenRef.current = gsap.to(all, {
-      xPercent: offscreen,
-      duration: 0.32,
-      ease: "power3.in",
-      overwrite: "auto",
+    // Create a timeline for the close animation
+    const tl = gsap.timeline({
       onComplete: () => {
-        const itemEls = Array.from(
-          panel.querySelectorAll(".sm-panel-itemLabel")
-        ) as HTMLElement[];
-        if (itemEls.length)
-          gsap.set(itemEls, { yPercent: 140, rotate: 10 });
-
-        const numberEls = Array.from(
-          panel.querySelectorAll(
-            ".sm-panel-list[data-numbering] .sm-panel-item"
-          )
-        ) as HTMLElement[];
-        if (numberEls.length)
-          gsap.set(numberEls, {
-            ["--sm-num-opacity" as any]: 0,
-          });
-
-        const socialTitle = panel.querySelector(
-          ".sm-socials-title"
-        ) as HTMLElement | null;
-        const socialLinks = Array.from(
-          panel.querySelectorAll(".sm-socials-link")
-        ) as HTMLElement[];
-        if (socialTitle)
-          gsap.set(socialTitle, { opacity: 0 });
-        if (socialLinks.length)
-          gsap.set(socialLinks, { y: 25, opacity: 0 });
-
         busyRef.current = false;
       },
     });
 
+    if (itemEls.length) {
+      tl.to(
+        itemEls,
+        {
+          yPercent: 140,
+          rotate: 10,
+          duration: 0.4,
+          ease: "power3.inOut",
+          stagger: { each: 0.08, from: "end" },
+        },
+        0
+      );
+    }
+
+    if (numberEls.length) {
+      tl.to(
+        numberEls,
+        {
+          duration: 0.3,
+          ease: "power2.inOut",
+          ["--sm-num-opacity" as any]: 0,
+          stagger: { each: 0.06, from: "end" },
+        },
+        0.05
+      );
+    }
+
+    if (socialTitle || socialLinks.length) {
+      if (socialTitle) {
+        tl.to(
+          socialTitle,
+          {
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.in",
+          },
+          0.1
+        );
+      }
+      if (socialLinks.length) {
+        tl.to(
+          socialLinks,
+          {
+            y: 25,
+            opacity: 0,
+            duration: 0.35,
+            ease: "power3.in",
+            stagger: { each: 0.06, from: "end" },
+          },
+          0.1
+        );
+      }
+    }
+
+    // Then animate the panel and layers out
+    const all: HTMLElement[] = [...layers, panel];
+    const offscreen = 100;
+
+    tl.to(
+      all,
+      {
+        xPercent: offscreen,
+        duration: 0.32,
+        ease: "power3.in",
+        overwrite: "auto",
+      },
+      0.2 // Start after items have begun animating out
+    );
+
+    closeTweenRef.current = tl;
     animateBackgroundBlur(false);
   }, [animateBackgroundBlur]);
 
@@ -375,7 +425,6 @@ export const StaggeredMenu: React.FC<
         {children}
       </div>
 
-      {/* Menu overlay and content */}
       <div
         className={
           (className ? className + " " : "") +
@@ -422,7 +471,9 @@ export const StaggeredMenu: React.FC<
               hideOutline
               rounded
               size={24}
-              color={`#ffffff`}
+              color={`${
+                currentOpen ? "#EFEFE6" : "#171717"
+              }`}
               toggled={currentOpen}
               onToggle={handleHamburgerToggle}
             />
@@ -437,7 +488,6 @@ export const StaggeredMenu: React.FC<
           aria-hidden={!currentOpen}>
           <div className=" absolute top-10 font-robotomono ml-4 tracking-medium font-bold text-sm flex items-center gap-4">
             <p className="-mt-1">OSWALDO</p>
-            {/* <ThemeSwitcher /> */}
           </div>
           <div className="sm-panel-inner flex-1 flex flex-col gap-5 font-brockmann font-brockmann-nyc">
             <ul

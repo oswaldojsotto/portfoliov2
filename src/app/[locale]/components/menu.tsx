@@ -8,12 +8,12 @@ export const Menu = () => {
 
   const menuItems = [
     {
-      label: "HOME",
+      label: "home",
       ariaLabel: "Go to home page",
       link: "/",
     },
     {
-      label: "ABOUT",
+      label: "About",
       ariaLabel: "Learn about me",
       link: "/about",
     },
@@ -30,9 +30,9 @@ export const Menu = () => {
   ];
 
   const socialItems = [
-    { label: "Twitter", link: "https://twitter.com" },
     { label: "GitHub", link: "https://github.com" },
     { label: "LinkedIn", link: "https://linkedin.com" },
+    { label: "Whatsapp", link: "https://twitter.com" },
   ];
 
   return (
