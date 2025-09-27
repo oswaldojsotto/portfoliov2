@@ -1,13 +1,26 @@
 "use client";
 import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { opacity, slideUp, slideDown } from "./anim";
+import { motion } from "motion/react";
+import { slideUp, slideDown } from "./anim";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { setFirstTimeLoading } from "@/store/sidemenuSlice";
 
 const Preloader = ({ words }: { words: string[] }) => {
+  const opacity = {
+    initial: { opacity: 0 },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: "easeInOut",
+        delay: 0.3,
+      },
+    },
+  };
+
   const firstTimeLoading = useSelector(
     (state: RootState) => state.sidemenu.firstTimeLoading
   );
@@ -70,14 +83,14 @@ const Preloader = ({ words }: { words: string[] }) => {
       d: initialPath,
       transition: {
         duration: 0.7,
-        ease: [0.76, 0, 0.24, 1],
+        ease: "easeInOut",
       },
     },
     exit: {
       d: targetPath,
       transition: {
         duration: 0.7,
-        ease: [0.76, 0, 0.24, 1],
+        ease: "easeInOut",
         delay: 0.3,
       },
     },
@@ -103,7 +116,7 @@ const Preloader = ({ words }: { words: string[] }) => {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className="text-[30px] xs:text-[40px] sm:text-[50px] md:text-[70px] lg:text-[90px]">
+            className="text-[15px] tracking-tighter font-bold uppercase xs:text-[20px] sm:text-[25px] md:text-[35px] lg:text-[45px] font-brockmann font-brockmann-nyc">
             <span></span>
             {words[index]}
           </motion.p>

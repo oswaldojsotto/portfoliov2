@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, animate } from "motion/react";
 import gsap from "gsap";
 import Image from "next/image";
 import Magnetic from "@/[locale]/components/magnetic/magnetic";
@@ -14,13 +14,13 @@ const scaleAnimation = {
     scale: 1,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.4, ease: [0.42, 0, 0.58, 1] },
   },
   closed: {
     scale: 0,
     x: "-50%",
     y: "-50%",
-    transition: { duration: 0.4, ease: [0.32, 0, 0.67, 0] },
+    transition: { duration: 0.4, ease: [0.42, 0, 0.58, 1] },
   },
 };
 
