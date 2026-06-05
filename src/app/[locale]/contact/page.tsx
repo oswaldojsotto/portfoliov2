@@ -14,7 +14,7 @@ const Contact = () => {
     <PreloadWrapper words={[t("preload")]}>
       <section className="relative w-full h-[100vh] px-8 xl:px-[15%] ">
         <div className="w-full h-full flex justify-evenly   flex-col ">
-          <RevealAnimation delayWait={1.6}>
+          <RevealAnimation delayWait={2.1}>
             <p
               className="font-dimensions flex mt-32
                 text-dark dark:text-light justify-center whitespace-nowrap
@@ -22,13 +22,13 @@ const Contact = () => {
               {t("ctitle")}
             </p>
           </RevealAnimation>
-          <RevealAnimation delayWait={1.7}>
+          <RevealAnimation delayWait={2.2}>
             <div className="flex justify-center -mt-2">
               <EmailButton />
             </div>
           </RevealAnimation>
 
-          <RevealAnimation delayWait={1.8}>
+          <RevealAnimation delayWait={2.3}>
             <div
               className="flex justify-between w-full font-dimensions text-[17px] md:text-[20px] 
         dark:text-light text-dark px-8 mt-32 sm:-mt-2 md:mt-0  ">
