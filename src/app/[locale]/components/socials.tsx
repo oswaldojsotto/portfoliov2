@@ -6,7 +6,9 @@ import { useTheme } from "next-themes";
 const Social = () => {
   const { theme } = useTheme();
 
-  const [currentTheme, setCurrentTheme] = useState<string | undefined>("dark");
+  const [currentTheme, setCurrentTheme] = useState<
+    string | undefined
+  >("dark");
 
   useEffect(() => {
     setCurrentTheme(theme);
@@ -31,7 +33,7 @@ const Social = () => {
     {
       id: 3,
       text: "WHATSAPP",
-      to: "https://wa.me/+584129984137",
+      to: "https://wa.me/+34645031949",
       srcLight: "/whatsapp-color.svg",
       srcDark: "/whatsapp-white.svg",
     },
@@ -39,19 +41,29 @@ const Social = () => {
 
   return (
     <div className="flex justify-between w-full">
-      {socials.map(({ id, to, text, srcLight, srcDark }) => (
-        <Magnetic key={id}>
-          <a key={id} href={to} target="_blank" className="">
-            <Image
-              className="w-6 h-6"
-              src={currentTheme === "dark" ? srcDark : srcLight}
-              width={18}
-              height={18}
-              alt={text}
-            />
-          </a>
-        </Magnetic>
-      ))}
+      {socials.map(
+        ({ id, to, text, srcLight, srcDark }) => (
+          <Magnetic key={id}>
+            <a
+              key={id}
+              href={to}
+              target="_blank"
+              className="">
+              <Image
+                className="w-6 h-6"
+                src={
+                  currentTheme === "dark"
+                    ? srcDark
+                    : srcLight
+                }
+                width={18}
+                height={18}
+                alt={text}
+              />
+            </a>
+          </Magnetic>
+        ),
+      )}
     </div>
   );
 };

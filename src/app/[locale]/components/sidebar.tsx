@@ -74,7 +74,20 @@ const Sidebar = () => {
   if (!mounted) return null;
 
   return (
-    <main className="flex fixed  sidebar" ref={closeSliderRef}>
+    <>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-[5] bg-black/50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+      <main className="flex fixed" ref={closeSliderRef}>
       <AnimatePresence>
         {isOpen && (
           <motion.nav
@@ -169,6 +182,7 @@ const Sidebar = () => {
         </RoundedButton>
       </motion.div>
     </main>
+    </>
   );
 };
 
