@@ -50,6 +50,7 @@ const Contact = () => {
               <div className="flex flex-col gap-1">
                 <p className="my-0.5"></p>
                 <p>{t("remote")}</p>
+                <p>PONTEVEDRA-GALICIA</p>
               </div>
               <div className="flex w-24 flex-col h-8">
                 <Social />

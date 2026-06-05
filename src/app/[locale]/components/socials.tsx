@@ -31,7 +31,7 @@ const Social = () => {
     {
       id: 3,
       text: "WHATSAPP",
-      to: "https://wa.me/+584129984137",
+      to: "https://wa.me/+34645031949",
       srcLight: "/whatsapp-color.svg",
       srcDark: "/whatsapp-white.svg",
     },
