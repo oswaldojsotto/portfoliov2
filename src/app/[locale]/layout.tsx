@@ -4,16 +4,16 @@ import "@/[locale]/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import StoreProvider from "@/store/StoreProvider";
 import StarsBackground from "@/[locale]/components/stars-background";
-import { openGraphImage } from "../shared-metadata";
+import { openGraphImage } from '../shared-metadata'
 
 export const metadata: Metadata = {
-  title: "Oswaldo J. Soto ©",
-  description: "Fullstack Developer - Portfolio",
+  title: "Oswaldo J. Sotto ©",
+  description: "Frontend Developer - Portfolio",
   openGraph: {
     ...openGraphImage,
-    title: "Oswaldo J. Soto ©",
-    description: "Fullstack Developer - Portfolio",
-    url: "https://oswaldo.info/",
+    title: "Oswaldo J. Sotto ©",
+    description: "Frontend Developer - Portfolio",
+    url: "https://oswaldo-sotto.xyz/",
     images: [
       {
         url: "https://oswaldo-sotto.xyz/big-logo.png",
@@ -48,9 +48,7 @@ export default function RootLayout({
         lang={locale}
         suppressHydrationWarning>
         <body>
-          <ThemeProvider
-            enableSystem={true}
-            attribute="class">
+          <ThemeProvider enableSystem={true} attribute="class">
             <div className=" bg-transparent h-[100vh]">
               <div className="fixed -z-10 bg-transparent h-[100vh] w-full ">
                 <StarsBackground />

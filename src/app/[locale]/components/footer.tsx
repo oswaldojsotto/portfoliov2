@@ -22,7 +22,7 @@ const Footer = () => {
       to: "https://www.linkedin.com/in/oswaldojsotto/",
     },
     { id: 2, text: "GITHUB", to: "https://github.com/oswaldojsotto" },
-    { id: 3, text: "WHATSAPP", to: "https://wa.me/+34645031949" },
+    { id: 3, text: "WHATSAPP", to: "https://wa.me/+584129984137" },
   ];
 
   const goToProject = (page: string) => {

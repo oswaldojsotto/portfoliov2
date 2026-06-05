@@ -5,8 +5,8 @@ import Footer from "@/[locale]/components/footer";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About - Oswaldo Soto ©",
-  description: "About Portfolio - Oswaldo Soto ©",
+  title: "About - Oswaldo Sotto ©",
+  description: "About Portfolio - Oswaldo Sotto ©",
 };
 
 const AboutLayout = async ({
@@ -16,10 +16,7 @@ const AboutLayout = async ({
   children: React.ReactNode;
   params: { locale: string };
 }>) => {
-  const { t, resources } = await initTranslations(locale, [
-    "about",
-    "header",
-  ]);
+  const { t, resources } = await initTranslations(locale, ["about", "header"]);
 
   return (
     <TranslationsProvider

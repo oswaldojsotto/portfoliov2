@@ -23,7 +23,7 @@ const HeroSection = () => {
               className="font-dimensions w-full flex text-dark dark:text-light justify-center  whitespace-nowrap
                 text-[40px] xs:text-[50px] sm:text-[70px] md:text-[90px] lg:text-[100px]  xl:text-[140px]
                 ">
-              {`OSWALDO J. SOTO`}
+              {`OSWALDO J. SOTTO`}
             </p>
           </div>
         </RevealAnimation>
