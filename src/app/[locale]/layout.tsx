@@ -8,11 +8,11 @@ import { openGraphImage } from '../shared-metadata'
 
 export const metadata: Metadata = {
   title: "Oswaldo J. Sotto ©",
-  description: "Frontend Developer - Portfolio",
+  description: "Fullstack Developer - Portfolio",
   openGraph: {
     ...openGraphImage,
     title: "Oswaldo J. Sotto ©",
-    description: "Frontend Developer - Portfolio",
+    description: "Fullstack Developer - Portfolio",
     url: "https://oswaldo-sotto.xyz/",
     images: [
       {
